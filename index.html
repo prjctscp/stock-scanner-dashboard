@@ -1,210 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stock Scanner Dashboard</title>
-  <style>
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f1117;color:#e2e8f0;min-height:100vh}
-    .header{background:#1a1d2e;border-bottom:1px solid #2d3748;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
-    .header h1{font-size:1.1rem;font-weight:700}.header h1 span{color:#48bb78}
-    .status{display:flex;align-items:center;gap:8px;font-size:0.78rem;color:#718096}
-    .dot{width:8px;height:8px;border-radius:50%;background:#48bb78;transition:background 0.3s}
-    .dot.updating{background:#f6ad55}.dot.error{background:#fc8181}
-    .container{max-width:1200px;margin:0 auto;padding:20px}
-    .meta{background:#1a1d2e;border:1px solid #2d3748;border-radius:8px;padding:12px 16px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
-    .scan-time{font-size:0.82rem;color:#a0aec0}.scan-time strong{color:#e2e8f0}
-    .sectors{display:flex;flex-wrap:wrap;gap:6px}
-    .stag{background:#1c3a1c;color:#68d391;border:1px solid #276749;border-radius:4px;padding:2px 8px;font-size:0.72rem;font-weight:600}
-    .section{margin-bottom:24px}
-    .sh{display:flex;align-items:center;gap:8px;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid #2d3748}
-    .sh h2{font-size:0.95rem;font-weight:600}.sh .cnt{background:#2d3748;color:#a0aec0;border-radius:12px;padding:2px 8px;font-size:0.72rem}
-    .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px}
-    .card{background:#1a1d2e;border:1px solid #2d3748;border-radius:8px;padding:14px;transition:border-color 0.2s}
-    .card:hover{border-color:#4a5568}
-    .ch{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px}
-    .sname{font-weight:600;font-size:0.92rem}.ssym{font-size:0.72rem;color:#718096;margin-top:2px}
-    .sprice{font-size:1.05rem;font-weight:700;text-align:right}
-    .tags{display:flex;flex-wrap:wrap;gap:5px;margin:6px 0}
-    .tag{border-radius:4px;padding:2px 7px;font-size:0.7rem;font-weight:500}
-    .tl{background:#1c2a1c;color:#68d391;border:1px solid #276749}
-    .tm{background:#2a2016;color:#f6ad55;border:1px solid #7b341e}
-    .ts{background:#2a1616;color:#fc8181;border:1px solid #742a2a}
-    .tsc{background:#1a365d;color:#63b3ed;border:1px solid #2b6cb0}
-    .stats{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:8px}
-    .stat{background:#0f1117;border-radius:4px;padding:6px 8px}
-    .sl{font-size:0.65rem;color:#718096;text-transform:uppercase;letter-spacing:0.05em}
-    .sv{font-size:0.82rem;font-weight:600;color:#e2e8f0;margin-top:2px}
-    .sv.g{color:#68d391}.sv.y{color:#f6ad55}
-    .note{font-size:0.72rem;color:#718096;margin-top:8px;padding-top:8px;border-top:1px solid #2d3748}
-    .empty{text-align:center;color:#4a5568;padding:20px;font-size:0.85rem}
-    .loading{text-align:center;padding:60px 20px;color:#4a5568}
-    .spinner{width:28px;height:28px;border:3px solid #2d3748;border-top-color:#48bb78;border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto 10px}
-    @keyframes spin{to{transform:rotate(360deg)}}
-    .rbar{position:fixed;bottom:16px;right:16px;background:#1a1d2e;border:1px solid #2d3748;border-radius:8px;padding:7px 12px;font-size:0.75rem;color:#718096}
-    @media(max-width:600px){.header{flex-direction:column;align-items:flex-start;gap:6px}.meta{flex-direction:column}.cards{grid-template-columns:1fr}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stock Scanner</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0a0b0f;color:#e2e8f0;min-height:100vh}
+
+/* Header */
+.hdr{background:#13151f;border-bottom:1px solid #1e2230;padding:10px 18px;position:sticky;top:0;z-index:100}
+.hdr-top{display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:1rem;font-weight:800;letter-spacing:-0.02em}.logo span{color:#4ade80}
+.live{display:flex;align-items:center;gap:5px;font-size:0.72rem;color:#64748b}
+.dot{width:7px;height:7px;border-radius:50%;background:#4ade80;flex-shrink:0}
+.dot.upd{background:#fbbf24;animation:pulse 0.8s infinite}
+.dot.err{background:#f87171}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+.meta{margin-top:6px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:0.72rem;color:#475569}
+.stag{background:#0d2818;color:#4ade80;border:1px solid #166534;border-radius:4px;padding:1px 7px;font-size:0.68rem;font-weight:700}
+
+/* Filter tabs */
+.ftabs{display:flex;gap:5px;padding:9px 18px;background:#0d0f17;border-bottom:1px solid #1e2230;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.ftabs::-webkit-scrollbar{display:none}
+.ftab{background:#13151f;border:1px solid #1e2230;color:#64748b;border-radius:20px;padding:4px 11px;font-size:0.72rem;cursor:pointer;white-space:nowrap;transition:all 0.15s;user-select:none}
+.ftab:hover{border-color:#334155;color:#cbd5e1}
+.ftab.on{background:#1a2e4a;border-color:#3b82f6;color:#93c5fd;font-weight:700}
+.fcnt{opacity:0.65;font-size:0.68rem}
+
+/* Toast */
+.toast{position:fixed;top:68px;left:50%;transform:translateX(-50%);background:#14532d;color:#4ade80;border:1px solid #16a34a;border-radius:8px;padding:7px 18px;font-size:0.78rem;font-weight:600;z-index:999;opacity:0;transition:opacity 0.25s;pointer-events:none;white-space:nowrap}
+.toast.show{opacity:1}
+
+/* Layout */
+.wrap{max-width:1300px;margin:0 auto;padding:14px 14px 56px}
+
+/* Section */
+.sec{margin-bottom:18px}
+.sh{display:flex;align-items:center;gap:7px;margin-bottom:8px}
+.sh h2{font-size:0.72rem;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;color:#64748b}
+.sh .n{background:#1e2230;color:#475569;border-radius:10px;padding:1px 7px;font-size:0.68rem;font-weight:700}
+
+/* Card grid */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:9px}
+
+/* Card */
+.card{background:#13151f;border:1px solid #1e2230;border-radius:10px;padding:11px 13px;border-left-width:3px;transition:border-color 0.15s,box-shadow 0.15s;cursor:default}
+.card:hover{border-color:#2d3748;box-shadow:0 2px 12px rgba(0,0,0,0.4)}
+.c-df{border-left-color:#a78bfa}
+.c-da{border-left-color:#7c3aed}
+.c-sf{border-left-color:#34d399}
+.c-sa{border-left-color:#059669}
+.c-em{border-left-color:#4ade80}
+.c-ap{border-left-color:#fbbf24}
+.c-rt{border-left-color:#f87171}
+
+/* Card internals */
+.crow{display:flex;justify-content:space-between;align-items:flex-start}
+.cbadge{font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:#475569;margin-bottom:2px}
+.cname{font-size:0.86rem;font-weight:700;color:#e2e8f0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:180px}
+.csym{font-size:0.68rem;color:#475569;margin-top:1px}
+.cprice{font-size:1.05rem;font-weight:800;color:#f1f5f9;white-space:nowrap}
+
+/* Tags */
+.tags{display:flex;flex-wrap:wrap;gap:4px;margin:5px 0}
+.tag{border-radius:3px;padding:1px 6px;font-size:0.65rem;font-weight:700}
+.tl{background:#052e16;color:#4ade80;border:1px solid #15803d}
+.tm{background:#1c1400;color:#fbbf24;border:1px solid #a16207}
+.ts{background:#1c0000;color:#f87171;border:1px solid #b91c1c}
+.tsc{background:#0c1a36;color:#60a5fa;border:1px solid #1d4ed8;font-weight:600}
+
+/* Level row */
+.lrow{display:flex;align-items:center;justify-content:space-between;margin:5px 0 2px}
+.llbl{font-size:0.64rem;color:#475569;text-transform:uppercase;letter-spacing:0.05em}
+.lval{font-size:0.8rem;font-weight:700;color:#cbd5e1}
+.dbadge{font-size:0.68rem;font-weight:700;border-radius:4px;padding:2px 7px}
+.dg{background:#052e16;color:#4ade80}
+.dy{background:#1c1400;color:#fbbf24}
+.dr{background:#1c0000;color:#f87171}
+
+/* Distance bar */
+.dbar{background:#0a0b0f;border-radius:3px;height:3px;margin:3px 0 7px;overflow:hidden}
+.dfill{height:100%;border-radius:3px}
+.dfill.near{background:#4ade80}
+.dfill.mid{background:#fbbf24}
+
+/* Stop/Target/RR row */
+.srow{display:flex;gap:5px;margin-top:7px}
+.sb{flex:1;background:#0a0b0f;border-radius:5px;padding:5px 7px;min-width:0}
+.slbl{font-size:0.6rem;text-transform:uppercase;letter-spacing:0.06em;color:#475569}
+.sval{font-size:0.76rem;font-weight:700;margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sv-stop{color:#f87171}
+.sv-tgt{color:#4ade80}
+.sv-rr{color:#a78bfa}
+
+/* Note footer */
+.fnote{font-size:0.64rem;color:#334155;margin-top:7px;padding-top:6px;border-top:1px solid #1e2230;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* Info row */
+.irow{display:flex;justify-content:space-between;font-size:0.7rem;color:#475569;margin:4px 0}
+
+/* Misc */
+.empty{text-align:center;color:#334155;padding:16px;font-size:0.78rem}
+.loading{text-align:center;padding:60px 20px;color:#334155}
+.spinner{width:22px;height:22px;border:2px solid #1e2230;border-top-color:#4ade80;border-radius:50%;animation:spin 0.7s linear infinite;margin:0 auto 10px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.cdown{position:fixed;bottom:14px;right:14px;background:#13151f;border:1px solid #1e2230;border-radius:8px;padding:5px 11px;font-size:0.7rem;color:#334155}
+.no-res{text-align:center;padding:40px;color:#334155;font-size:0.85rem}
+
+@media(max-width:600px){.grid{grid-template-columns:1fr}.hdr-top{flex-wrap:wrap;gap:5px}}
+</style>
 </head>
 <body>
-<div class="header">
-  <h1>📊 Stock <span>Scanner</span></h1>
-  <div class="status"><div class="dot" id="dot"></div><span id="stxt">Loading…</span></div>
+
+<div class="toast" id="toast">🔔 New scan data arrived!</div>
+
+<div class="hdr">
+  <div class="hdr-top">
+    <div class="logo">📊 Stock <span>Scanner</span></div>
+    <div class="live"><div class="dot" id="dot"></div><span id="stxt">Loading…</span></div>
+  </div>
+  <div class="meta" id="meta"><span>Connecting…</span></div>
 </div>
-<div class="container">
-  <div id="main"><div class="loading"><div class="spinner"></div>Loading latest scan…</div></div>
+
+<div class="ftabs">
+  <div class="ftab on" data-k="all"    onclick="filt('all')">All <span class="fcnt" id="fc-all"></span></div>
+  <div class="ftab"    data-k="df"     onclick="filt('df')">🎯 Darvas Fresh <span class="fcnt" id="fc-df"></span></div>
+  <div class="ftab"    data-k="da"     onclick="filt('da')">📦 Darvas Appr <span class="fcnt" id="fc-da"></span></div>
+  <div class="ftab"    data-k="sf"     onclick="filt('sf')">🚀 Sector BK <span class="fcnt" id="fc-sf"></span></div>
+  <div class="ftab"    data-k="sa"     onclick="filt('sa')">🔲 Sector Appr <span class="fcnt" id="fc-sa"></span></div>
+  <div class="ftab"    data-k="em"     onclick="filt('em')">🟢 EMA <span class="fcnt" id="fc-em"></span></div>
+  <div class="ftab"    data-k="ap"     onclick="filt('ap')">🟡 Approach <span class="fcnt" id="fc-ap"></span></div>
+  <div class="ftab"    data-k="rt"     onclick="filt('rt')">🔴 Retest <span class="fcnt" id="fc-rt"></span></div>
 </div>
-<div class="rbar">⟳ Refreshes in <span id="cd">60</span>s</div>
+
+<div class="wrap"><div id="main"><div class="loading"><div class="spinner"></div>Loading latest scan…</div></div></div>
+<div class="cdown">⟳ <span id="cd">60</span>s</div>
+
 <script>
 const URL='https://raw.githubusercontent.com/prjctscp/stock-scanner-dashboard/main/latest_scan.json';
-let cd=60,timer;
+let lastTime=null,activeKey='all',cd=60,timer,cached=null;
 
 async function load(){
-  setStatus('updating');
+  setDot('upd');
   try{
     const r=await fetch(URL+'?t='+Date.now());
-    if(!r.ok)throw new Error(r.status);
-    render(await r.json());
-    setStatus('live');
-  }catch(e){setStatus('error');console.error(e);}
+    if(!r.ok)throw 0;
+    const d=await r.json();
+    if(lastTime&&d.scan_time!==lastTime)toast();
+    lastTime=d.scan_time; cached=d;
+    render(d); setDot('live');
+  }catch(e){setDot('err');}
   resetCd();
 }
 
-function setStatus(s){
-  const dot=document.getElementById('dot'),txt=document.getElementById('stxt');
-  dot.className='dot'+(s==='updating'?' updating':s==='error'?' error':'');
-  txt.textContent=s==='live'?'Live':s==='updating'?'Updating…':'Connection error';
+function setDot(s){
+  document.getElementById('dot').className='dot'+(s==='upd'?' upd':s==='err'?' err':'');
+  document.getElementById('stxt').textContent=s==='live'?'Live':s==='upd'?'Updating…':'Connection error';
 }
+function resetCd(){cd=60;clearInterval(timer);timer=setInterval(()=>{cd--;document.getElementById('cd').textContent=cd;if(cd<=0)load();},1000);}
+function toast(){const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3500);}
+function filt(k){activeKey=k;document.querySelectorAll('.ftab').forEach(el=>el.classList.toggle('on',el.dataset.k===k));if(cached)render(cached);}
 
-function resetCd(){
-  cd=60;clearInterval(timer);
-  timer=setInterval(()=>{cd--;document.getElementById('cd').textContent=cd;if(cd<=0)load();},1000);
-}
+const F=n=>n==null?'—':Number(n).toLocaleString('en-IN',{maximumFractionDigits:2});
+const capTag=c=>{if(!c)return'';const cl=c==='Large Cap'?'tl':c==='Mid Cap'?'tm':'ts';return`<span class="tag ${cl}">${c}</span>`;};
+const secTag=s=>s?`<span class="tag tsc">${s}</span>`:'';
+const rr=(p,s,t)=>{if(!s||!t)return'—';const ri=p-s,re=t-p;return ri<=0?'—':(re/ri).toFixed(1)+':1';};
+const dbar=(pct,max=5)=>{const f=Math.max(8,Math.min(100,(1-pct/max)*100));return`<div class="dbar"><div class="dfill ${pct<2?'near':'mid'}" style="width:${f}%"></div></div>`;};
+const strow=(p,stop,tgt)=>`<div class="srow"><div class="sb"><div class="slbl">Stop</div><div class="sval sv-stop">₹${F(stop)}</div></div><div class="sb"><div class="slbl">Target</div><div class="sval sv-tgt">₹${F(tgt)}</div></div><div class="sb" style="flex:0.7;text-align:center"><div class="slbl">R:R</div><div class="sval sv-rr">${rr(p,stop,tgt)}</div></div></div>`;
+const head=(a,cls,badge)=>`<div class="card ${cls}"><div class="crow"><div style="flex:1;min-width:0"><div class="cbadge">${badge}</div><div class="cname" title="${a.name||a.symbol}">${a.name||a.symbol}</div><div class="csym">${a.symbol}</div></div><div class="cprice">₹${F(a.price)}</div></div><div class="tags">${capTag(a.cap_cat)}${secTag(a.sector_name)}</div>`;
 
-function fmt(n){return n==null?'—':Number(n).toLocaleString('en-IN',{maximumFractionDigits:2});}
+function cDF(a){const pct=a.box_top?((a.price-a.box_top)/a.box_top*100).toFixed(1):null;
+return head(a,'c-df','🎯 Darvas Fresh Breakout')+
+`<div class="lrow"><span class="llbl">Box</span><span class="lval">₹${F(a.box_bottom)}–₹${F(a.box_top)} <span style="color:#475569;font-size:0.68rem">(${a.box_range_pct}%)</span></span></div>
+<div class="irow"><span style="color:#a78bfa;font-weight:600">Broke ₹${F(a.box_top)}</span><span>Vol ${a.vol_ratio}x avg${pct?` · +${pct}% above`:''}</span></div>
+${strow(a.price,a.stop_loss,a.target)}
+<div class="fnote">Box formed ${a.box_top_date} · Target ₹${F(a.target)} (+${a.target_pct}%)</div></div>`;}
 
-function capTag(c){
-  if(!c)return'';
-  const cl=c==='Large Cap'?'tl':c==='Mid Cap'?'tm':'ts';
-  return`<span class="tag ${cl}">${c}</span>`;
-}
+function cDA(a){return head(a,'c-da','📦 Darvas Approaching')+
+`<div class="lrow"><span class="llbl">Box Top</span><span class="lval">₹${F(a.box_top)}</span><span class="dbadge dy">${a.pct_from_top}% away</span></div>
+${dbar(a.pct_from_top)}
+<div class="irow"><span>Box ₹${F(a.box_bottom)}–₹${F(a.box_top)} (${a.box_range_pct}%)</span></div>
+${strow(a.price,a.stop_loss,a.target)}
+<div class="fnote">Box formed ${a.box_top_date} · Target ₹${F(a.target)} (+${a.target_pct}%)</div></div>`;}
+
+function cSF(a){const pct=a.upper?((a.price-a.upper)/a.upper*100).toFixed(1):null;
+return head(a,'c-sf','🚀 Sector Fresh Breakout')+
+`<div class="lrow"><span class="llbl">Broke Above</span><span class="lval">₹${F(a.upper)}</span><span class="dbadge dg">${pct?`+${pct}% above`:''}</span></div>
+<div class="irow"><span>Box ₹${F(a.lower)}–₹${F(a.upper)} (${a.range_pct}%)</span><span>Vol ${a.vol_ratio}x</span></div>
+${strow(a.price,a.lower,a.expected_target)}
+<div class="fnote">Since ${a.consolidation_start} · Target ₹${F(a.expected_target)} (+${a.expected_pct}%)</div></div>`;}
+
+function cSA(a){return head(a,'c-sa','🔲 Sector Approaching')+
+`<div class="lrow"><span class="llbl">Box Top</span><span class="lval">₹${F(a.upper)}</span><span class="dbadge dy">${a.pct_from_top}% away</span></div>
+${dbar(a.pct_from_top)}
+<div class="irow"><span>Box ₹${F(a.lower)}–₹${F(a.upper)} (${a.range_pct}%)</span><span>${a.vol_drying?'Vol drying ✓':''}</span></div>
+${strow(a.price,a.lower,a.expected_target)}
+<div class="fnote">Since ${a.consolidation_start} · Target ₹${F(a.expected_target)} (+${a.expected_pct}%)</div></div>`;}
+
+function cEM(a){return head(a,'c-em','🟢 EMA20 Pullback')+
+`<div class="lrow"><span class="llbl">EMA20</span><span class="lval">₹${F(a.ema20)}</span><span class="dbadge dg">${a.pct_above_ema}% above</span></div>
+<div class="irow"><span>EMA50 ₹${F(a.ema50)}</span><span>Vol ${a.vol_ratio}x avg</span></div>
+<div style="background:#0a0b0f;border-radius:5px;padding:6px 8px;text-align:center;margin-top:6px">
+<span style="font-size:0.76rem;font-weight:700;color:#4ade80">Bounced off 20 EMA in uptrend</span></div></div>`;}
+
+function cAP(a){return head(a,'c-ap','🟡 Approaching Breakout')+
+`<div class="lrow"><span class="llbl">Resistance</span><span class="lval">₹${F(a.resistance)}</span><span class="dbadge dy">${a.pct_away}% away</span></div>
+${dbar(a.pct_away)}
+<div class="irow"><span>Formed ${a.formed_date||'—'}</span><span>Vol ${a.vol_ratio}x avg</span></div></div>`;}
+
+function cRT(a){return head(a,'c-rt','🔴 Breakout Retest')+
+`<div class="lrow"><span class="llbl">Support</span><span class="lval">₹${F(a.support)}</span><span class="dbadge dy">${a.pct_away}% away</span></div>
+${dbar(a.pct_away)}
+<div class="irow"><span>Tested ${a.touch_count}x · Broke ${a.breakout_date||'—'}</span></div>
+<div class="fnote">Formed ${a.formed_date||'—'}</div></div>`;}
+
+const SECS=[
+  {k:'df',key:'darvas_fresh',      e:'🎯',t:'Darvas Fresh Breakout',      fn:cDF},
+  {k:'da',key:'darvas_approaching',e:'📦',t:'Darvas Approaching Breakout', fn:cDA},
+  {k:'sf',key:'sector_fresh',      e:'🚀',t:'Fresh Sector Breakout',       fn:cSF},
+  {k:'sa',key:'sector_approaching',e:'🔲',t:'Sector Approaching Breakout', fn:cSA},
+  {k:'em',key:'ema_pullback',      e:'🟢',t:'EMA20 Pullback',              fn:cEM},
+  {k:'ap',key:'approaching',       e:'🟡',t:'Approaching Breakout',        fn:cAP},
+  {k:'rt',key:'retest',            e:'🔴',t:'Breakout Retest',             fn:cRT},
+];
 
 function render(d){
-  const alerts=d.alerts||{};
-  const sectors=(d.hot_sectors||[]).map(s=>`<span class="stag">🔥 ${s.name} (+${s.outperformance.toFixed(1)}%)</span>`).join('');
-  const meta=`<div class="meta">
-    <div class="scan-time">Last scan: <strong>${d.scan_time||'—'}</strong></div>
-    <div class="sectors">${sectors||'<span style="color:#4a5568;font-size:0.78rem">No hot sectors today</span>'}</div>
-  </div>`;
+  const al=d.alerts||{};
+  const total=Object.values(al).reduce((a,b)=>a+b.length,0);
 
-  const secs=[
-    {k:'darvas_fresh',      e:'🎯',t:'Darvas Fresh Breakout',      fn:rDarvasFresh},
-    {k:'darvas_approaching',e:'📦',t:'Darvas Approaching Breakout', fn:rDarvasApproach},
-    {k:'sector_fresh',      e:'🚀',t:'Fresh Sector Breakout',       fn:rFresh},
-    {k:'sector_approaching',e:'🔲',t:'Sector Approaching Breakout', fn:rApproach},
-    {k:'ema_pullback',      e:'🟢',t:'EMA20 Pullback',              fn:rEMA},
-    {k:'approaching',       e:'🟡',t:'Approaching Breakout',        fn:rRes},
-    {k:'retest',            e:'🔴',t:'Breakout Retest',             fn:rRetest},
-  ];
+  // Meta bar
+  const secs=(d.hot_sectors||[]).map(s=>`<span class="stag">🔥 ${s.name} +${s.outperformance.toFixed(1)}%</span>`).join('');
+  document.getElementById('meta').innerHTML=
+    `<span>${d.scan_time||'—'}</span><span>·</span><span>${total} alerts</span>`+
+    (secs?`<span>·</span><span style="display:flex;flex-wrap:wrap;gap:4px">${secs}</span>`:'');
 
-  const html=secs.map(({k,e,t,fn})=>{
-    const items=alerts[k]||[];
-    const cards=items.length?`<div class="cards">${items.map(fn).join('')}</div>`:`<div class="empty">No stocks today</div>`;
-    return`<div class="section"><div class="sh"><span>${e}</span><h2>${t}</h2><span class="cnt">${items.length}</span></div>${cards}</div>`;
+  // Filter counts
+  const cts={all:total,df:(al.darvas_fresh||[]).length,da:(al.darvas_approaching||[]).length,
+    sf:(al.sector_fresh||[]).length,sa:(al.sector_approaching||[]).length,
+    em:(al.ema_pullback||[]).length,ap:(al.approaching||[]).length,rt:(al.retest||[]).length};
+  Object.entries(cts).forEach(([k,v])=>{const el=document.getElementById('fc-'+k);if(el)el.textContent=v||'';});
+
+  const vis=SECS.filter(s=>activeKey==='all'||s.k===activeKey);
+  const html=vis.map(({k,key,e,t,fn})=>{
+    const items=al[key]||[];
+    const cards=items.length?`<div class="grid">${items.map(fn).join('')}</div>`:`<div class="empty">No stocks today</div>`;
+    return`<div class="sec"><div class="sh"><span>${e}</span><h2>${t}</h2><span class="n">${items.length}</span></div>${cards}</div>`;
   }).join('');
 
-  document.getElementById('main').innerHTML=meta+html;
+  document.getElementById('main').innerHTML=html||'<div class="no-res">No stocks match this filter.</div>';
 }
-
-function rDarvasFresh(a){return`<div class="card">
-  <div class="ch"><div><div class="sname">${a.name||a.symbol}</div><div class="ssym">${a.symbol}</div></div><div class="sprice">₹${fmt(a.price)}</div></div>
-  <div class="tags">${capTag(a.cap_cat)}</div>
-  <div class="stats">
-    <div class="stat"><div class="sl">Box</div><div class="sv">₹${fmt(a.box_bottom)}–₹${fmt(a.box_top)}</div></div>
-    <div class="stat"><div class="sl">Broke Above</div><div class="sv g">₹${fmt(a.box_top)}</div></div>
-    <div class="stat"><div class="sl">Volume</div><div class="sv">${a.vol_ratio}x avg</div></div>
-    <div class="stat"><div class="sl">Box Range</div><div class="sv">${a.box_range_pct}%</div></div>
-  </div>
-  <div class="stats" style="margin-top:5px">
-    <div class="stat"><div class="sl">Stop Loss</div><div class="sv" style="color:#fc8181">₹${fmt(a.stop_loss)}</div></div>
-    <div class="stat"><div class="sl">Target</div><div class="sv g">₹${fmt(a.target)} (+${a.target_pct}%)</div></div>
-  </div>
-  <div class="note">Box top set ${a.box_top_date}</div>
-</div>`;}
-
-function rDarvasApproach(a){return`<div class="card">
-  <div class="ch"><div><div class="sname">${a.name||a.symbol}</div><div class="ssym">${a.symbol}</div></div><div class="sprice">₹${fmt(a.price)}</div></div>
-  <div class="tags">${capTag(a.cap_cat)}</div>
-  <div class="stats">
-    <div class="stat"><div class="sl">Box Top</div><div class="sv">₹${fmt(a.box_top)}</div></div>
-    <div class="stat"><div class="sl">Distance</div><div class="sv y">${a.pct_from_top}% away</div></div>
-    <div class="stat"><div class="sl">Box Bottom</div><div class="sv">₹${fmt(a.box_bottom)}</div></div>
-    <div class="stat"><div class="sl">Box Range</div><div class="sv">${a.box_range_pct}%</div></div>
-  </div>
-  <div class="stats" style="margin-top:5px">
-    <div class="stat"><div class="sl">Stop Loss</div><div class="sv" style="color:#fc8181">₹${fmt(a.stop_loss)}</div></div>
-    <div class="stat"><div class="sl">Target</div><div class="sv g">₹${fmt(a.target)} (+${a.target_pct}%)</div></div>
-  </div>
-  <div class="note">Box top set ${a.box_top_date}</div>
-</div>`;}
-
-function rFresh(a){return`<div class="card">
-  <div class="ch"><div><div class="sname">${a.name||a.symbol}</div><div class="ssym">${a.symbol}</div></div><div class="sprice">₹${fmt(a.price)}</div></div>
-  <div class="tags">${capTag(a.cap_cat)}${a.sector_name?`<span class="tag tsc">${a.sector_name}</span>`:''}</div>
-  <div class="stats">
-    <div class="stat"><div class="sl">Broke Above</div><div class="sv">₹${fmt(a.upper)}</div></div>
-    <div class="stat"><div class="sl">Target</div><div class="sv g">₹${fmt(a.expected_target)} (+${a.expected_pct}%)</div></div>
-    <div class="stat"><div class="sl">Volume</div><div class="sv">${a.vol_ratio}x avg</div></div>
-    <div class="stat"><div class="sl">Box Range</div><div class="sv">${a.range_pct}%</div></div>
-  </div>
-  <div class="note">Consolidating since ${a.consolidation_start}</div>
-</div>`;}
-
-function rApproach(a){return`<div class="card">
-  <div class="ch"><div><div class="sname">${a.name||a.symbol}</div><div class="ssym">${a.symbol}</div></div><div class="sprice">₹${fmt(a.price)}</div></div>
-  <div class="tags">${capTag(a.cap_cat)}${a.sector_name?`<span class="tag tsc">${a.sector_name}</span>`:''}</div>
-  <div class="stats">
-    <div class="stat"><div class="sl">Resistance</div><div class="sv">₹${fmt(a.upper)}</div></div>
-    <div class="stat"><div class="sl">Distance</div><div class="sv y">${a.pct_from_top}% away</div></div>
-    <div class="stat"><div class="sl">Target</div><div class="sv g">₹${fmt(a.expected_target)} (+${a.expected_pct}%)</div></div>
-    <div class="stat"><div class="sl">Box Range</div><div class="sv">${a.range_pct}%</div></div>
-  </div>
-  <div class="note">Consolidating since ${a.consolidation_start}${a.vol_drying?' · Vol drying ✓':''}</div>
-</div>`;}
-
-function rEMA(a){return`<div class="card">
-  <div class="ch"><div><div class="sname">${a.name||a.symbol}</div><div class="ssym">${a.symbol}</div></div><div class="sprice">₹${fmt(a.price)}</div></div>
-  <div class="tags">${capTag(a.cap_cat)}</div>
-  <div class="stats">
-    <div class="stat"><div class="sl">EMA20</div><div class="sv">₹${fmt(a.ema20)}</div></div>
-    <div class="stat"><div class="sl">Above EMA</div><div class="sv g">${a.pct_above_ema}%</div></div>
-    <div class="stat"><div class="sl">EMA50</div><div class="sv">₹${fmt(a.ema50)}</div></div>
-    <div class="stat"><div class="sl">Volume</div><div class="sv">${a.vol_ratio}x avg</div></div>
-  </div>
-</div>`;}
-
-function rRes(a){return`<div class="card">
-  <div class="ch"><div><div class="sname">${a.name||a.symbol}</div><div class="ssym">${a.symbol}</div></div><div class="sprice">₹${fmt(a.price)}</div></div>
-  <div class="tags">${capTag(a.cap_cat)}</div>
-  <div class="stats">
-    <div class="stat"><div class="sl">Resistance</div><div class="sv">₹${fmt(a.resistance)}</div></div>
-    <div class="stat"><div class="sl">Distance</div><div class="sv y">${a.pct_away}% away</div></div>
-    <div class="stat"><div class="sl">Volume</div><div class="sv">${a.vol_ratio}x avg</div></div>
-    <div class="stat"><div class="sl">Formed</div><div class="sv">${a.formed_date||'—'}</div></div>
-  </div>
-</div>`;}
-
-function rRetest(a){return`<div class="card">
-  <div class="ch"><div><div class="sname">${a.name||a.symbol}</div><div class="ssym">${a.symbol}</div></div><div class="sprice">₹${fmt(a.price)}</div></div>
-  <div class="tags">${capTag(a.cap_cat)}</div>
-  <div class="stats">
-    <div class="stat"><div class="sl">Support</div><div class="sv">₹${fmt(a.support)}</div></div>
-    <div class="stat"><div class="sl">Distance</div><div class="sv y">${a.pct_away}% away</div></div>
-    <div class="stat"><div class="sl">Tested</div><div class="sv">${a.touch_count}x</div></div>
-    <div class="stat"><div class="sl">Broke Out</div><div class="sv">${a.breakout_date||'—'}</div></div>
-  </div>
-  <div class="note">Formed ${a.formed_date||'—'}</div>
-</div>`;}
 
 load();
 </script>
