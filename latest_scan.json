@@ -1,0 +1,12 @@
+{
+  "scan_time": "Waiting for first scan\u2026",
+  "hot_sectors": [],
+  "alerts": {
+    "sector_fresh": [],
+    "sector_approaching": [],
+    "ema_pullback": [],
+    "approaching": [],
+    "retest": []
+  },
+  "summary": {}
+}
