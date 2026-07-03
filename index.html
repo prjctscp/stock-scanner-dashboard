@@ -98,11 +98,13 @@ function render(d){
   </div>`;
 
   const secs=[
-    {k:'sector_fresh',   e:'🚀',t:'Fresh Sector Breakout',   fn:rFresh},
-    {k:'sector_approaching',e:'🔲',t:'Sector Approaching Breakout',fn:rApproach},
-    {k:'ema_pullback',   e:'🟢',t:'EMA20 Pullback',          fn:rEMA},
-    {k:'approaching',    e:'🟡',t:'Approaching Breakout',  fn:rRes},
-    {k:'retest',         e:'🔴',t:'Breakout Retest',         fn:rRetest},
+    {k:'darvas_fresh',      e:'🎯',t:'Darvas Fresh Breakout',      fn:rDarvasFresh},
+    {k:'darvas_approaching',e:'📦',t:'Darvas Approaching Breakout', fn:rDarvasApproach},
+    {k:'sector_fresh',      e:'🚀',t:'Fresh Sector Breakout',       fn:rFresh},
+    {k:'sector_approaching',e:'🔲',t:'Sector Approaching Breakout', fn:rApproach},
+    {k:'ema_pullback',      e:'🟢',t:'EMA20 Pullback',              fn:rEMA},
+    {k:'approaching',       e:'🟡',t:'Approaching Breakout',        fn:rRes},
+    {k:'retest',            e:'🔴',t:'Breakout Retest',             fn:rRetest},
   ];
 
   const html=secs.map(({k,e,t,fn})=>{
@@ -113,6 +115,38 @@ function render(d){
 
   document.getElementById('main').innerHTML=meta+html;
 }
+
+function rDarvasFresh(a){return`<div class="card">
+  <div class="ch"><div><div class="sname">${a.name||a.symbol}</div><div class="ssym">${a.symbol}</div></div><div class="sprice">₹${fmt(a.price)}</div></div>
+  <div class="tags">${capTag(a.cap_cat)}</div>
+  <div class="stats">
+    <div class="stat"><div class="sl">Box</div><div class="sv">₹${fmt(a.box_bottom)}–₹${fmt(a.box_top)}</div></div>
+    <div class="stat"><div class="sl">Broke Above</div><div class="sv g">₹${fmt(a.box_top)}</div></div>
+    <div class="stat"><div class="sl">Volume</div><div class="sv">${a.vol_ratio}x avg</div></div>
+    <div class="stat"><div class="sl">Box Range</div><div class="sv">${a.box_range_pct}%</div></div>
+  </div>
+  <div class="stats" style="margin-top:5px">
+    <div class="stat"><div class="sl">Stop Loss</div><div class="sv" style="color:#fc8181">₹${fmt(a.stop_loss)}</div></div>
+    <div class="stat"><div class="sl">Target</div><div class="sv g">₹${fmt(a.target)} (+${a.target_pct}%)</div></div>
+  </div>
+  <div class="note">Box top set ${a.box_top_date}</div>
+</div>`;}
+
+function rDarvasApproach(a){return`<div class="card">
+  <div class="ch"><div><div class="sname">${a.name||a.symbol}</div><div class="ssym">${a.symbol}</div></div><div class="sprice">₹${fmt(a.price)}</div></div>
+  <div class="tags">${capTag(a.cap_cat)}</div>
+  <div class="stats">
+    <div class="stat"><div class="sl">Box Top</div><div class="sv">₹${fmt(a.box_top)}</div></div>
+    <div class="stat"><div class="sl">Distance</div><div class="sv y">${a.pct_from_top}% away</div></div>
+    <div class="stat"><div class="sl">Box Bottom</div><div class="sv">₹${fmt(a.box_bottom)}</div></div>
+    <div class="stat"><div class="sl">Box Range</div><div class="sv">${a.box_range_pct}%</div></div>
+  </div>
+  <div class="stats" style="margin-top:5px">
+    <div class="stat"><div class="sl">Stop Loss</div><div class="sv" style="color:#fc8181">₹${fmt(a.stop_loss)}</div></div>
+    <div class="stat"><div class="sl">Target</div><div class="sv g">₹${fmt(a.target)} (+${a.target_pct}%)</div></div>
+  </div>
+  <div class="note">Box top set ${a.box_top_date}</div>
+</div>`;}
 
 function rFresh(a){return`<div class="card">
   <div class="ch"><div><div class="sname">${a.name||a.symbol}</div><div class="ssym">${a.symbol}</div></div><div class="sprice">₹${fmt(a.price)}</div></div>
