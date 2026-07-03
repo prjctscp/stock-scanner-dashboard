@@ -1,12 +1,199 @@
 {
-  "scan_time": "Waiting for first scan\u2026",
-  "hot_sectors": [],
+  "scan_time": "03 Jul 2026  11:45 IST",
+  "hot_sectors": [
+    {
+      "name": "Nifty Pharma",
+      "outperformance": 0.68
+    },
+    {
+      "name": "Nifty Auto",
+      "outperformance": 1.17
+    },
+    {
+      "name": "Nifty Realty",
+      "outperformance": 13.92
+    },
+    {
+      "name": "Nifty Media",
+      "outperformance": 2.85
+    }
+  ],
   "alerts": {
-    "sector_fresh": [],
-    "sector_approaching": [],
+    "sector_fresh": [
+      {
+        "symbol": "PHOENIXLTD",
+        "name": "PHOENIXLTD",
+        "price": 2039.6,
+        "upper": 1969.7,
+        "expected_target": 2264.4,
+        "expected_pct": 14.96,
+        "range_pct": 17.59,
+        "vol_ratio": 3.61,
+        "consolidation_start": "06 May 2026",
+        "sector_name": "Nifty Realty",
+        "cap_cat": "Large Cap"
+      },
+      {
+        "symbol": "MARUTI",
+        "name": "MARUTI",
+        "price": 14428.0,
+        "upper": 14201.0,
+        "expected_target": 15702.0,
+        "expected_pct": 10.57,
+        "range_pct": 11.82,
+        "vol_ratio": 3.13,
+        "consolidation_start": "06 May 2026",
+        "sector_name": "Nifty Auto",
+        "cap_cat": "Large Cap"
+      },
+      {
+        "symbol": "OBEROIRLTY",
+        "name": "OBEROIRLTY",
+        "price": 1904.3,
+        "upper": 1784.9,
+        "expected_target": 1998.8,
+        "expected_pct": 11.98,
+        "range_pct": 13.62,
+        "vol_ratio": 2.69,
+        "consolidation_start": "06 May 2026",
+        "sector_name": "Nifty Realty",
+        "cap_cat": "Large Cap"
+      },
+      {
+        "symbol": "MAHLIFE",
+        "name": "MAHLIFE",
+        "price": 371.6,
+        "upper": 368.65,
+        "expected_target": 422.74,
+        "expected_pct": 14.67,
+        "range_pct": 17.19,
+        "vol_ratio": 1.89,
+        "consolidation_start": "06 May 2026",
+        "sector_name": "Nifty Realty",
+        "cap_cat": "Large Cap"
+      },
+      {
+        "symbol": "GODREJPROP",
+        "name": "GODREJPROP",
+        "price": 1994.4,
+        "upper": 1890.0,
+        "expected_target": 2169.9,
+        "expected_pct": 14.81,
+        "range_pct": 17.38,
+        "vol_ratio": 1.62,
+        "consolidation_start": "06 May 2026",
+        "sector_name": "Nifty Realty",
+        "cap_cat": "Large Cap"
+      }
+    ],
+    "sector_approaching": [
+      {
+        "symbol": "SUNPHARMA",
+        "name": "SUNPHARMA",
+        "price": 1909.6,
+        "upper": 1916.6,
+        "lower": 1756.8,
+        "pct_from_top": 0.37,
+        "expected_target": 2076.4,
+        "expected_pct": 8.34,
+        "range_pct": 9.1,
+        "vol_drying": true,
+        "consolidation_start": "06 May 2026",
+        "sector_name": "Nifty Pharma",
+        "cap_cat": "Large Cap"
+      },
+      {
+        "symbol": "LUPIN",
+        "name": "Lupin",
+        "price": 2464.3,
+        "upper": 2494.0,
+        "lower": 2210.6,
+        "pct_from_top": 1.19,
+        "expected_target": 2777.4,
+        "expected_pct": 11.36,
+        "range_pct": 12.82,
+        "vol_drying": true,
+        "consolidation_start": "06 May 2026",
+        "sector_name": "Nifty Pharma",
+        "cap_cat": "Large Cap"
+      },
+      {
+        "symbol": "CIPLA",
+        "name": "CIPLA",
+        "price": 1461.1,
+        "upper": 1490.1,
+        "lower": 1262.85,
+        "pct_from_top": 1.95,
+        "expected_target": 1717.35,
+        "expected_pct": 15.25,
+        "range_pct": 17.99,
+        "vol_drying": true,
+        "consolidation_start": "06 May 2026",
+        "sector_name": "Nifty Pharma",
+        "cap_cat": "Large Cap"
+      },
+      {
+        "symbol": "SOBHA",
+        "name": "SOBHA",
+        "price": 1443.0,
+        "upper": 1472.3,
+        "lower": 1265.0,
+        "pct_from_top": 1.99,
+        "expected_target": 1679.6,
+        "expected_pct": 14.08,
+        "range_pct": 16.39,
+        "vol_drying": true,
+        "consolidation_start": "06 May 2026",
+        "sector_name": "Nifty Realty",
+        "cap_cat": "Large Cap"
+      },
+      {
+        "symbol": "TVSMOTOR",
+        "name": "TVSMOTOR",
+        "price": 3633.9,
+        "upper": 3730.0,
+        "lower": 3228.0,
+        "pct_from_top": 2.58,
+        "expected_target": 4232.0,
+        "expected_pct": 13.46,
+        "range_pct": 15.55,
+        "vol_drying": true,
+        "consolidation_start": "06 May 2026",
+        "sector_name": "Nifty Auto",
+        "cap_cat": "Large Cap"
+      }
+    ],
     "ema_pullback": [],
-    "approaching": [],
+    "approaching": [
+      {
+        "symbol": "MADHUSUDAN",
+        "name": "Madhusudan Masa",
+        "price": 220.4,
+        "resistance": 229.0,
+        "pct_away": 3.76,
+        "vol_ratio": 9.31,
+        "formed_date": "29 Dec 2024",
+        "touch_count": 1
+      },
+      {
+        "symbol": "PANSARI",
+        "name": "Pansari Develop.",
+        "price": 325.25,
+        "resistance": 330.0,
+        "pct_away": 1.44,
+        "vol_ratio": 2.26,
+        "formed_date": "03 May 2026",
+        "touch_count": 1
+      }
+    ],
     "retest": []
   },
-  "summary": {}
+  "summary": {
+    "total_scanned": 208,
+    "sector_fresh": 5,
+    "sector_approaching": 5,
+    "ema_pullback": 0,
+    "approaching": 2,
+    "retest": 0
+  }
 }
