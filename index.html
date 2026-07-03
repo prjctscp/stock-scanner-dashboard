@@ -107,6 +107,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 @keyframes spin{to{transform:rotate(360deg)}}
 .cdown{position:fixed;bottom:14px;right:14px;background:#13151f;border:1px solid #1e2230;border-radius:8px;padding:5px 11px;font-size:0.7rem;color:#334155}
 .no-res{text-align:center;padding:40px;color:#334155;font-size:0.85rem}
+.ctabs{display:flex;gap:5px;padding:6px 18px;background:#09090e;border-bottom:1px solid #1e2230;position:sticky;top:95px;z-index:98}
+.ctab{background:#13151f;border:1px solid #1e2230;color:#64748b;border-radius:20px;padding:3px 11px;font-size:0.7rem;cursor:pointer;white-space:nowrap;transition:all 0.15s;user-select:none}
+.ctab:hover{border-color:#334155;color:#cbd5e1}
+.ctab.on.c-all{background:#1e293b;border-color:#475569;color:#94a3b8;font-weight:700}
+.ctab.on.c-lc{background:#052e16;border-color:#16a34a;color:#4ade80;font-weight:700}
+.ctab.on.c-mc{background:#1c1400;border-color:#ca8a04;color:#fbbf24;font-weight:700}
+.ctab.on.c-sc{background:#1c0000;border-color:#dc2626;color:#f87171;font-weight:700}
 
 @media(max-width:600px){.grid{grid-template-columns:1fr}.hdr-top{flex-wrap:wrap;gap:5px}}
 </style>
@@ -134,12 +141,18 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <div class="ftab"    data-k="rt"     onclick="filt('rt')">🔴 Retest <span class="fcnt" id="fc-rt"></span></div>
 </div>
 
+<div class="ctabs">
+  <div class="ctab on c-all" data-c="all"       onclick="filtCap(this,'all')">All Caps</div>
+  <div class="ctab    c-lc"  data-c="Large Cap" onclick="filtCap(this,'Large Cap')">🟢 Large Cap</div>
+  <div class="ctab    c-mc"  data-c="Mid Cap"   onclick="filtCap(this,'Mid Cap')">🟡 Mid Cap</div>
+  <div class="ctab    c-sc"  data-c="Small Cap" onclick="filtCap(this,'Small Cap')">🔴 Small Cap</div>
+</div>
 <div class="wrap"><div id="main"><div class="loading"><div class="spinner"></div>Loading latest scan…</div></div></div>
 <div class="cdown">⟳ <span id="cd">60</span>s</div>
 
 <script>
 const URL='https://raw.githubusercontent.com/prjctscp/stock-scanner-dashboard/main/latest_scan.json';
-let lastTime=null,activeKey='all',cd=60,timer,cached=null;
+let lastTime=null,activeKey='all',activeCaps=new Set(),cd=60,timer,cached=null;
 
 async function load(){
   setDot('upd');
@@ -161,6 +174,24 @@ function setDot(s){
 function resetCd(){cd=60;clearInterval(timer);timer=setInterval(()=>{cd--;document.getElementById('cd').textContent=cd;if(cd<=0)load();},1000);}
 function toast(){const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3500);}
 function filt(k){activeKey=k;document.querySelectorAll('.ftab').forEach(el=>el.classList.toggle('on',el.dataset.k===k));if(cached)render(cached);}
+
+function filtCap(el,c){
+  if(c==='all'){
+    activeCaps.clear();
+    document.querySelectorAll('.ctab').forEach(t=>{
+      t.classList.toggle('on',t.dataset.c==='all');
+    });
+  } else {
+    // toggle this cap
+    if(activeCaps.has(c)) activeCaps.delete(c); else activeCaps.add(c);
+    // 'All Caps' is on only when nothing selected
+    document.querySelectorAll('.ctab').forEach(t=>{
+      if(t.dataset.c==='all') t.classList.toggle('on',activeCaps.size===0);
+      else t.classList.toggle('on',activeCaps.has(t.dataset.c));
+    });
+  }
+  if(cached) render(cached);
+}
 
 const F=n=>n==null?'—':Number(n).toLocaleString('en-IN',{maximumFractionDigits:2});
 const capTag=c=>{if(!c)return'';const cl=c==='Large Cap'?'tl':c==='Mid Cap'?'tm':'ts';return`<span class="tag ${cl}">${c}</span>`;};
@@ -243,7 +274,8 @@ function render(d){
 
   const vis=SECS.filter(s=>activeKey==='all'||s.k===activeKey);
   const html=vis.map(({k,key,e,t,fn})=>{
-    const items=al[key]||[];
+    const rawItems=al[key]||[];
+    const items=activeCaps.size===0?rawItems:rawItems.filter(a=>activeCaps.has(a.cap_cat));
     const cards=items.length?`<div class="grid">${items.map(fn).join('')}</div>`:`<div class="empty">No stocks today</div>`;
     return`<div class="sec"><div class="sh"><span>${e}</span><h2>${t}</h2><span class="n">${items.length}</span></div>${cards}</div>`;
   }).join('');
