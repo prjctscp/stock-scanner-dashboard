@@ -1,42 +1,42 @@
 {
-  "scan_time": "06 Jul 2026  18:05 IST",
+  "scan_time": "07 Jul 2026  00:46 IST",
   "hot_sectors": [
     {
       "name": "Nifty Pharma",
-      "outperformance": 2.26
+      "outperformance": 0.83
     },
     {
       "name": "Nifty Auto",
-      "outperformance": 2.14
+      "outperformance": 1.25
     },
     {
       "name": "Nifty Realty",
-      "outperformance": 14.12
+      "outperformance": 12.32
     },
     {
       "name": "Nifty Media",
-      "outperformance": 5.98
+      "outperformance": 5.8
     }
   ],
   "alerts": {
     "sector_fresh": [
       {
-        "symbol": "OBEROIRLTY",
-        "name": "OBEROIRLTY",
-        "price": 1953.4,
-        "upper": 1815.0,
-        "expected_target": 2059.0,
-        "expected_pct": 13.44,
-        "range_pct": 15.53,
-        "vol_ratio": 3.49,
+        "symbol": "AUROPHARMA",
+        "name": "AUROPHARMA",
+        "price": NaN,
+        "upper": 1588.9,
+        "expected_target": 1786.8,
+        "expected_pct": 12.46,
+        "range_pct": 14.23,
+        "vol_ratio": 1.54,
         "consolidation_start": "07 May 2026",
-        "sector_name": "Nifty Realty",
+        "sector_name": "Nifty Pharma",
         "cap_cat": "Large Cap"
       },
       {
         "symbol": "MRF",
         "name": "MRF",
-        "price": 135640.0,
+        "price": NaN,
         "upper": 133950.0,
         "expected_target": 145900.0,
         "expected_pct": 8.92,
@@ -49,7 +49,7 @@
       {
         "symbol": "DLF",
         "name": "DLF",
-        "price": 673.3,
+        "price": NaN,
         "upper": 650.65,
         "expected_target": 747.5,
         "expected_pct": 14.89,
@@ -60,334 +60,47 @@
         "cap_cat": "Large Cap"
       },
       {
-        "symbol": "AUROPHARMA",
-        "name": "AUROPHARMA",
-        "price": 1594.6,
-        "upper": 1588.9,
-        "expected_target": 1786.8,
-        "expected_pct": 12.46,
-        "range_pct": 14.23,
-        "vol_ratio": 1.54,
-        "consolidation_start": "07 May 2026",
-        "sector_name": "Nifty Pharma",
-        "cap_cat": "Large Cap"
-      }
-    ],
-    "sector_approaching": [
-      {
-        "symbol": "LUPIN",
-        "name": "Lupin",
-        "price": 2491.6,
-        "upper": 2494.0,
-        "lower": 2210.6,
-        "pct_from_top": 0.1,
-        "expected_target": 2777.4,
-        "expected_pct": 11.36,
-        "range_pct": 12.82,
-        "vol_drying": true,
-        "consolidation_start": "07 May 2026",
-        "sector_name": "Nifty Pharma",
-        "cap_cat": "Large Cap"
-      },
-      {
-        "symbol": "SUNPHARMA",
-        "name": "SUNPHARMA",
-        "price": 1912.8,
-        "upper": 1916.6,
-        "lower": 1756.8,
-        "pct_from_top": 0.2,
-        "expected_target": 2076.4,
-        "expected_pct": 8.34,
-        "range_pct": 9.1,
-        "vol_drying": true,
-        "consolidation_start": "07 May 2026",
-        "sector_name": "Nifty Pharma",
-        "cap_cat": "Large Cap"
-      },
-      {
-        "symbol": "SOBHA",
-        "name": "SOBHA",
-        "price": 1457.0,
-        "upper": 1466.0,
-        "lower": 1265.0,
-        "pct_from_top": 0.61,
-        "expected_target": 1667.0,
-        "expected_pct": 13.71,
-        "range_pct": 15.89,
-        "vol_drying": false,
+        "symbol": "OBEROIRLTY",
+        "name": "OBEROIRLTY",
+        "price": NaN,
+        "upper": 1815.0,
+        "expected_target": 2059.0,
+        "expected_pct": 13.44,
+        "range_pct": 15.53,
+        "vol_ratio": 3.49,
         "consolidation_start": "07 May 2026",
         "sector_name": "Nifty Realty",
         "cap_cat": "Large Cap"
-      },
-      {
-        "symbol": "MARUTI",
-        "name": "MARUTI",
-        "price": 14456.0,
-        "upper": 14549.0,
-        "lower": 12700.0,
-        "pct_from_top": 0.64,
-        "expected_target": 16398.0,
-        "expected_pct": 12.71,
-        "range_pct": 14.56,
-        "vol_drying": false,
-        "consolidation_start": "07 May 2026",
-        "sector_name": "Nifty Auto",
-        "cap_cat": "Large Cap"
-      },
-      {
-        "symbol": "TVSMOTOR",
-        "name": "TVSMOTOR",
-        "price": 3705.0,
-        "upper": 3730.0,
-        "lower": 3228.0,
-        "pct_from_top": 0.67,
-        "expected_target": 4232.0,
-        "expected_pct": 13.46,
-        "range_pct": 15.55,
-        "vol_drying": true,
-        "consolidation_start": "07 May 2026",
-        "sector_name": "Nifty Auto",
-        "cap_cat": "Large Cap"
       }
     ],
-    "ema_pullback": [
-      {
-        "symbol": "DIXON",
-        "name": "Dixon Technolog.",
-        "price": 13304.0,
-        "ema20": 12129.5,
-        "ema50": 11729.78,
-        "pct_above_ema": 9.68,
-        "vol_ratio": 2.43,
-        "cap_cat": "Large Cap"
-      },
-      {
-        "symbol": "GKENERGY",
-        "name": "GK Energy",
-        "price": 142.56,
-        "ema20": 141.38,
-        "ema50": 135.15,
-        "pct_above_ema": 0.84,
-        "vol_ratio": 2.48,
-        "cap_cat": "Large Cap"
-      },
-      {
-        "symbol": "OSWALPUMPS",
-        "name": "Oswal Pumps",
-        "price": 425.75,
-        "ema20": 415.3,
-        "ema50": 401.78,
-        "pct_above_ema": 2.52,
-        "vol_ratio": 3.91,
-        "cap_cat": "Large Cap"
-      },
-      {
-        "symbol": "MANORAMA",
-        "name": "Manorama Indust.",
-        "price": 1575.9,
-        "ema20": 1552.71,
-        "ema50": 1497.86,
-        "pct_above_ema": 1.49,
-        "vol_ratio": 1.95,
-        "cap_cat": "Large Cap"
-      },
-      {
-        "symbol": "KRISHNADEF",
-        "name": "Krishna Defence",
-        "price": 1321.8,
-        "ema20": 1247.05,
-        "ema50": 1184.69,
-        "pct_above_ema": 5.99,
-        "vol_ratio": 1.45,
-        "cap_cat": "Large Cap"
-      },
-      {
-        "symbol": "SUDEEPPHRM",
-        "name": "Sudeep Pharma",
-        "price": 820.95,
-        "ema20": 815.25,
-        "ema50": 759.54,
-        "pct_above_ema": 0.7,
-        "vol_ratio": 1.25,
-        "cap_cat": "Large Cap"
-      }
-    ],
-    "approaching": [
-      {
-        "symbol": "SPARC",
-        "name": "SPARC",
-        "price": 261.71,
-        "resistance": 265.23,
-        "pct_away": 1.33,
-        "vol_ratio": 1.51,
-        "formed_date": "10 Sep 2023",
-        "touch_count": 2,
-        "cap_cat": "Large Cap"
-      },
-      {
-        "symbol": "MANORAMA",
-        "name": "Manorama Indust.",
-        "price": 1575.9,
-        "resistance": 1638.0,
-        "pct_away": 3.79,
-        "vol_ratio": 2.11,
-        "formed_date": "10 May 2026",
-        "touch_count": 1,
-        "cap_cat": "Large Cap"
-      }
-    ],
+    "sector_approaching": [],
+    "ema_pullback": [],
+    "approaching": [],
     "retest": [],
     "darvas_fresh": [
       {
-        "symbol": "MANORAMA",
-        "name": "Manorama Indust.",
-        "price": 1575.9,
-        "box_top": 1615.0,
-        "box_bottom": 1522.2,
-        "box_range_pct": 6.1,
-        "box_top_date": "22 Jun 2026",
-        "vol_ratio": 3.35,
-        "target": 1707.8,
-        "target_pct": 5.75,
-        "stop_loss": 1522.2,
-        "cap_cat": "Large Cap"
-      },
-      {
-        "symbol": "SPARC",
-        "name": "SPARC",
-        "price": 261.71,
-        "box_top": 247.95,
-        "box_bottom": 220.05,
-        "box_range_pct": 12.68,
-        "box_top_date": "24 Jun 2026",
-        "vol_ratio": 2.09,
-        "target": 275.85,
-        "target_pct": 11.25,
-        "stop_loss": 220.05,
-        "cap_cat": "Large Cap"
-      },
-      {
-        "symbol": "KRISHANA",
-        "name": "Krishana Phosch.",
-        "price": 147.1,
-        "box_top": 138.06,
-        "box_bottom": 132.02,
-        "box_range_pct": 4.57,
+        "symbol": "505036",
+        "name": "Auto.Corp.of Goa",
+        "price": 2292.2,
+        "box_top": 2236.95,
+        "box_bottom": 2005.6,
+        "box_range_pct": 11.54,
         "box_top_date": "15 Jun 2026",
-        "vol_ratio": 2.04,
-        "target": 144.1,
-        "target_pct": 4.37,
-        "stop_loss": 132.02,
-        "cap_cat": "Large Cap"
-      },
-      {
-        "symbol": "SOLARINDS",
-        "name": "Solar Industries",
-        "price": 18539.0,
-        "box_top": 18370.0,
-        "box_bottom": 17274.0,
-        "box_range_pct": 6.34,
-        "box_top_date": "24 Jun 2026",
-        "vol_ratio": 1.74,
-        "target": 19466.0,
-        "target_pct": 5.97,
-        "stop_loss": 17274.0,
-        "cap_cat": "Large Cap"
-      },
-      {
-        "symbol": "ZYDUSLIFE",
-        "name": "Zydus Lifesci.",
-        "price": 1147.9,
-        "box_top": 1126.0,
-        "box_bottom": 1096.3,
-        "box_range_pct": 2.71,
-        "box_top_date": "24 Jun 2026",
-        "vol_ratio": 1.73,
-        "target": 1155.7,
-        "target_pct": 2.64,
-        "stop_loss": 1096.3,
+        "vol_ratio": 1.71,
+        "target": 2468.3,
+        "target_pct": 10.34,
+        "stop_loss": 2005.6,
         "cap_cat": "Large Cap"
       }
     ],
-    "darvas_approaching": [
-      {
-        "symbol": "LALPATHLAB",
-        "name": "Dr Lal Pathlabs",
-        "price": 1686.0,
-        "box_top": 1689.32,
-        "box_bottom": 1618.49,
-        "box_range_pct": 4.38,
-        "box_top_date": "17 Jun 2026",
-        "pct_from_top": 0.2,
-        "target": 1760.15,
-        "target_pct": 4.19,
-        "stop_loss": 1618.49,
-        "cap_cat": "Large Cap"
-      },
-      {
-        "symbol": "MONARCH",
-        "name": "Monarch Networth",
-        "price": 353.75,
-        "box_top": 358.0,
-        "box_bottom": 332.2,
-        "box_range_pct": 7.77,
-        "box_top_date": "23 Jun 2026",
-        "pct_from_top": 1.19,
-        "target": 383.8,
-        "target_pct": 7.21,
-        "stop_loss": 332.2,
-        "cap_cat": "Large Cap"
-      },
-      {
-        "symbol": "PRUDENT",
-        "name": "Prudent Corp.",
-        "price": 3020.6,
-        "box_top": 3063.5,
-        "box_bottom": 2934.1,
-        "box_range_pct": 4.41,
-        "box_top_date": "24 Jun 2026",
-        "pct_from_top": 1.4,
-        "target": 3192.9,
-        "target_pct": 4.22,
-        "stop_loss": 2934.1,
-        "cap_cat": "Large Cap"
-      },
-      {
-        "symbol": "SHAILY",
-        "name": "Shaily Engineer.",
-        "price": 2875.3,
-        "box_top": 2929.3,
-        "box_bottom": 2702.1,
-        "box_range_pct": 8.41,
-        "box_top_date": "18 Jun 2026",
-        "pct_from_top": 1.84,
-        "target": 3156.5,
-        "target_pct": 7.76,
-        "stop_loss": 2702.1,
-        "cap_cat": "Large Cap"
-      },
-      {
-        "symbol": "KSHINTL",
-        "name": "KSH Internationa",
-        "price": 857.95,
-        "box_top": 875.0,
-        "box_bottom": 837.3,
-        "box_range_pct": 4.5,
-        "box_top_date": "24 Jun 2026",
-        "pct_from_top": 1.95,
-        "target": 912.7,
-        "target_pct": 4.31,
-        "stop_loss": 837.3,
-        "cap_cat": "Large Cap"
-      }
-    ]
+    "darvas_approaching": []
   },
   "summary": {
     "total_scanned": 208,
     "sector_fresh": 4,
-    "sector_approaching": 5,
-    "ema_pullback": 6,
-    "approaching": 2,
+    "sector_approaching": 0,
+    "ema_pullback": 0,
+    "approaching": 0,
     "retest": 0
   }
 }
