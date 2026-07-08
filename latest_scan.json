@@ -1,5 +1,5 @@
 {
-  "scan_time": "08 Jul 2026  18:04 IST",
+  "scan_time": "08 Jul 2026  23:37 IST",
   "hot_sectors": [
     {
       "name": "Nifty Pharma",
@@ -330,7 +330,7 @@
     ]
   },
   "summary": {
-    "total_scanned": 209,
+    "total_scanned": 208,
     "sector_fresh": 3,
     "sector_approaching": 3,
     "ema_pullback": 8,
