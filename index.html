@@ -164,19 +164,19 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 <div class="cdown">⟳ <span id="cd">60</span>s</div>
 
 <script>
-const URL='https://raw.githubusercontent.com/prjctscp/stock-scanner-dashboard/main/latest_scan.json';
+const DATA_URL='https://raw.githubusercontent.com/prjctscp/stock-scanner-dashboard/main/latest_scan.json';
 let lastTime=null,activeKey='all',activeCaps=new Set(),cd=60,timer,cached=null;
 
 async function load(){
   setDot('upd');
   try{
-    const r=await fetch(URL+'?t='+Date.now());
+    const r=await fetch(DATA_URL+'?t='+Date.now());
     if(!r.ok)throw 0;
     const d=await r.json();
     if(lastTime&&d.scan_time!==lastTime)toast();
     lastTime=d.scan_time; cached=d;
     render(d); setDot('live');
-  }catch(e){setDot('err');}
+  }catch(e){setDot('err');console.error('Dashboard fetch error:',e);}
   resetCd();
 }
 
