@@ -1,5 +1,5 @@
 {
-  "scan_time": "10 Jul 2026  18:06 IST",
+  "scan_time": "10 Jul 2026  23:49 IST",
   "hot_sectors": [
     {
       "name": "Nifty Pharma",
@@ -160,16 +160,6 @@
         "cap_cat": "Mid Cap"
       },
       {
-        "symbol": "WANBURY",
-        "name": "Wanbury",
-        "price": 297.85,
-        "ema20": 279.14,
-        "ema50": 271.2,
-        "pct_above_ema": 6.7,
-        "vol_ratio": 1.58,
-        "cap_cat": "Small Cap"
-      },
-      {
         "symbol": "LLOYDSME",
         "name": "Lloyds Metals",
         "price": 1799.6,
@@ -180,24 +170,14 @@
         "cap_cat": "Large Cap"
       },
       {
-        "symbol": "524520",
-        "name": "KMC Speciality",
-        "price": 136.25,
-        "ema20": 126.53,
-        "ema50": 114.3,
-        "pct_above_ema": 7.68,
-        "vol_ratio": 1.28,
-        "cap_cat": "Large Cap"
-      },
-      {
-        "symbol": "CDSL",
-        "name": "C D S L",
-        "price": 1431.9,
-        "ema20": 1328.05,
-        "ema50": 1294.61,
-        "pct_above_ema": 7.82,
-        "vol_ratio": 4.55,
-        "cap_cat": "Large Cap"
+        "symbol": "CANHLIFE",
+        "name": "Canara HSBC",
+        "price": 144.03,
+        "ema20": 140.64,
+        "ema50": 140.4,
+        "pct_above_ema": 2.41,
+        "vol_ratio": 4.34,
+        "cap_cat": "Mid Cap"
       },
       {
         "symbol": "ACCENTMIC",
@@ -220,13 +200,13 @@
         "cap_cat": "Mid Cap"
       },
       {
-        "symbol": "UNIPARTS",
-        "name": "Uniparts India",
-        "price": 704.95,
-        "ema20": 657.66,
-        "ema50": 619.08,
-        "pct_above_ema": 7.19,
-        "vol_ratio": 2.01,
+        "symbol": "IDEAFORGE",
+        "name": "Ideaforge Tech",
+        "price": 900.75,
+        "ema20": 855.42,
+        "ema50": 801.74,
+        "pct_above_ema": 5.3,
+        "vol_ratio": 1.68,
         "cap_cat": "Small Cap"
       },
       {
@@ -240,6 +220,16 @@
         "cap_cat": "Small Cap"
       },
       {
+        "symbol": "WANBURY",
+        "name": "Wanbury",
+        "price": 297.85,
+        "ema20": 279.14,
+        "ema50": 271.2,
+        "pct_above_ema": 6.7,
+        "vol_ratio": 1.58,
+        "cap_cat": "Small Cap"
+      },
+      {
         "symbol": "KODYTECH",
         "name": "Kody Technolab",
         "price": 1125.2,
@@ -247,6 +237,16 @@
         "ema50": 961.77,
         "pct_above_ema": 6.75,
         "vol_ratio": 16.82,
+        "cap_cat": "Small Cap"
+      },
+      {
+        "symbol": "UNIPARTS",
+        "name": "Uniparts India",
+        "price": 704.95,
+        "ema20": 657.66,
+        "ema50": 619.08,
+        "pct_above_ema": 7.19,
+        "vol_ratio": 2.01,
         "cap_cat": "Small Cap"
       }
     ],
@@ -329,6 +329,17 @@
         "cap_cat": "Mid Cap"
       },
       {
+        "symbol": "CNL",
+        "name": "Creative Newtech",
+        "price": 847.5,
+        "resistance": 886.6,
+        "pct_away": 4.41,
+        "vol_ratio": 2.65,
+        "formed_date": "07 Jul 2024",
+        "touch_count": 2,
+        "cap_cat": "Small Cap"
+      },
+      {
         "symbol": "KODYTECH",
         "name": "Kody Technolab",
         "price": 1125.2,
@@ -337,6 +348,61 @@
         "vol_ratio": 22.0,
         "formed_date": "07 Dec 2025",
         "touch_count": 1,
+        "cap_cat": "Small Cap"
+      },
+      {
+        "symbol": "SUMEETINDS",
+        "name": "Sumeet Industrie",
+        "price": 31.72,
+        "resistance": 31.74,
+        "pct_away": 0.06,
+        "vol_ratio": 1.77,
+        "formed_date": "22 Mar 2026",
+        "touch_count": 1,
+        "cap_cat": "Small Cap"
+      },
+      {
+        "symbol": "MUTHOOTMF",
+        "name": "Muthoot Microfin",
+        "price": 235.26,
+        "resistance": 239.88,
+        "pct_away": 1.93,
+        "vol_ratio": 53.11,
+        "formed_date": "29 Sep 2024",
+        "touch_count": 1,
+        "cap_cat": "Small Cap"
+      },
+      {
+        "symbol": "BFINVEST",
+        "name": "BF Investment",
+        "price": 487.25,
+        "resistance": 512.48,
+        "pct_away": 4.92,
+        "vol_ratio": 48.62,
+        "formed_date": "28 Sep 2025",
+        "touch_count": 2,
+        "cap_cat": "Small Cap"
+      },
+      {
+        "symbol": "531127",
+        "name": "Mena Mani Inds.",
+        "price": 9.2,
+        "resistance": 9.53,
+        "pct_away": 3.41,
+        "vol_ratio": 3.07,
+        "formed_date": "04 Jan 2026",
+        "touch_count": 2,
+        "cap_cat": "Large Cap"
+      },
+      {
+        "symbol": "NBIFIN",
+        "name": "NBI Indl. Fin.",
+        "price": 2301.4,
+        "resistance": 2321.2,
+        "pct_away": 0.85,
+        "vol_ratio": 32.61,
+        "formed_date": "26 Apr 2026",
+        "touch_count": 2,
         "cap_cat": "Small Cap"
       }
     ],
@@ -357,6 +423,20 @@
         "cap_cat": "Small Cap"
       },
       {
+        "symbol": "ORCHPHARMA",
+        "name": "Orchid Pharma",
+        "price": 1012.55,
+        "box_top": 1029.9,
+        "box_bottom": 917.5,
+        "box_range_pct": 12.25,
+        "box_top_date": "24 Jun 2026",
+        "vol_ratio": 29.05,
+        "target": 1142.3,
+        "target_pct": 10.91,
+        "stop_loss": 917.5,
+        "cap_cat": "Mid Cap"
+      },
+      {
         "symbol": "GOLDIAM",
         "name": "Goldiam Intl.",
         "price": 378.0,
@@ -371,6 +451,20 @@
         "cap_cat": "Mid Cap"
       },
       {
+        "symbol": "RELTD",
+        "name": "Ravindra Energy",
+        "price": 174.12,
+        "box_top": 179.48,
+        "box_bottom": 153.22,
+        "box_range_pct": 17.14,
+        "box_top_date": "22 Jun 2026",
+        "vol_ratio": 5.82,
+        "target": 205.74,
+        "target_pct": 14.63,
+        "stop_loss": 153.22,
+        "cap_cat": "Small Cap"
+      },
+      {
         "symbol": "PGHL",
         "name": "P & G Health Ltd",
         "price": 6839.0,
@@ -383,34 +477,6 @@
         "target_pct": 3.42,
         "stop_loss": 6180.0,
         "cap_cat": "Mid Cap"
-      },
-      {
-        "symbol": "WABAG",
-        "name": "Va Tech Wabag",
-        "price": 2221.2,
-        "box_top": 2188.0,
-        "box_bottom": 1985.0,
-        "box_range_pct": 10.23,
-        "box_top_date": "25 Jun 2026",
-        "vol_ratio": 3.37,
-        "target": 2391.0,
-        "target_pct": 9.28,
-        "stop_loss": 1985.0,
-        "cap_cat": "Mid Cap"
-      },
-      {
-        "symbol": "JNKINDIA",
-        "name": "JNK",
-        "price": 509.35,
-        "box_top": 508.0,
-        "box_bottom": 459.2,
-        "box_range_pct": 10.63,
-        "box_top_date": "25 Jun 2026",
-        "vol_ratio": 2.82,
-        "target": 556.8,
-        "target_pct": 9.61,
-        "stop_loss": 459.2,
-        "cap_cat": "Small Cap"
       }
     ],
     "darvas_approaching": [
@@ -487,11 +553,11 @@
     ]
   },
   "summary": {
-    "total_scanned": 306,
+    "total_scanned": 384,
     "sector_fresh": 3,
     "sector_approaching": 6,
     "ema_pullback": 10,
-    "approaching": 8,
+    "approaching": 14,
     "retest": 0
   }
 }
