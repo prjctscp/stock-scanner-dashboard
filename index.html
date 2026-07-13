@@ -288,7 +288,8 @@ function render(d){
   const html=vis.map(({k,key,e,t,fn})=>{
     const rawItems=al[key]||[];
     const items=activeCaps.size===0?rawItems:rawItems.filter(a=>activeCaps.has(a.cap_cat));
-    const cards=items.length?`<div class="grid">${items.map(fn).join('')}</div>`:`<div class="empty">No stocks today</div>`;
+    const si=[...items].sort((a,b)=>(b.potential_pct||0)-(a.potential_pct||0));
+    const cards=si.length?`<div class="grid">${si.map(fn).join('')}</div>`:`<div class="empty">No stocks today</div>`;
     return`<div class="sec"><div class="sh"><span>${e}</span><h2>${t}</h2><span class="n">${items.length}</span></div>${cards}</div>`;
   }).join('');
 
