@@ -206,7 +206,7 @@ function updateCapUI(){
 }
 
 const F=n=>n==null?'—':Number(n).toLocaleString('en-IN',{maximumFractionDigits:2});
-const capTag=c=>{if(!c)return'';const cl=c==='Large Cap'?'tl':c==='Mid Cap'?'tm':'ts';return`<span class="tag ${cl}">${c}</span>`;};
+const capTag=c=>{if(!c||c==='NA')return c?`<span class="tag" style="background:#1a1a2e;color:#475569;border:1px solid #334155;border-radius:3px;padding:1px 6px;font-size:0.65rem;font-weight:600">NA</span>`:'';const cl=c==='Large Cap'?'tl':c==='Mid Cap'?'tm':'ts';return`<span class="tag ${cl}">${c}</span>`;};
 const secTag=s=>s?`<span class="tag tsc">${s}</span>`:'';
 const rr=(p,s,t)=>{if(!s||!t)return'—';const ri=p-s,re=t-p;return ri<=0?'—':(re/ri).toFixed(1)+':1';};
 const dbar=(pct,max=5)=>{const f=Math.max(8,Math.min(100,(1-pct/max)*100));return`<div class="dbar"><div class="dfill ${pct<2?'near':'mid'}" style="width:${f}%"></div></div>`;};
