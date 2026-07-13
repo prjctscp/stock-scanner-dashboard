@@ -1,5 +1,5 @@
 {
-  "scan_time": "13 Jul 2026  18:05 IST",
+  "scan_time": "13 Jul 2026  19:21 IST",
   "hot_sectors": [
     {
       "name": "Nifty Pharma",
@@ -166,7 +166,7 @@
         "vol_drying": true,
         "consolidation_start": "14 May 2026",
         "sector_name": "Nifty Media",
-        "cap_cat": "Mid Cap"
+        "cap_cat": "NA"
       }
     ],
     "ema_pullback": [
@@ -179,6 +179,26 @@
         "pct_above_ema": 0.83,
         "vol_ratio": 2.25,
         "cap_cat": "Mid Cap"
+      },
+      {
+        "symbol": "MOTISONS",
+        "name": "Motisons Jewel",
+        "price": 14.25,
+        "ema20": 14.06,
+        "ema50": 13.59,
+        "pct_above_ema": 1.34,
+        "vol_ratio": 1.22,
+        "cap_cat": "NA"
+      },
+      {
+        "symbol": "ADANIGREEN",
+        "name": "Adani Green",
+        "price": 1546.5,
+        "ema20": 1512.94,
+        "ema50": 1430.86,
+        "pct_above_ema": 2.22,
+        "vol_ratio": 1.24,
+        "cap_cat": "Large Cap"
       },
       {
         "symbol": "CHENNPETRO",
@@ -218,7 +238,7 @@
         "ema50": 571.7,
         "pct_above_ema": 2.85,
         "vol_ratio": 1.97,
-        "cap_cat": "Large Cap"
+        "cap_cat": "Small Cap"
       },
       {
         "symbol": "BAJAJ-AUTO",
@@ -238,7 +258,7 @@
         "ema50": 2225.44,
         "pct_above_ema": 3.3,
         "vol_ratio": 1.32,
-        "cap_cat": "Large Cap"
+        "cap_cat": "NA"
       },
       {
         "symbol": "PRUDENT",
@@ -248,26 +268,6 @@
         "ema50": 2857.43,
         "pct_above_ema": 3.55,
         "vol_ratio": 1.22,
-        "cap_cat": "Mid Cap"
-      },
-      {
-        "symbol": "CENTUM",
-        "name": "Centum Electron",
-        "price": 3741.1,
-        "ema20": 3593.97,
-        "ema50": 3402.88,
-        "pct_above_ema": 4.09,
-        "vol_ratio": 1.27,
-        "cap_cat": "Mid Cap"
-      },
-      {
-        "symbol": "KSHINTL",
-        "name": "KSH Internationa",
-        "price": 875.5,
-        "ema20": 836.98,
-        "ema50": 773.41,
-        "pct_above_ema": 4.6,
-        "vol_ratio": 1.21,
         "cap_cat": "Mid Cap"
       }
     ],
@@ -292,7 +292,7 @@
         "vol_ratio": 2.96,
         "formed_date": "31 Aug 2025",
         "touch_count": 1,
-        "cap_cat": "Small Cap"
+        "cap_cat": "NA"
       },
       {
         "symbol": "BAJAJ-AUTO",
@@ -325,7 +325,7 @@
         "vol_ratio": 1.73,
         "formed_date": "20 Jul 2025",
         "touch_count": 1,
-        "cap_cat": "Small Cap"
+        "cap_cat": "NA"
       },
       {
         "symbol": "KALYANKJIL",
@@ -336,7 +336,7 @@
         "vol_ratio": 9.46,
         "formed_date": "11 Jan 2026",
         "touch_count": 2,
-        "cap_cat": "Large Cap"
+        "cap_cat": "NA"
       },
       {
         "symbol": "530341",
@@ -347,7 +347,7 @@
         "vol_ratio": 4.98,
         "formed_date": "24 Apr 2022",
         "touch_count": 1,
-        "cap_cat": "Large Cap"
+        "cap_cat": "Small Cap"
       },
       {
         "symbol": "CHENNPETRO",
@@ -370,10 +370,158 @@
         "formed_date": "19 Oct 2025",
         "touch_count": 2,
         "cap_cat": "Small Cap"
+      },
+      {
+        "symbol": "CANHLIFE",
+        "name": "Canara HSBC",
+        "price": 147.3,
+        "resistance": 152.69,
+        "pct_away": 3.53,
+        "vol_ratio": 35.92,
+        "formed_date": "19 Apr 2026",
+        "touch_count": 1,
+        "cap_cat": "Mid Cap"
+      },
+      {
+        "symbol": "TFCILTD",
+        "name": "Tour. Fin. Corp.",
+        "price": 80.81,
+        "resistance": 84.61,
+        "pct_away": 4.49,
+        "vol_ratio": 3.45,
+        "formed_date": "10 May 2026",
+        "touch_count": 1,
+        "cap_cat": "Small Cap"
+      },
+      {
+        "symbol": "SATIN",
+        "name": "Satin Creditcare",
+        "price": 267.19,
+        "resistance": 274.68,
+        "pct_away": 2.73,
+        "vol_ratio": 2.24,
+        "formed_date": "05 May 2024",
+        "touch_count": 2,
+        "cap_cat": "Small Cap"
+      },
+      {
+        "symbol": "RAIN",
+        "name": "Rain Industries",
+        "price": 213.41,
+        "resistance": 216.81,
+        "pct_away": 1.57,
+        "vol_ratio": 1.65,
+        "formed_date": "25 Feb 2024",
+        "touch_count": 1,
+        "cap_cat": "NA"
+      },
+      {
+        "symbol": "SAKAR",
+        "name": "Sakar Healthcare",
+        "price": 863.5,
+        "resistance": 889.95,
+        "pct_away": 2.97,
+        "vol_ratio": 2.12,
+        "formed_date": "21 Jun 2026",
+        "touch_count": 1,
+        "cap_cat": "Small Cap"
+      },
+      {
+        "symbol": "SPORTKING",
+        "name": "Sportking India",
+        "price": 192.53,
+        "resistance": 198.5,
+        "pct_away": 3.01,
+        "vol_ratio": 2.57,
+        "formed_date": "07 Jun 2026",
+        "touch_count": 1,
+        "cap_cat": "NA"
+      },
+      {
+        "symbol": "OMAXAUTO",
+        "name": "Omax Autos",
+        "price": 254.36,
+        "resistance": 263.4,
+        "pct_away": 3.43,
+        "vol_ratio": 2.19,
+        "formed_date": "31 May 2026",
+        "touch_count": 1,
+        "cap_cat": "NA"
+      },
+      {
+        "symbol": "LLOYDSENGG",
+        "name": "Lloyds Engineeri",
+        "price": 90.82,
+        "resistance": 93.07,
+        "pct_away": 2.42,
+        "vol_ratio": 1.57,
+        "formed_date": "04 Aug 2024",
+        "touch_count": 1,
+        "cap_cat": "Mid Cap"
       }
     ],
     "retest": [],
     "darvas_fresh": [
+      {
+        "symbol": "CANHLIFE",
+        "name": "Canara HSBC",
+        "price": 147.3,
+        "box_top": 143.18,
+        "box_bottom": 133.55,
+        "box_range_pct": 7.21,
+        "box_top_date": "23 Jun 2026",
+        "vol_ratio": 26.42,
+        "target": 152.81,
+        "target_pct": 6.73,
+        "stop_loss": 133.55,
+        "cap_cat": "Mid Cap",
+        "potential_pct": 6.73
+      },
+      {
+        "symbol": "543828",
+        "name": "Sudarshan Pharma",
+        "price": 40.0,
+        "box_top": 39.89,
+        "box_bottom": 36.0,
+        "box_range_pct": 10.81,
+        "box_top_date": "29 Jun 2026",
+        "vol_ratio": 9.86,
+        "target": 43.78,
+        "target_pct": 9.75,
+        "stop_loss": 36.0,
+        "cap_cat": "Small Cap",
+        "potential_pct": 9.75
+      },
+      {
+        "symbol": "RELTD",
+        "name": "Ravindra Energy",
+        "price": 174.71,
+        "box_top": 179.48,
+        "box_bottom": 153.22,
+        "box_range_pct": 17.14,
+        "box_top_date": "22 Jun 2026",
+        "vol_ratio": 5.7,
+        "target": 205.74,
+        "target_pct": 14.63,
+        "stop_loss": 153.22,
+        "cap_cat": "NA",
+        "potential_pct": 14.63
+      },
+      {
+        "symbol": "BAJAJCON",
+        "name": "Bajaj Consumer",
+        "price": 660.45,
+        "box_top": 630.8,
+        "box_bottom": 602.05,
+        "box_range_pct": 4.78,
+        "box_top_date": "01 Jul 2026",
+        "vol_ratio": 3.89,
+        "target": 659.55,
+        "target_pct": 4.56,
+        "stop_loss": 602.05,
+        "cap_cat": "Mid Cap",
+        "potential_pct": 4.56
+      },
       {
         "symbol": "THANGAMAYL",
         "name": "Thangamayil Jew.",
@@ -386,71 +534,25 @@
         "target": 7393.5,
         "target_pct": 12.5,
         "stop_loss": 5750.5,
-        "cap_cat": "Large Cap",
+        "cap_cat": "Mid Cap",
         "potential_pct": 12.5
-      },
-      {
-        "symbol": "TINNARUBR",
-        "name": "Tinna Rubber",
-        "price": 996.2,
-        "box_top": 979.0,
-        "box_bottom": 890.2,
-        "box_range_pct": 9.98,
-        "box_top_date": "25 Jun 2026",
-        "vol_ratio": 2.79,
-        "target": 1067.8,
-        "target_pct": 9.07,
-        "stop_loss": 890.2,
-        "cap_cat": "Small Cap",
-        "potential_pct": 9.07
-      },
-      {
-        "symbol": "BAJAJ-AUTO",
-        "name": "Bajaj Auto",
-        "price": 10381.0,
-        "box_top": 9930.0,
-        "box_bottom": 9501.0,
-        "box_range_pct": 4.52,
-        "box_top_date": "25 Jun 2026",
-        "vol_ratio": 2.67,
-        "target": 10359.0,
-        "target_pct": 4.32,
-        "stop_loss": 9501.0,
-        "cap_cat": "Large Cap",
-        "potential_pct": 4.32
-      },
-      {
-        "symbol": "VENUSPIPES",
-        "name": "Venus Pipes",
-        "price": 1797.9,
-        "box_top": 1761.8,
-        "box_bottom": 1665.4,
-        "box_range_pct": 5.79,
-        "box_top_date": "25 Jun 2026",
-        "vol_ratio": 2.39,
-        "target": 1858.2,
-        "target_pct": 5.47,
-        "stop_loss": 1665.4,
-        "cap_cat": "Small Cap",
-        "potential_pct": 5.47
-      },
-      {
-        "symbol": "UNITDSPR",
-        "name": "United Spirits",
-        "price": 1373.4,
-        "box_top": 1374.32,
-        "box_bottom": 1320.03,
-        "box_range_pct": 4.11,
-        "box_top_date": "26 Jun 2026",
-        "vol_ratio": 2.17,
-        "target": 1428.61,
-        "target_pct": 3.95,
-        "stop_loss": 1320.03,
-        "cap_cat": "Large Cap",
-        "potential_pct": 3.95
       }
     ],
     "darvas_approaching": [
+      {
+        "symbol": "ADANIGREEN",
+        "name": "Adani Green",
+        "price": 1546.5,
+        "box_top": 1551.0,
+        "box_bottom": 1469.3,
+        "box_range_pct": 5.56,
+        "box_top_date": "25 Jun 2026",
+        "pct_from_top": 0.29,
+        "target": 1632.7,
+        "target_pct": 5.27,
+        "stop_loss": 1469.3,
+        "cap_cat": "Large Cap"
+      },
       {
         "symbol": "505036",
         "name": "Auto.Corp.of Goa",
@@ -463,7 +565,7 @@
         "target": 2483.0,
         "target_pct": 6.02,
         "stop_loss": 2201.0,
-        "cap_cat": "Large Cap"
+        "cap_cat": "Small Cap"
       },
       {
         "symbol": "TRAVELFOOD",
@@ -505,30 +607,16 @@
         "target": 918.45,
         "target_pct": 6.55,
         "stop_loss": 805.55,
-        "cap_cat": "Mid Cap"
-      },
-      {
-        "symbol": "CPPLUS",
-        "name": "Aditya Infotech",
-        "price": 3639.4,
-        "box_top": 3709.8,
-        "box_bottom": 3415.0,
-        "box_range_pct": 8.63,
-        "box_top_date": "01 Jul 2026",
-        "pct_from_top": 1.9,
-        "target": 4004.6,
-        "target_pct": 7.95,
-        "stop_loss": 3415.0,
-        "cap_cat": "Large Cap"
+        "cap_cat": "NA"
       }
     ]
   },
   "summary": {
-    "total_scanned": 269,
+    "total_scanned": 346,
     "sector_fresh": 2,
     "sector_approaching": 8,
     "ema_pullback": 10,
-    "approaching": 9,
+    "approaching": 17,
     "retest": 0
   }
 }
