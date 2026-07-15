@@ -247,10 +247,11 @@ function cEM(a){return head(a,'c-em','🟢 EMA20 Pullback')+
 <div style="background:#0a0b0f;border-radius:5px;padding:6px 8px;text-align:center;margin-top:6px">
 <span style="font-size:0.76rem;font-weight:700;color:#4ade80">Bounced off 20 EMA in uptrend</span></div></div>`;}
 
+function dAgo(d){if(!d)return'—';try{const ms=Date.now()-new Date(d);const dy=Math.floor(ms/86400000);return dy<60?dy+'d ago':Math.floor(dy/30)+'mo ago';}catch(e){return d;}}
 function cAP(a){return head(a,'c-ap','🟡 Approaching Breakout')+
 `<div class="lrow"><span class="llbl">Resistance</span><span class="lval">₹${F(a.resistance)}</span><span class="dbadge dy">${a.pct_away}% away</span></div>
 ${dbar(a.pct_away)}
-<div class="irow"><span>Formed ${a.formed_date||'—'}</span><span>Vol ${a.vol_ratio}x avg</span></div></div>`;}
+<div class="irow"><span>Formed ${dAgo(a.formed_date)}</span><span>Vol ${a.vol_ratio}x avg</span></div></div>`;}
 
 function cRT(a){return head(a,'c-rt','🔴 Breakout Retest')+
 `<div class="lrow"><span class="llbl">Support</span><span class="lval">₹${F(a.support)}</span><span class="dbadge dy">${a.pct_away}% away</span></div>
@@ -259,12 +260,12 @@ ${dbar(a.pct_away)}
 <div class="fnote">Formed ${a.formed_date||'—'}</div></div>`;}
 
 const SECS=[
+  {k:'ap',key:'approaching',       e:'🟡',t:'Approaching Breakout',        fn:cAP},
   {k:'df',key:'darvas_fresh',      e:'🎯',t:'Darvas Fresh Breakout',      fn:cDF},
   {k:'da',key:'darvas_approaching',e:'📦',t:'Darvas Approaching Breakout', fn:cDA},
   {k:'sf',key:'sector_fresh',      e:'🚀',t:'Fresh Sector Breakout',       fn:cSF},
   {k:'sa',key:'sector_approaching',e:'🔲',t:'Sector Approaching Breakout', fn:cSA},
   {k:'em',key:'ema_pullback',      e:'🟢',t:'EMA20 Pullback',              fn:cEM},
-  {k:'ap',key:'approaching',       e:'🟡',t:'Approaching Breakout',        fn:cAP},
   {k:'rt',key:'retest',            e:'🔴',t:'Breakout Retest',             fn:cRT},
 ];
 
