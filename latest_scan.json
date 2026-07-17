@@ -1,21 +1,21 @@
 {
-  "scan_time": "17 Jul 2026  13:11 IST",
+  "scan_time": "17 Jul 2026  13:32 IST",
   "hot_sectors": [
     {
       "name": "Nifty Pharma",
-      "outperformance": 1.84
+      "outperformance": 1.78
     },
     {
       "name": "Nifty Auto",
-      "outperformance": 0.6
+      "outperformance": 0.61
     },
     {
       "name": "Nifty Realty",
-      "outperformance": 15.1
+      "outperformance": 15.27
     },
     {
       "name": "Nifty Media",
-      "outperformance": 1.79
+      "outperformance": 1.67
     }
   ],
   "alerts": {
@@ -23,7 +23,7 @@
       {
         "symbol": "DIVISLAB",
         "name": "DIVISLAB",
-        "price": 7253.0,
+        "price": 7248.5,
         "upper": 6960.5,
         "expected_target": 7470.5,
         "expected_pct": 7.33,
@@ -38,10 +38,10 @@
       {
         "symbol": "SUNPHARMA",
         "name": "SUNPHARMA",
-        "price": 1943.6,
+        "price": 1940.3,
         "upper": 1953.9,
         "lower": 1752.21,
-        "pct_from_top": 0.53,
+        "pct_from_top": 0.7,
         "expected_target": 2155.59,
         "expected_pct": 10.32,
         "range_pct": 11.51,
@@ -53,10 +53,10 @@
       {
         "symbol": "LUPIN",
         "name": "Lupin",
-        "price": 2443.7,
+        "price": 2441.0,
         "upper": 2508.71,
         "lower": 2203.82,
-        "pct_from_top": 2.59,
+        "pct_from_top": 2.7,
         "expected_target": 2813.6,
         "expected_pct": 12.15,
         "range_pct": 13.83,
@@ -68,10 +68,10 @@
       {
         "symbol": "LAURUSLABS",
         "name": "LAURUSLABS",
-        "price": 1531.6,
+        "price": 1521.5,
         "upper": 1565.4,
         "lower": 1322.1,
-        "pct_from_top": 2.16,
+        "pct_from_top": 2.8,
         "expected_target": 1808.7,
         "expected_pct": 15.54,
         "range_pct": 18.4,
@@ -83,10 +83,10 @@
       {
         "symbol": "ABBOTINDIA",
         "name": "ABBOTINDIA",
-        "price": 27800.0,
+        "price": 27795.0,
         "upper": 28015.0,
         "lower": 25200.0,
-        "pct_from_top": 0.77,
+        "pct_from_top": 0.79,
         "expected_target": 30830.0,
         "expected_pct": 10.05,
         "range_pct": 11.17,
@@ -98,10 +98,10 @@
       {
         "symbol": "GLAXO",
         "name": "GLAXO",
-        "price": 2436.0,
+        "price": 2435.8,
         "upper": 2504.7,
         "lower": 2088.1,
-        "pct_from_top": 2.74,
+        "pct_from_top": 2.75,
         "expected_target": 2921.3,
         "expected_pct": 16.63,
         "range_pct": 19.95,
@@ -113,10 +113,10 @@
       {
         "symbol": "SANOFI",
         "name": "SANOFI",
-        "price": 3395.5,
+        "price": 3399.9,
         "upper": 3488.9,
         "lower": 3054.0,
-        "pct_from_top": 2.68,
+        "pct_from_top": 2.55,
         "expected_target": 3923.8,
         "expected_pct": 12.47,
         "range_pct": 14.24,
@@ -128,10 +128,10 @@
       {
         "symbol": "M&M",
         "name": "M&M",
-        "price": 3169.6,
+        "price": 3172.9,
         "upper": 3217.1,
         "lower": 2870.26,
-        "pct_from_top": 1.48,
+        "pct_from_top": 1.37,
         "expected_target": 3563.94,
         "expected_pct": 10.78,
         "range_pct": 12.08,
@@ -143,10 +143,10 @@
       {
         "symbol": "EICHERMOT",
         "name": "Eicher Motors",
-        "price": 7549.0,
+        "price": 7535.0,
         "upper": 7754.0,
         "lower": 6752.5,
-        "pct_from_top": 2.64,
+        "pct_from_top": 2.82,
         "expected_target": 8755.5,
         "expected_pct": 12.92,
         "range_pct": 14.83,
@@ -158,10 +158,10 @@
       {
         "symbol": "NAZARA",
         "name": "Nazara Technolo.",
-        "price": 304.7,
+        "price": 304.45,
         "upper": 312.9,
         "lower": 264.4,
-        "pct_from_top": 2.62,
+        "pct_from_top": 2.7,
         "expected_target": 361.4,
         "expected_pct": 15.5,
         "range_pct": 18.34,
@@ -175,21 +175,31 @@
       {
         "symbol": "WEBELSOLAR",
         "name": "Websol Energy",
-        "price": 102.36,
-        "ema20": 101.46,
-        "ema50": 101.43,
-        "pct_above_ema": 0.89,
-        "vol_ratio": 1.31,
+        "price": 102.16,
+        "ema20": 101.44,
+        "ema50": 101.42,
+        "pct_above_ema": 0.71,
+        "vol_ratio": 1.33,
         "cap_cat": "Small Cap"
+      },
+      {
+        "symbol": "EMMVEE",
+        "name": "Emmvee Photovol.",
+        "price": 342.9,
+        "ema20": 339.01,
+        "ema50": 318.71,
+        "pct_above_ema": 1.15,
+        "vol_ratio": 1.21,
+        "cap_cat": "Large Cap"
       },
       {
         "symbol": "ANTHEM",
         "name": "Anthem Bioscienc",
-        "price": 776.45,
-        "ema20": 762.53,
+        "price": 776.6,
+        "ema20": 762.54,
         "ema50": 758.49,
-        "pct_above_ema": 1.83,
-        "vol_ratio": 3.44,
+        "pct_above_ema": 1.84,
+        "vol_ratio": 3.48,
         "cap_cat": "Large Cap"
       },
       {
@@ -205,11 +215,11 @@
       {
         "symbol": "LICI",
         "name": "Life Insurance",
-        "price": 435.15,
-        "ema20": 430.4,
-        "ema50": 417.5,
-        "pct_above_ema": 1.1,
-        "vol_ratio": 1.38,
+        "price": 432.85,
+        "ema20": 430.18,
+        "ema50": 417.41,
+        "pct_above_ema": 0.62,
+        "vol_ratio": 1.4,
         "cap_cat": "NA"
       }
     ],
@@ -261,22 +271,11 @@
       {
         "symbol": "PAR",
         "name": "Par Drugs & Che.",
-        "price": 103.99,
+        "price": 102.5,
         "resistance": 105.05,
-        "pct_away": 1.01,
-        "vol_ratio": 16.01,
+        "pct_away": 2.43,
+        "vol_ratio": 16.14,
         "formed_date": "15 Feb 2026",
-        "touch_count": 1,
-        "cap_cat": "Small Cap"
-      },
-      {
-        "symbol": "GNA",
-        "name": "GNA Axles",
-        "price": 534.05,
-        "resistance": 537.26,
-        "pct_away": 0.6,
-        "vol_ratio": 2.55,
-        "formed_date": "17 Oct 2021",
         "touch_count": 1,
         "cap_cat": "Small Cap"
       },
@@ -294,10 +293,10 @@
       {
         "symbol": "JINDWORLD",
         "name": "Jindal Worldwide",
-        "price": 33.29,
+        "price": 32.98,
         "resistance": 34.5,
-        "pct_away": 3.51,
-        "vol_ratio": 17.56,
+        "pct_away": 4.41,
+        "vol_ratio": 17.93,
         "formed_date": "31 May 2026",
         "touch_count": 1,
         "cap_cat": "Small Cap"
@@ -319,7 +318,7 @@
       {
         "symbol": "SSWL",
         "name": "Steel Str. Wheel",
-        "price": 265.23,
+        "price": 265.0,
         "box_top": 255.6,
         "box_bottom": 234.36,
         "box_range_pct": 9.06,
@@ -332,9 +331,24 @@
         "potential_pct": 8.31
       },
       {
+        "symbol": "BIOCON",
+        "name": "Biocon",
+        "price": 435.5,
+        "box_top": 426.6,
+        "box_bottom": 394.85,
+        "box_range_pct": 8.04,
+        "box_top_date": "07 Jul 2026",
+        "vol_ratio": 10.96,
+        "target": 458.35,
+        "target_pct": 7.44,
+        "stop_loss": 394.85,
+        "cap_cat": "Large Cap",
+        "potential_pct": 7.44
+      },
+      {
         "symbol": "EMMVEE",
         "name": "Emmvee Photovol.",
-        "price": 342.85,
+        "price": 342.9,
         "box_top": 350.0,
         "box_bottom": 325.1,
         "box_range_pct": 7.66,
@@ -349,7 +363,7 @@
       {
         "symbol": "GABRIEL",
         "name": "Gabriel India",
-        "price": 1328.3,
+        "price": 1326.8,
         "box_top": 1278.8,
         "box_bottom": 1215.0,
         "box_range_pct": 5.25,
@@ -362,46 +376,111 @@
         "potential_pct": 4.99
       },
       {
-        "symbol": "GROWW",
-        "name": "Billionbrains",
-        "price": 206.65,
-        "box_top": 207.2,
-        "box_bottom": 188.91,
-        "box_range_pct": 9.68,
+        "symbol": "SAKAR",
+        "name": "Sakar Healthcare",
+        "price": 864.0,
+        "box_top": 878.0,
+        "box_bottom": 794.0,
+        "box_range_pct": 10.58,
         "box_top_date": "06 Jul 2026",
-        "vol_ratio": 3.6,
-        "target": 225.49,
-        "target_pct": 8.83,
-        "stop_loss": 188.91,
-        "cap_cat": "NA",
-        "potential_pct": 8.83
+        "vol_ratio": 5.09,
+        "target": 962.0,
+        "target_pct": 9.57,
+        "stop_loss": 794.0,
+        "cap_cat": "Small Cap",
+        "potential_pct": 9.57
+      }
+    ],
+    "ema_crossover": [
+      {
+        "symbol": "MUKANDLTD",
+        "name": "Mukand",
+        "price": 142.61,
+        "ema21": 136.37,
+        "ema63": 135.51,
+        "sma200": 132.92,
+        "vol_ratio": 2.93,
+        "crossover_date": "16 Jul 2026",
+        "days_ago": 2,
+        "cap_cat": "Small Cap",
+        "potential_pct": 0
       },
       {
-        "symbol": "ANANDRATHI",
-        "name": "Anand Rathi Wea.",
-        "price": 2062.5,
-        "box_top": 2120.0,
-        "box_bottom": 2024.4,
-        "box_range_pct": 4.72,
-        "box_top_date": "06 Jul 2026",
-        "vol_ratio": 2.9,
-        "target": 2215.6,
-        "target_pct": 4.51,
-        "stop_loss": 2024.4,
-        "cap_cat": "Large Cap",
-        "potential_pct": 4.51
+        "symbol": "530341",
+        "name": "Mukesh Babu Fin.",
+        "price": 131.65,
+        "ema21": 124.19,
+        "ema63": 123.91,
+        "sma200": 122.57,
+        "vol_ratio": 3.79,
+        "crossover_date": "15 Jul 2026",
+        "days_ago": 1,
+        "cap_cat": "Small Cap",
+        "potential_pct": 0
+      },
+      {
+        "symbol": "530585",
+        "name": "Swastika Investm",
+        "price": 80.68,
+        "ema21": 65.43,
+        "ema63": 64.09,
+        "sma200": 70.61,
+        "vol_ratio": 27.25,
+        "crossover_date": "13 Jul 2026",
+        "days_ago": 3,
+        "cap_cat": "NA",
+        "potential_pct": 0
+      },
+      {
+        "symbol": "PAR",
+        "name": "Par Drugs & Che.",
+        "price": 102.5,
+        "ema21": 92.63,
+        "ema63": 91.33,
+        "sma200": 94.16,
+        "vol_ratio": 6.83,
+        "crossover_date": "15 Jul 2026",
+        "days_ago": 2,
+        "cap_cat": "Small Cap",
+        "potential_pct": 0
+      },
+      {
+        "symbol": "511153",
+        "name": "Anjani Foods",
+        "price": 28.46,
+        "ema21": 18.97,
+        "ema63": 18.12,
+        "sma200": 20.47,
+        "vol_ratio": 18.3,
+        "crossover_date": "14 Jul 2026",
+        "days_ago": 2,
+        "cap_cat": "Small Cap",
+        "potential_pct": 0
+      },
+      {
+        "symbol": "NUVOCO",
+        "name": "Nuvoco Vistas",
+        "price": 346.75,
+        "ema21": 327.44,
+        "ema63": 320.41,
+        "sma200": 341.23,
+        "vol_ratio": 53.22,
+        "crossover_date": "14 Jul 2026",
+        "days_ago": 4,
+        "cap_cat": "NA",
+        "potential_pct": 0
       }
     ],
     "darvas_approaching": [
       {
         "symbol": "CEMPRO",
         "name": "Cemindia Project",
-        "price": 1590.4,
+        "price": 1592.5,
         "box_top": 1597.4,
         "box_bottom": 1453.3,
         "box_range_pct": 9.92,
         "box_top_date": "07 Jul 2026",
-        "pct_from_top": 0.44,
+        "pct_from_top": 0.31,
         "target": 1741.5,
         "target_pct": 9.02,
         "stop_loss": 1453.3,
@@ -410,12 +489,12 @@
       {
         "symbol": "CORONA",
         "name": "Corona Remedies",
-        "price": 2062.2,
+        "price": 2063.8,
         "box_top": 2077.5,
         "box_bottom": 1960.1,
         "box_range_pct": 5.99,
         "box_top_date": "06 Jul 2026",
-        "pct_from_top": 0.74,
+        "pct_from_top": 0.66,
         "target": 2194.9,
         "target_pct": 5.65,
         "stop_loss": 1960.1,
@@ -436,41 +515,41 @@
         "cap_cat": "Small Cap"
       },
       {
-        "symbol": "LICI",
-        "name": "Life Insurance",
-        "price": 435.15,
-        "box_top": 440.0,
-        "box_bottom": 425.4,
-        "box_range_pct": 3.43,
+        "symbol": "CAPLIPOINT",
+        "name": "Caplin Point Lab",
+        "price": 2624.5,
+        "box_top": 2659.7,
+        "box_bottom": 2501.6,
+        "box_range_pct": 6.32,
         "box_top_date": "01 Jul 2026",
-        "pct_from_top": 1.1,
-        "target": 454.6,
-        "target_pct": 3.32,
-        "stop_loss": 425.4,
+        "pct_from_top": 1.32,
+        "target": 2817.8,
+        "target_pct": 5.94,
+        "stop_loss": 2501.6,
         "cap_cat": "NA"
       },
       {
-        "symbol": "PRIVISCL",
-        "name": "Privi Speci.",
-        "price": 3639.0,
-        "box_top": 3693.0,
-        "box_bottom": 3505.5,
-        "box_range_pct": 5.35,
-        "box_top_date": "06 Jul 2026",
-        "pct_from_top": 1.46,
-        "target": 3880.5,
-        "target_pct": 5.08,
-        "stop_loss": 3505.5,
-        "cap_cat": "Mid Cap"
+        "symbol": "543542",
+        "name": "Kesar India",
+        "price": 1249.9,
+        "box_top": 1269.9,
+        "box_bottom": 1217.0,
+        "box_range_pct": 4.35,
+        "box_top_date": "02 Jul 2026",
+        "pct_from_top": 1.57,
+        "target": 1322.8,
+        "target_pct": 4.17,
+        "stop_loss": 1217.0,
+        "cap_cat": "Small Cap"
       }
     ]
   },
   "summary": {
-    "total_scanned": 326,
+    "total_scanned": 350,
     "sector_fresh": 1,
     "sector_approaching": 9,
-    "ema_pullback": 4,
-    "approaching": 9,
+    "ema_pullback": 5,
+    "approaching": 8,
     "retest": 0
   }
 }
