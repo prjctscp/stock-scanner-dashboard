@@ -1,5 +1,5 @@
 {
-  "scan_time": "17 Jul 2026  18:08 IST",
+  "scan_time": "17 Jul 2026  19:40 IST",
   "hot_sectors": [
     {
       "name": "Nifty Pharma",
@@ -335,17 +335,6 @@
         "formed_date": "07 Jul 2024",
         "touch_count": 1,
         "cap_cat": "NA"
-      },
-      {
-        "symbol": "BHEL",
-        "name": "B H E L",
-        "price": 422.0,
-        "resistance": 423.53,
-        "pct_away": 0.36,
-        "vol_ratio": 3.22,
-        "formed_date": "31 May 2026",
-        "touch_count": 1,
-        "cap_cat": "NA"
       }
     ],
     "retest": [],
@@ -424,6 +413,21 @@
         "stop_loss": 188.91,
         "cap_cat": "NA",
         "potential_pct": 8.83
+      }
+    ],
+    "kd_bullish": [
+      {
+        "symbol": "KPITTECH",
+        "name": "KPIT Technologi.",
+        "price": 554.05,
+        "rsi": 26.23,
+        "momentum": -217.05,
+        "prior_low": 558.65,
+        "signal_date": "19 Jul 2026",
+        "timeframe": "Weekly",
+        "bars_ago": 0,
+        "cap_cat": "NA",
+        "potential_pct": 0
       }
     ],
     "ema_crossover": [
@@ -541,11 +545,11 @@
     ]
   },
   "summary": {
-    "total_scanned": 315,
+    "total_scanned": 302,
     "sector_fresh": 1,
     "sector_approaching": 8,
     "ema_pullback": 10,
-    "approaching": 8,
+    "approaching": 7,
     "retest": 0
   }
 }
