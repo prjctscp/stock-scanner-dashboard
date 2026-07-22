@@ -1,5 +1,5 @@
 {
-  "scan_time": "22 Jul 2026  16:31 IST",
+  "scan_time": "22 Jul 2026  17:06 IST",
   "regime": {
     "nifty_above_ema": false,
     "nifty_close": 23996.2,
@@ -252,6 +252,18 @@
         "fii_change": -0.16
       },
       {
+        "symbol": "SUPERHOUSE",
+        "name": "Superhouse Ltd",
+        "price": 164.38,
+        "ema20": 160.68,
+        "ema50": 156.91,
+        "pct_above_ema": 2.3,
+        "vol_ratio": 1.84,
+        "cap_cat": "Small Cap",
+        "valuation": "Fair",
+        "fii_change": 0.0
+      },
+      {
         "symbol": "KIRANVYPAR",
         "name": "KIRANVYPAR",
         "price": 196.36,
@@ -262,18 +274,6 @@
         "cap_cat": "Small Cap",
         "valuation": "Fair",
         "fii_change": null
-      },
-      {
-        "symbol": "SEDEMAC",
-        "name": "Sedemac Mechatro",
-        "price": 2775.2,
-        "ema20": 2709.99,
-        "ema50": 2521.14,
-        "pct_above_ema": 2.41,
-        "vol_ratio": 1.25,
-        "cap_cat": "Mid Cap",
-        "valuation": "Fair",
-        "fii_change": 1.75
       }
     ],
     "approaching": [
@@ -330,6 +330,123 @@
         "fii_change": -0.72
       },
       {
+        "symbol": "TVSHLTD",
+        "name": "TVS Holdings",
+        "price": 14847.0,
+        "resistance": 14936.13,
+        "pct_away": 0.6,
+        "vol_ratio": 16.99,
+        "formed_date": "10 May 2026",
+        "touch_count": 2,
+        "cap_cat": "Large Cap",
+        "valuation": "Fair",
+        "fii_change": -0.04
+      },
+      {
+        "symbol": "GANESHBE",
+        "name": "Ganesh Benzopl.",
+        "price": 109.32,
+        "resistance": 112.2,
+        "pct_away": 2.57,
+        "vol_ratio": 37.66,
+        "formed_date": "30 Jan 2022",
+        "touch_count": 1,
+        "cap_cat": "Small Cap",
+        "valuation": "Fair",
+        "fii_change": 0.39
+      },
+      {
+        "symbol": "526479",
+        "name": "Sky Industries",
+        "price": 110.47,
+        "resistance": 115.73,
+        "pct_away": 4.54,
+        "vol_ratio": 21.53,
+        "formed_date": "18 Sep 2022",
+        "touch_count": 1,
+        "cap_cat": "Small Cap",
+        "valuation": "Fair",
+        "fii_change": null
+      },
+      {
+        "symbol": "EMAMIPAP",
+        "name": "Emami Paper",
+        "price": 118.63,
+        "resistance": 122.0,
+        "pct_away": 2.76,
+        "vol_ratio": 33.43,
+        "formed_date": "31 Aug 2025",
+        "touch_count": 1,
+        "cap_cat": "Small Cap",
+        "valuation": "Fair",
+        "fii_change": 0.01
+      },
+      {
+        "symbol": "SICALLOG",
+        "name": "Sical Logistics",
+        "price": 99.26,
+        "resistance": 102.24,
+        "pct_away": 2.91,
+        "vol_ratio": 3.2,
+        "formed_date": "21 Jun 2026",
+        "touch_count": 2,
+        "cap_cat": "Small Cap",
+        "valuation": "",
+        "fii_change": 0.0
+      },
+      {
+        "symbol": "505712",
+        "name": "Him Teknoforg.",
+        "price": 257.85,
+        "resistance": 263.37,
+        "pct_away": 2.09,
+        "vol_ratio": 19.18,
+        "formed_date": "22 Sep 2024",
+        "touch_count": 1,
+        "cap_cat": "Small Cap",
+        "valuation": "Fair",
+        "fii_change": 0.0
+      },
+      {
+        "symbol": "KARURVYSYA",
+        "name": "Karur Vysya Bank",
+        "price": 339.15,
+        "resistance": 343.45,
+        "pct_away": 1.25,
+        "vol_ratio": 2.9,
+        "formed_date": "01 Mar 2026",
+        "touch_count": 1,
+        "cap_cat": "NA",
+        "valuation": "",
+        "fii_change": null
+      },
+      {
+        "symbol": "BLUESTONE",
+        "name": "Bluestone Jewel",
+        "price": 776.05,
+        "resistance": 793.0,
+        "pct_away": 2.14,
+        "vol_ratio": 26.26,
+        "formed_date": "12 Oct 2025",
+        "touch_count": 1,
+        "cap_cat": "NA",
+        "valuation": "",
+        "fii_change": null
+      },
+      {
+        "symbol": "UFLEX",
+        "name": "Uflex",
+        "price": 490.7,
+        "resistance": 493.4,
+        "pct_away": 0.55,
+        "vol_ratio": 251.02,
+        "formed_date": "23 Feb 2025",
+        "touch_count": 4,
+        "cap_cat": "Small Cap",
+        "valuation": "Fair",
+        "fii_change": 0.83
+      },
+      {
         "symbol": "AEGISVOPAK",
         "name": "AEGISVOPAK",
         "price": 295.66,
@@ -354,19 +471,6 @@
         "cap_cat": "Mid Cap",
         "valuation": "Fair",
         "fii_change": 0.03
-      },
-      {
-        "symbol": "BLUESTONE",
-        "name": "BLUESTONE",
-        "price": 776.05,
-        "resistance": 793.0,
-        "pct_away": 2.14,
-        "vol_ratio": 26.26,
-        "formed_date": "12 Oct 2025",
-        "touch_count": 1,
-        "cap_cat": "NA",
-        "valuation": "",
-        "fii_change": null
       },
       {
         "symbol": "MODIS",
@@ -426,21 +530,6 @@
         "potential_pct": 10.19
       },
       {
-        "symbol": "SCPL",
-        "name": "Sheetal Cool",
-        "price": 582.6,
-        "box_top": 540.0,
-        "box_bottom": 477.6,
-        "box_range_pct": 13.07,
-        "box_top_date": "07 Jul 2026",
-        "vol_ratio": 13.47,
-        "target": 602.4,
-        "target_pct": 11.56,
-        "stop_loss": 477.6,
-        "cap_cat": "Small Cap",
-        "potential_pct": 11.56
-      },
-      {
         "symbol": "ACCENTMIC",
         "name": "Accent Microcell",
         "price": 509.55,
@@ -484,6 +573,21 @@
         "stop_loss": 466.01,
         "cap_cat": "NA",
         "potential_pct": 6.86
+      },
+      {
+        "symbol": "BAJAJ-AUTO",
+        "name": "Bajaj Auto",
+        "price": 10998.5,
+        "box_top": 9930.0,
+        "box_bottom": 9501.0,
+        "box_range_pct": 4.52,
+        "box_top_date": "25 Jun 2026",
+        "vol_ratio": 3.7,
+        "target": 10359.0,
+        "target_pct": 4.32,
+        "stop_loss": 9501.0,
+        "cap_cat": "Large Cap",
+        "potential_pct": 4.32
       }
     ],
     "top_picks": [
@@ -504,6 +608,23 @@
         "inst_deal": false,
         "inst_deal_info": "",
         "potential_pct": 4.11
+      },
+      {
+        "symbol": "GCSL",
+        "name": "GCSL",
+        "price": 523.55,
+        "cap_cat": "NA",
+        "tool_count": 2,
+        "tools": [
+          "\ud83c\udfaf Darvas Fresh (Tool E)",
+          "\ud83c\udd95 IPO Breakout (Tool H)"
+        ],
+        "conviction": 2.0,
+        "fii_change": null,
+        "valuation": "",
+        "inst_deal": false,
+        "inst_deal_info": "",
+        "potential_pct": 21.1
       },
       {
         "symbol": "AYE",
@@ -538,24 +659,43 @@
         "inst_deal": false,
         "inst_deal_info": "",
         "potential_pct": 9.92
+      },
+      {
+        "symbol": "BAJAJ-AUTO",
+        "name": "Bajaj Auto",
+        "price": 10998.5,
+        "cap_cat": "Large Cap",
+        "tool_count": 2,
+        "tools": [
+          "\ud83d\ude80 Sector Fresh BK (Tool D)",
+          "\ud83c\udfaf Darvas Fresh (Tool E)"
+        ],
+        "conviction": 2.0,
+        "fii_change": 0.19,
+        "valuation": "Fair",
+        "inst_deal": false,
+        "inst_deal_info": "",
+        "potential_pct": 4.32
+      },
+      {
+        "symbol": "505712",
+        "name": "Him Teknoforg.",
+        "price": 257.85,
+        "cap_cat": "NA",
+        "tool_count": 2,
+        "tools": [
+          "\ud83d\udfe1 Approaching Breakout (Tool B)",
+          "\u26a1 EMA Crossover (Tool F)"
+        ],
+        "conviction": 2.0,
+        "fii_change": 0.0,
+        "valuation": "Fair",
+        "inst_deal": false,
+        "inst_deal_info": "",
+        "potential_pct": 0
       }
     ],
     "ipo_breakout": [
-      {
-        "symbol": "BNALTD",
-        "name": "BNALTD",
-        "price": 496.0,
-        "ref_high": 465.0,
-        "stop_loss": 317.0,
-        "target": 613.0,
-        "target_pct": 31.83,
-        "vol_ratio": 64.59,
-        "listing_date": "20 Apr 2026",
-        "cap_cat": "NA",
-        "valuation": "",
-        "fii_change": null,
-        "potential_pct": 31.83
-      },
       {
         "symbol": "TINNARUBR",
         "name": "Tinna Rubber",
@@ -570,6 +710,36 @@
         "valuation": "Fair",
         "fii_change": 0.13,
         "potential_pct": 20.07
+      },
+      {
+        "symbol": "AARNAV",
+        "name": "Aarnav Fashions",
+        "price": 28.91,
+        "ref_high": 30.45,
+        "stop_loss": 23.51,
+        "target": 37.39,
+        "target_pct": 22.79,
+        "vol_ratio": 16.95,
+        "listing_date": "25 Feb 2026",
+        "cap_cat": "Small Cap",
+        "valuation": "Fair",
+        "fii_change": null,
+        "potential_pct": 22.79
+      },
+      {
+        "symbol": "BNALTD",
+        "name": "B & A",
+        "price": 496.0,
+        "ref_high": 465.0,
+        "stop_loss": 317.0,
+        "target": 613.0,
+        "target_pct": 31.83,
+        "vol_ratio": 64.59,
+        "listing_date": "20 Apr 2026",
+        "cap_cat": "NA",
+        "valuation": "",
+        "fii_change": null,
+        "potential_pct": 31.83
       },
       {
         "symbol": "AYE",
@@ -587,49 +757,49 @@
         "potential_pct": 13.55
       },
       {
-        "symbol": "AARNAV",
-        "name": "AARNAV",
-        "price": 28.91,
-        "ref_high": 30.45,
-        "stop_loss": 23.51,
-        "target": 37.39,
-        "target_pct": 22.79,
-        "vol_ratio": 16.95,
-        "listing_date": "25 Feb 2026",
-        "cap_cat": "Small Cap",
-        "valuation": "Fair",
+        "symbol": "GCSL",
+        "name": "GCSL",
+        "price": 523.55,
+        "ref_high": 517.79,
+        "stop_loss": 408.54,
+        "target": 627.04,
+        "target_pct": 21.1,
+        "vol_ratio": 1.96,
+        "listing_date": "04 Sep 2025",
+        "cap_cat": "NA",
+        "valuation": "",
         "fii_change": null,
-        "potential_pct": 22.79
+        "potential_pct": 21.1
       },
       {
-        "symbol": "BETA",
-        "name": "BETA",
-        "price": 2314.7,
-        "ref_high": 2424.3,
-        "stop_loss": 1891.9,
-        "target": 2956.7,
-        "target_pct": 21.96,
-        "vol_ratio": 13.0,
-        "listing_date": "24 Nov 2025",
+        "symbol": "GSPCROP",
+        "name": "GSPCROP",
+        "price": 506.8,
+        "ref_high": 489.8,
+        "stop_loss": 366.9,
+        "target": 612.7,
+        "target_pct": 25.09,
+        "vol_ratio": 2.89,
+        "listing_date": "24 Mar 2026",
         "cap_cat": "Small Cap",
         "valuation": "Fair",
-        "fii_change": -0.14,
-        "potential_pct": 21.96
+        "fii_change": -2.35,
+        "potential_pct": 25.09
       },
       {
-        "symbol": "THAKDEV",
-        "name": "THAKDEV",
-        "price": 155.88,
-        "ref_high": 148.99,
-        "stop_loss": 115.1,
-        "target": 182.88,
-        "target_pct": 22.75,
-        "vol_ratio": 8.19,
+        "symbol": "HAWKINCOOK",
+        "name": "HAWKINCOOK",
+        "price": 8735.5,
+        "ref_high": 8907.03,
+        "stop_loss": 7531.8,
+        "target": 10282.27,
+        "target_pct": 15.44,
+        "vol_ratio": 4.74,
         "listing_date": "20 Apr 2026",
-        "cap_cat": "Small Cap",
-        "valuation": "Fair",
+        "cap_cat": "NA",
+        "valuation": "",
         "fii_change": null,
-        "potential_pct": 22.75
+        "potential_pct": 15.44
       },
       {
         "symbol": "INVPRECQ",
@@ -662,34 +832,19 @@
         "potential_pct": 21.26
       },
       {
-        "symbol": "HAWKINCOOK",
-        "name": "HAWKINCOOK",
-        "price": 8735.5,
-        "ref_high": 8907.03,
-        "stop_loss": 7531.8,
-        "target": 10282.27,
-        "target_pct": 15.44,
-        "vol_ratio": 4.74,
+        "symbol": "THAKDEV",
+        "name": "THAKDEV",
+        "price": 155.88,
+        "ref_high": 148.99,
+        "stop_loss": 115.1,
+        "target": 182.88,
+        "target_pct": 22.75,
+        "vol_ratio": 8.19,
         "listing_date": "20 Apr 2026",
-        "cap_cat": "NA",
-        "valuation": "",
-        "fii_change": null,
-        "potential_pct": 15.44
-      },
-      {
-        "symbol": "GSPCROP",
-        "name": "GSPCROP",
-        "price": 506.8,
-        "ref_high": 489.8,
-        "stop_loss": 366.9,
-        "target": 612.7,
-        "target_pct": 25.09,
-        "vol_ratio": 2.89,
-        "listing_date": "24 Mar 2026",
         "cap_cat": "Small Cap",
         "valuation": "Fair",
-        "fii_change": -2.35,
-        "potential_pct": 25.09
+        "fii_change": null,
+        "potential_pct": 22.75
       }
     ],
     "kd_bullish": [
@@ -766,8 +921,22 @@
     ],
     "ema_crossover": [
       {
+        "symbol": "MRPL",
+        "name": "M R P L",
+        "price": 174.66,
+        "ema21": 162.03,
+        "ema63": 160.79,
+        "sma200": 162.78,
+        "vol_ratio": 2.35,
+        "crossover_date": "21 Jul 2026",
+        "days_ago": 2,
+        "cap_cat": "Large Cap",
+        "valuation": "Fair",
+        "potential_pct": 0
+      },
+      {
         "symbol": "KROSS",
-        "name": "KROSS",
+        "name": "Kross Ltd",
         "price": 210.7,
         "ema21": 191.95,
         "ema63": 189.6,
@@ -777,6 +946,20 @@
         "days_ago": 2,
         "cap_cat": "NA",
         "valuation": "",
+        "potential_pct": 0
+      },
+      {
+        "symbol": "505712",
+        "name": "Him Teknoforg.",
+        "price": 257.85,
+        "ema21": 209.23,
+        "ema63": 206.5,
+        "sma200": 210.78,
+        "vol_ratio": 8.74,
+        "crossover_date": "21 Jul 2026",
+        "days_ago": 1,
+        "cap_cat": "Small Cap",
+        "valuation": "Fair",
         "potential_pct": 0
       }
     ],
@@ -864,11 +1047,11 @@
     ]
   },
   "summary": {
-    "total_scanned": 630,
+    "total_scanned": 658,
     "sector_fresh": 3,
     "sector_approaching": 5,
     "ema_pullback": 10,
-    "approaching": 10,
+    "approaching": 18,
     "retest": 0
   }
 }
