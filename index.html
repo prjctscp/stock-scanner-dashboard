@@ -111,6 +111,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 @keyframes spin{to{transform:rotate(360deg)}}
 .cdown{position:fixed;bottom:14px;right:14px;background:#13151f;border:1px solid #1e2230;border-radius:8px;padding:5px 11px;font-size:0.7rem;color:#334155}
 .no-res{text-align:center;padding:40px;color:#334155;font-size:0.85rem}
+.rstrip{padding:8px 18px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;font-size:0.76rem;border-bottom:1px solid #1e2230}
+.rstrip.healthy{background:#06170d;color:#4ade80}
+.rstrip.weak{background:#1a0a0a;color:#fca5a5}
+.rstrip.unknown{background:#0d0f17;color:#64748b}
+.rchip{display:flex;gap:5px;align-items:center;white-space:nowrap}
+.rlbl{color:#475569;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.05em}
+.rval{font-weight:700}
+.rpos{color:#4ade80}.rneg{color:#f87171}
+.rdiv{width:1px;height:14px;background:#1e2230}
 .cap-wrap{flex-shrink:0;position:relative;padding:0 12px;border-left:1px solid #1e2230}
 .cap-btn{background:#13151f;border:1px solid #1e2230;color:#64748b;border-radius:20px;padding:4px 11px;font-size:0.72rem;cursor:pointer;white-space:nowrap;user-select:none;display:flex;align-items:center;gap:5px;transition:all 0.15s}
 .cap-btn:hover{border-color:#334155;color:#cbd5e1}
@@ -166,6 +175,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   </div>
 </div>
 
+<div class="rstrip unknown" id="rstrip" style="display:none"></div>
 <div class="wrap"><div id="main"><div class="loading"><div class="spinner"></div>Loading latest scan…</div></div></div>
 <div class="cdown">⟳ <span id="cd">60</span>s</div>
 
@@ -222,6 +232,7 @@ const head=(a,cls,badge)=>`<div class="card ${cls}"><div class="crow"><div style
 function stars(n){return n>=4?'⭐⭐⭐':n===3?'⭐⭐':n===2?'⭐':'';}
 function cTP(a){
   const badges=(a.tools||[]).map(t=>`<span style="background:#1a1a0a;border:1px solid #eab308;color:#eab308;border-radius:3px;padding:1px 6px;font-size:0.65rem;font-weight:600">${t}</span>`).join(' ');
+  const dealBadge=a.inst_deal?`<div style="margin-top:6px;padding:4px 8px;background:#0a1628;border:1px solid #1d4ed8;border-radius:4px;font-size:0.7rem;color:#60a5fa;font-weight:600">🏛️ ${a.inst_deal_info||'Institutional buy detected'}</div>`:'';
   return`<div class="card c-tp">
   <div class="cr">
     <div class="cl">
@@ -236,6 +247,7 @@ function cTP(a){
   </div>
   <div class="tags">${capTag(a.cap_cat)}</div>
   <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:6px">${badges}</div>
+  ${dealBadge}
 </div>`;}
 
 function cKG(a){
@@ -310,7 +322,30 @@ const SECS=[
   {k:'rt',key:'retest',            e:'🔴',t:'Breakout Retest',             fn:cRT},
 ];
 
+function renderStrip(d){
+  const el=document.getElementById('rstrip');
+  const rg=d.regime||{},fi=d.fii||{};
+  if(!rg.nifty_close&&!fi.fii_net_today){el.style.display='none';return;}
+  el.style.display='flex';
+  const healthy=rg.healthy===true,weak=rg.healthy===false;
+  el.className='rstrip '+(healthy?'healthy':weak?'weak':'unknown');
+  const fmt=n=>n==null?'—':Number(n).toLocaleString('en-IN',{maximumFractionDigits:0});
+  const cr=n=>{if(n==null)return'—';const v=Number(n);return(v>=0?'+':'−')+'₹'+Math.abs(v).toLocaleString('en-IN',{maximumFractionDigits:0})+' Cr';};
+  const cls=n=>n==null?'':(Number(n)>=0?'rpos':'rneg');
+  let parts=[];
+  parts.push(`<div class="rchip"><span style="font-size:0.9rem">${healthy?'✅':weak?'⚠️':'·'}</span><span class="rval">${healthy?'MARKET HEALTHY':weak?'WEAK REGIME':'Regime —'}</span></div>`);
+  if(rg.nifty_close)parts.push(`<div class="rchip"><span class="rlbl">Nifty</span><span class="rval">${fmt(rg.nifty_close)}</span><span style="color:#475569;font-size:0.68rem">(20wEMA ${fmt(rg.nifty_ema20w)})</span></div>`);
+  if(rg.nifty_s1)parts.push(`<div class="rchip"><span class="rlbl">S1</span><span class="rval rneg">${fmt(rg.nifty_s1)}</span><span class="rlbl">R1</span><span class="rval rpos">${fmt(rg.nifty_r1)}</span></div>`);
+  if(rg.nifty_s2)parts.push(`<div class="rchip"><span class="rlbl">S2</span><span style="color:#94a3b8">${fmt(rg.nifty_s2)}</span><span class="rlbl">R2</span><span style="color:#94a3b8">${fmt(rg.nifty_r2)}</span></div>`);
+  if(rg.vix!=null)parts.push(`<div class="rchip"><span class="rlbl">VIX</span><span class="rval ${rg.vix_ok===false?'rneg':''}">${rg.vix}</span></div>`);
+  if(fi.fii_net_today!=null)parts.push(`<div class="rchip"><span class="rlbl">FII</span><span class="rval ${cls(fi.fii_net_today)}">${cr(fi.fii_net_today)}</span><span style="color:#475569;font-size:0.68rem">5d ${cr(fi.fii_5day_total)}</span></div>`);
+  if(fi.dii_net_today!=null)parts.push(`<div class="rchip"><span class="rlbl">DII</span><span class="rval ${cls(fi.dii_net_today)}">${cr(fi.dii_net_today)}</span><span style="color:#475569;font-size:0.68rem">5d ${cr(fi.dii_5day_total)}</span></div>`);
+  if(fi.caution)parts.push(`<div class="rchip rneg"><span class="rval">🔻 FII selling ${fi.fii_sell_streak}d straight</span></div>`);
+  el.innerHTML=parts.join('<div class="rdiv"></div>');
+}
+
 function render(d){
+  renderStrip(d);
   const al=d.alerts||{};
   const total=Object.values(al).reduce((a,b)=>a+b.length,0);
 
