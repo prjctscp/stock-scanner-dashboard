@@ -1,17 +1,17 @@
 {
-  "scan_time": "22 Jul 2026  15:14 IST",
+  "scan_time": "22 Jul 2026  16:00 IST",
   "regime": {
     "nifty_above_ema": false,
-    "nifty_close": 23997.4,
-    "nifty_ema20w": 24109.8,
-    "vix": 13.3,
+    "nifty_close": 23996.2,
+    "nifty_ema20w": 24109.7,
+    "vix": 13.29,
     "vix_ok": true,
     "healthy": false,
-    "nifty_pivot": 24041.7,
-    "nifty_r1": 24122.0,
-    "nifty_s1": 23917.1,
-    "nifty_r2": 24246.6,
-    "nifty_s2": 23836.8
+    "nifty_pivot": 24041.3,
+    "nifty_r1": 24121.2,
+    "nifty_s1": 23916.3,
+    "nifty_r2": 24246.2,
+    "nifty_s2": 23836.4
   },
   "fii": {
     "fii_net_today": 1650.0,
@@ -24,7 +24,7 @@
   "hot_sectors": [
     {
       "name": "Nifty Pharma",
-      "outperformance": 3.25
+      "outperformance": 3.22
     },
     {
       "name": "Nifty Auto",
@@ -32,7 +32,7 @@
     },
     {
       "name": "Nifty Realty",
-      "outperformance": 17.22
+      "outperformance": 17.16
     }
   ],
   "alerts": {
@@ -40,12 +40,12 @@
       {
         "symbol": "BAJAJ-AUTO",
         "name": "Bajaj Auto",
-        "price": 11001.0,
+        "price": 10998.5,
         "upper": 10750.0,
         "expected_target": 11999.0,
         "expected_pct": 11.62,
         "range_pct": 13.15,
-        "vol_ratio": 3.62,
+        "vol_ratio": 3.79,
         "consolidation_start": "25 May 2026",
         "sector_name": "Nifty Auto",
         "cap_cat": "Large Cap"
@@ -53,12 +53,12 @@
       {
         "symbol": "TVSMOTOR",
         "name": "TVSMOTOR",
-        "price": 3904.0,
+        "price": 3907.6,
         "upper": 3775.0,
         "expected_target": 4284.4,
         "expected_pct": 13.49,
         "range_pct": 15.6,
-        "vol_ratio": 2.95,
+        "vol_ratio": 3.05,
         "consolidation_start": "25 May 2026",
         "sector_name": "Nifty Auto",
         "cap_cat": "Large Cap"
@@ -66,12 +66,12 @@
       {
         "symbol": "ABBOTINDIA",
         "name": "ABBOTINDIA",
-        "price": 28880.0,
+        "price": 28900.0,
         "upper": 28170.0,
         "expected_target": 31140.0,
         "expected_pct": 10.54,
         "range_pct": 11.79,
-        "vol_ratio": 1.84,
+        "vol_ratio": 2.07,
         "consolidation_start": "25 May 2026",
         "sector_name": "Nifty Pharma",
         "cap_cat": "Large Cap"
@@ -79,12 +79,27 @@
     ],
     "sector_approaching": [
       {
+        "symbol": "DIVISLAB",
+        "name": "DIVISLAB",
+        "price": 7386.5,
+        "upper": 7390.0,
+        "lower": 6450.5,
+        "pct_from_top": 0.05,
+        "expected_target": 8329.5,
+        "expected_pct": 12.71,
+        "range_pct": 14.56,
+        "vol_drying": false,
+        "consolidation_start": "25 May 2026",
+        "sector_name": "Nifty Pharma",
+        "cap_cat": "Large Cap"
+      },
+      {
         "symbol": "SUNPHARMA",
         "name": "SUNPHARMA",
-        "price": 1944.9,
+        "price": 1943.0,
         "upper": 1962.7,
         "lower": 1752.21,
-        "pct_from_top": 0.91,
+        "pct_from_top": 1.0,
         "expected_target": 2173.19,
         "expected_pct": 10.72,
         "range_pct": 12.01,
@@ -94,27 +109,12 @@
         "cap_cat": "Large Cap"
       },
       {
-        "symbol": "PFIZER",
-        "name": "PFIZER",
-        "price": 4650.4,
-        "upper": 4693.85,
-        "lower": 4290.49,
-        "pct_from_top": 0.93,
-        "expected_target": 5097.2,
-        "expected_pct": 8.59,
-        "range_pct": 9.4,
-        "vol_drying": false,
-        "consolidation_start": "25 May 2026",
-        "sector_name": "Nifty Pharma",
-        "cap_cat": "Large Cap"
-      },
-      {
         "symbol": "TORNTPHARM",
         "name": "TORNTPHARM",
-        "price": 5035.2,
+        "price": 5033.4,
         "upper": 5085.8,
         "lower": 4240.3,
-        "pct_from_top": 0.99,
+        "pct_from_top": 1.03,
         "expected_target": 5931.3,
         "expected_pct": 16.62,
         "range_pct": 19.94,
@@ -124,12 +124,27 @@
         "cap_cat": "Large Cap"
       },
       {
+        "symbol": "PFIZER",
+        "name": "PFIZER",
+        "price": 4644.6,
+        "upper": 4693.85,
+        "lower": 4290.49,
+        "pct_from_top": 1.05,
+        "expected_target": 5097.2,
+        "expected_pct": 8.59,
+        "range_pct": 9.4,
+        "vol_drying": false,
+        "consolidation_start": "25 May 2026",
+        "sector_name": "Nifty Pharma",
+        "cap_cat": "Large Cap"
+      },
+      {
         "symbol": "M&M",
         "name": "M&M",
-        "price": 3177.1,
+        "price": 3175.3,
         "upper": 3217.1,
         "lower": 2870.26,
-        "pct_from_top": 1.24,
+        "pct_from_top": 1.3,
         "expected_target": 3563.94,
         "expected_pct": 10.78,
         "range_pct": 12.08,
@@ -137,127 +152,236 @@
         "consolidation_start": "25 May 2026",
         "sector_name": "Nifty Auto",
         "cap_cat": "Large Cap"
-      },
-      {
-        "symbol": "EICHERMOT",
-        "name": "Eicher Motors",
-        "price": 7631.0,
-        "upper": 7754.0,
-        "lower": 6942.5,
-        "pct_from_top": 1.59,
-        "expected_target": 8565.5,
-        "expected_pct": 10.47,
-        "range_pct": 11.69,
-        "vol_drying": false,
-        "consolidation_start": "25 May 2026",
-        "sector_name": "Nifty Auto",
-        "cap_cat": "NA"
       }
     ],
     "ema_pullback": [
       {
         "symbol": "WAAREERTL",
         "name": "Waaree Renewab.",
-        "price": 1018.6,
-        "ema20": 1004.21,
-        "ema50": 991.07,
-        "pct_above_ema": 1.43,
-        "vol_ratio": 1.32,
+        "price": 1019.2,
+        "ema20": 1004.27,
+        "ema50": 991.1,
+        "pct_above_ema": 1.49,
+        "vol_ratio": 1.55,
         "cap_cat": "Mid Cap",
-        "valuation": ""
+        "valuation": "Fair",
+        "fii_change": 0.13
+      },
+      {
+        "symbol": "SEDEMAC",
+        "name": "Sedemac Mechatro",
+        "price": 2775.2,
+        "ema20": 2709.99,
+        "ema50": 2521.14,
+        "pct_above_ema": 2.41,
+        "vol_ratio": 1.25,
+        "cap_cat": "Mid Cap",
+        "valuation": "Fair",
+        "fii_change": 1.75
       },
       {
         "symbol": "PIDILITIND",
         "name": "Pidilite Inds.",
-        "price": 1604.7,
-        "ema20": 1576.75,
-        "ema50": 1539.1,
-        "pct_above_ema": 1.77,
-        "vol_ratio": 1.47,
+        "price": 1608.6,
+        "ema20": 1577.12,
+        "ema50": 1539.26,
+        "pct_above_ema": 2.0,
+        "vol_ratio": 1.84,
         "cap_cat": "Large Cap",
-        "valuation": ""
+        "valuation": "Fair",
+        "fii_change": -0.06
       },
       {
         "symbol": "ADVAIT",
         "name": "Advait Energy",
-        "price": 2295.0,
-        "ema20": 2205.56,
-        "ema50": 2158.8,
-        "pct_above_ema": 4.06,
-        "vol_ratio": 1.98,
+        "price": 2296.2,
+        "ema20": 2205.68,
+        "ema50": 2158.84,
+        "pct_above_ema": 4.1,
+        "vol_ratio": 2.04,
         "cap_cat": "Small Cap",
-        "valuation": ""
+        "valuation": "Fair",
+        "fii_change": 0.47
+      },
+      {
+        "symbol": "BPCL",
+        "name": "B P C L",
+        "price": 314.0,
+        "ema20": 310.47,
+        "ema50": 307.74,
+        "pct_above_ema": 1.14,
+        "vol_ratio": 1.4,
+        "cap_cat": "Large Cap",
+        "valuation": "Fair",
+        "fii_change": -2.73
       },
       {
         "symbol": "IIFLCAPS",
         "name": "IIFL Capital",
-        "price": 342.8,
-        "ema20": 339.31,
-        "ema50": 336.53,
-        "pct_above_ema": 1.03,
-        "vol_ratio": 3.31,
+        "price": 342.95,
+        "ema20": 339.32,
+        "ema50": 336.54,
+        "pct_above_ema": 1.07,
+        "vol_ratio": 3.58,
         "cap_cat": "NA",
-        "valuation": ""
+        "valuation": "",
+        "fii_change": null
       },
       {
         "symbol": "PRIVISCL",
         "name": "Privi Speci.",
-        "price": 3671.3,
-        "ema20": 3628.92,
-        "ema50": 3489.74,
-        "pct_above_ema": 1.17,
-        "vol_ratio": 1.78,
-        "cap_cat": "Mid Cap",
-        "valuation": ""
+        "price": 3676.4,
+        "ema20": 3629.41,
+        "ema50": 3489.94,
+        "pct_above_ema": 1.29,
+        "vol_ratio": 2.14,
+        "cap_cat": "NA",
+        "valuation": "",
+        "fii_change": null
       },
       {
-        "symbol": "CALSOFT",
-        "name": "California Soft.",
-        "price": 22.4,
-        "ema20": 22.38,
-        "ema50": 21.38,
-        "pct_above_ema": 0.11,
-        "vol_ratio": 1.66,
+        "symbol": "SUPERHOUSE",
+        "name": "Superhouse Ltd",
+        "price": 164.38,
+        "ema20": 160.68,
+        "ema50": 156.91,
+        "pct_above_ema": 2.3,
+        "vol_ratio": 1.84,
         "cap_cat": "Small Cap",
-        "valuation": ""
+        "valuation": "Fair",
+        "fii_change": 0.0
       }
     ],
     "approaching": [
       {
+        "symbol": "PIDILITIND",
+        "name": "Pidilite Inds.",
+        "price": 1608.6,
+        "resistance": 1611.22,
+        "pct_away": 0.16,
+        "vol_ratio": 1.73,
+        "formed_date": "08 Dec 2024",
+        "touch_count": 3,
+        "cap_cat": "Large Cap",
+        "valuation": "Fair",
+        "fii_change": -0.06
+      },
+      {
+        "symbol": "LUPIN",
+        "name": "Lupin",
+        "price": 2406.9,
+        "resistance": 2476.05,
+        "pct_away": 2.79,
+        "vol_ratio": 1.61,
+        "formed_date": "10 May 2026",
+        "touch_count": 1,
+        "cap_cat": "Large Cap",
+        "valuation": "Fair",
+        "fii_change": 0.72
+      },
+      {
         "symbol": "ASKAUTOLTD",
         "name": "ASK Automotive",
-        "price": 485.2,
+        "price": 485.3,
         "resistance": 505.27,
-        "pct_away": 3.97,
-        "vol_ratio": 2.27,
+        "pct_away": 3.95,
+        "vol_ratio": 2.63,
         "formed_date": "28 Dec 2025",
         "touch_count": 2,
-        "cap_cat": "NA",
-        "valuation": ""
+        "cap_cat": "Mid Cap",
+        "valuation": "Fair",
+        "fii_change": 0.21
       },
       {
         "symbol": "SENCO",
         "name": "Senco Gold",
-        "price": 389.65,
+        "price": 391.65,
         "resistance": 401.8,
-        "pct_away": 3.02,
-        "vol_ratio": 3.68,
+        "pct_away": 2.53,
+        "vol_ratio": 4.03,
         "formed_date": "14 Sep 2025",
         "touch_count": 3,
         "cap_cat": "Mid Cap",
-        "valuation": ""
+        "valuation": "Fair",
+        "fii_change": -0.72
       },
       {
-        "symbol": "TVSHLTD",
-        "name": "TVS Holdings",
-        "price": 14850.0,
-        "resistance": 14936.13,
-        "pct_away": 0.58,
-        "vol_ratio": 15.46,
-        "formed_date": "10 May 2026",
-        "touch_count": 2,
-        "cap_cat": "Large Cap",
-        "valuation": ""
+        "symbol": "526479",
+        "name": "Sky Industries",
+        "price": 110.47,
+        "resistance": 115.73,
+        "pct_away": 4.54,
+        "vol_ratio": 21.53,
+        "formed_date": "18 Sep 2022",
+        "touch_count": 1,
+        "cap_cat": "Small Cap",
+        "valuation": "Fair",
+        "fii_change": null
+      },
+      {
+        "symbol": "EMAMIPAP",
+        "name": "Emami Paper",
+        "price": 118.63,
+        "resistance": 122.0,
+        "pct_away": 2.76,
+        "vol_ratio": 33.43,
+        "formed_date": "31 Aug 2025",
+        "touch_count": 1,
+        "cap_cat": "Small Cap",
+        "valuation": "Fair",
+        "fii_change": 0.01
+      },
+      {
+        "symbol": "505712",
+        "name": "Him Teknoforg.",
+        "price": 257.85,
+        "resistance": 263.37,
+        "pct_away": 2.09,
+        "vol_ratio": 19.18,
+        "formed_date": "22 Sep 2024",
+        "touch_count": 1,
+        "cap_cat": "Small Cap",
+        "valuation": "Fair",
+        "fii_change": 0.0
+      },
+      {
+        "symbol": "SREEL",
+        "name": "Sreeleathers",
+        "price": 225.65,
+        "resistance": 228.91,
+        "pct_away": 1.42,
+        "vol_ratio": 3.34,
+        "formed_date": "25 Jan 2026",
+        "touch_count": 1,
+        "cap_cat": "Small Cap",
+        "valuation": "Fair",
+        "fii_change": 0.0
+      },
+      {
+        "symbol": "KARURVYSYA",
+        "name": "Karur Vysya Bank",
+        "price": 339.15,
+        "resistance": 343.45,
+        "pct_away": 1.25,
+        "vol_ratio": 2.9,
+        "formed_date": "01 Mar 2026",
+        "touch_count": 1,
+        "cap_cat": "NA",
+        "valuation": "",
+        "fii_change": null
+      },
+      {
+        "symbol": "BLUESTONE",
+        "name": "Bluestone Jewel",
+        "price": 776.05,
+        "resistance": 793.0,
+        "pct_away": 2.14,
+        "vol_ratio": 26.26,
+        "formed_date": "12 Oct 2025",
+        "touch_count": 1,
+        "cap_cat": "NA",
+        "valuation": "",
+        "fii_change": null
       }
     ],
     "retest": [],
@@ -274,18 +398,18 @@
         "target": 536.75,
         "target_pct": 5.45,
         "stop_loss": 481.25,
-        "cap_cat": "Small Cap",
+        "cap_cat": "NA",
         "potential_pct": 5.45
       },
       {
         "symbol": "BAJAJ-AUTO",
         "name": "Bajaj Auto",
-        "price": 11002.0,
+        "price": 10998.5,
         "box_top": 9930.0,
         "box_bottom": 9501.0,
         "box_range_pct": 4.52,
         "box_top_date": "25 Jun 2026",
-        "vol_ratio": 3.52,
+        "vol_ratio": 3.7,
         "target": 10359.0,
         "target_pct": 4.32,
         "stop_loss": 9501.0,
@@ -295,7 +419,7 @@
       {
         "symbol": "THYROCARE",
         "name": "Thyrocare Tech.",
-        "price": 560.45,
+        "price": 557.95,
         "box_top": 548.15,
         "box_bottom": 505.5,
         "box_range_pct": 8.44,
@@ -310,22 +434,22 @@
       {
         "symbol": "RRKABEL",
         "name": "R R Kabel",
-        "price": 2429.0,
+        "price": 2432.4,
         "box_top": 2309.6,
         "box_bottom": 2164.0,
         "box_range_pct": 6.73,
         "box_top_date": "07 Jul 2026",
-        "vol_ratio": 2.2,
+        "vol_ratio": 2.41,
         "target": 2455.2,
         "target_pct": 6.3,
         "stop_loss": 2164.0,
-        "cap_cat": "NA",
+        "cap_cat": "Large Cap",
         "potential_pct": 6.3
       },
       {
         "symbol": "GROWW",
         "name": "Billionbrains",
-        "price": 204.19,
+        "price": 203.9,
         "box_top": 207.2,
         "box_bottom": 188.91,
         "box_range_pct": 9.68,
@@ -334,15 +458,33 @@
         "target": 225.49,
         "target_pct": 8.83,
         "stop_loss": 188.91,
-        "cap_cat": "NA",
+        "cap_cat": "Large Cap",
         "potential_pct": 8.83
       }
     ],
     "top_picks": [
       {
+        "symbol": "PIDILITIND",
+        "name": "Pidilite Inds.",
+        "price": 1608.6,
+        "cap_cat": "NA",
+        "tool_count": 3,
+        "tools": [
+          "\ud83d\udfe1 Approaching Breakout",
+          "\ud83d\udfe2 EMA Pullback",
+          "\ud83d\udce6 Darvas Approaching"
+        ],
+        "conviction": 3.0,
+        "fii_change": -0.06,
+        "valuation": "Fair",
+        "inst_deal": false,
+        "inst_deal_info": "",
+        "potential_pct": 4.11
+      },
+      {
         "symbol": "BAJAJ-AUTO",
         "name": "Bajaj Auto",
-        "price": 11001.0,
+        "price": 10998.5,
         "cap_cat": "Large Cap",
         "tool_count": 2,
         "tools": [
@@ -350,41 +492,43 @@
           "\ud83c\udfaf Darvas Fresh"
         ],
         "conviction": 2.0,
-        "valuation": "",
+        "fii_change": 0.19,
+        "valuation": "Fair",
         "inst_deal": false,
         "inst_deal_info": "",
         "potential_pct": 4.32
       },
       {
-        "symbol": "PIDILITIND",
-        "name": "Pidilite Inds.",
-        "price": 1604.7,
+        "symbol": "505712",
+        "name": "Him Teknoforg.",
+        "price": 257.85,
         "cap_cat": "NA",
         "tool_count": 2,
         "tools": [
-          "\ud83d\udfe2 EMA Pullback",
-          "\ud83d\udce6 Darvas Approaching"
+          "\ud83d\udfe1 Approaching Breakout",
+          "\u26a1 EMA Crossover"
         ],
         "conviction": 2.0,
-        "valuation": "",
+        "fii_change": 0.0,
+        "valuation": "Fair",
         "inst_deal": false,
         "inst_deal_info": "",
-        "potential_pct": 4.11
+        "potential_pct": 0
       }
     ],
     "kd_bullish": [
       {
         "symbol": "KPITTECH",
         "name": "KPIT Technologi.",
-        "price": 555.85,
-        "rsi": 26.51,
-        "momentum": -142.7,
+        "price": 554.9,
+        "rsi": 26.36,
+        "momentum": -143.65,
         "prior_low": 558.65,
         "signal_date": "26 Jul 2026",
         "timeframe": "Weekly",
         "bars_ago": 0,
-        "cap_cat": "NA",
-        "valuation": "",
+        "cap_cat": "Mid Cap",
+        "valuation": "Fair",
         "potential_pct": 0
       },
       {
@@ -397,81 +541,128 @@
         "signal_date": "17 Jul 2026",
         "timeframe": "Daily",
         "bars_ago": 2,
-        "cap_cat": "Small Cap",
+        "cap_cat": "NA",
         "valuation": "",
         "potential_pct": 0
       }
     ],
-    "ema_crossover": [],
+    "ema_crossover": [
+      {
+        "symbol": "MRPL",
+        "name": "M R P L",
+        "price": 174.66,
+        "ema21": 162.03,
+        "ema63": 160.79,
+        "sma200": 162.78,
+        "vol_ratio": 2.35,
+        "crossover_date": "21 Jul 2026",
+        "days_ago": 2,
+        "cap_cat": "Large Cap",
+        "valuation": "Fair",
+        "potential_pct": 0
+      },
+      {
+        "symbol": "KROSS",
+        "name": "Kross Ltd",
+        "price": 210.7,
+        "ema21": 191.95,
+        "ema63": 189.6,
+        "sma200": 188.08,
+        "vol_ratio": 4.03,
+        "crossover_date": "21 Jul 2026",
+        "days_ago": 2,
+        "cap_cat": "NA",
+        "valuation": "",
+        "potential_pct": 0
+      },
+      {
+        "symbol": "505712",
+        "name": "Him Teknoforg.",
+        "price": 257.85,
+        "ema21": 209.23,
+        "ema63": 206.5,
+        "sma200": 210.78,
+        "vol_ratio": 8.74,
+        "crossover_date": "21 Jul 2026",
+        "days_ago": 1,
+        "cap_cat": "Small Cap",
+        "valuation": "Fair",
+        "potential_pct": 0
+      }
+    ],
     "darvas_approaching": [
       {
         "symbol": "PIDILITIND",
         "name": "Pidilite Inds.",
-        "price": 1604.7,
+        "price": 1608.6,
         "box_top": 1613.8,
         "box_bottom": 1547.4,
         "box_range_pct": 4.29,
         "box_top_date": "10 Jul 2026",
-        "pct_from_top": 0.56,
+        "pct_from_top": 0.32,
         "target": 1680.2,
         "target_pct": 4.11,
         "stop_loss": 1547.4,
         "cap_cat": "Large Cap",
-        "valuation": ""
+        "valuation": "Fair",
+        "fii_change": -0.06
       },
       {
         "symbol": "MONARCH",
         "name": "Monarch Networth",
-        "price": 356.05,
+        "price": 356.35,
         "box_top": 361.0,
         "box_bottom": 341.05,
         "box_range_pct": 5.85,
         "box_top_date": "06 Jul 2026",
-        "pct_from_top": 1.37,
+        "pct_from_top": 1.29,
         "target": 380.95,
         "target_pct": 5.53,
         "stop_loss": 341.05,
         "cap_cat": "Small Cap",
-        "valuation": ""
+        "valuation": "Fair",
+        "fii_change": 1.3
       },
       {
         "symbol": "KRISHANA",
         "name": "Krishana Phosch.",
-        "price": 142.9,
+        "price": 143.65,
         "box_top": 146.3,
         "box_bottom": 126.25,
         "box_range_pct": 15.88,
         "box_top_date": "07 Jul 2026",
-        "pct_from_top": 2.32,
+        "pct_from_top": 1.81,
         "target": 166.35,
         "target_pct": 13.7,
         "stop_loss": 126.25,
         "cap_cat": "Small Cap",
-        "valuation": ""
+        "valuation": "Fair",
+        "fii_change": 0.11
       },
       {
         "symbol": "KERNEX",
         "name": "Kernex Microsys.",
-        "price": 2192.6,
+        "price": 2195.6,
         "box_top": 2245.9,
         "box_bottom": 2064.4,
         "box_range_pct": 8.79,
         "box_top_date": "08 Jul 2026",
-        "pct_from_top": 2.37,
+        "pct_from_top": 2.24,
         "target": 2427.4,
         "target_pct": 8.08,
         "stop_loss": 2064.4,
-        "cap_cat": "Small Cap",
-        "valuation": ""
+        "cap_cat": "NA",
+        "valuation": "",
+        "fii_change": null
       }
     ]
   },
   "summary": {
-    "total_scanned": 280,
+    "total_scanned": 319,
     "sector_fresh": 3,
     "sector_approaching": 5,
-    "ema_pullback": 6,
-    "approaching": 3,
+    "ema_pullback": 8,
+    "approaching": 10,
     "retest": 0
   }
 }
