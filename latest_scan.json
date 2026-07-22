@@ -1,5 +1,5 @@
 {
-  "scan_time": "22 Jul 2026  18:13 IST",
+  "scan_time": "22 Jul 2026  18:33 IST",
   "regime": {
     "nifty_above_ema": false,
     "nifty_close": 23996.2,
@@ -192,18 +192,6 @@
         "fii_change": null
       },
       {
-        "symbol": "AVALON",
-        "name": "Avalon Tech",
-        "price": 1743.7,
-        "ema20": 1721.49,
-        "ema50": 1607.37,
-        "pct_above_ema": 1.29,
-        "vol_ratio": 1.35,
-        "cap_cat": "Mid Cap",
-        "valuation": "Fair",
-        "fii_change": 1.39
-      },
-      {
         "symbol": "RACLGEAR",
         "name": "RACLGEAR",
         "price": 1347.3,
@@ -262,6 +250,18 @@
         "cap_cat": "Small Cap",
         "valuation": "Fair",
         "fii_change": -0.16
+      },
+      {
+        "symbol": "SUPERHOUSE",
+        "name": "Superhouse Ltd",
+        "price": 164.38,
+        "ema20": 160.68,
+        "ema50": 156.91,
+        "pct_above_ema": 2.3,
+        "vol_ratio": 1.84,
+        "cap_cat": "Small Cap",
+        "valuation": "Fair",
+        "fii_change": 0.0
       },
       {
         "symbol": "KIRANVYPAR",
@@ -343,43 +343,43 @@
         "fii_change": -0.72
       },
       {
-        "symbol": "TVSHLTD",
-        "name": "TVS Holdings",
-        "price": 14847.0,
-        "resistance": 14936.13,
-        "pct_away": 0.6,
-        "vol_ratio": 16.99,
-        "formed_date": "10 May 2026",
-        "touch_count": 2,
-        "cap_cat": "Large Cap",
-        "valuation": "Fair",
-        "fii_change": -0.04
-      },
-      {
-        "symbol": "544191",
-        "name": "Purple Finance",
-        "price": 73.99,
-        "resistance": 75.1,
-        "pct_away": 1.48,
-        "vol_ratio": 3.06,
-        "formed_date": "10 May 2026",
-        "touch_count": 1,
-        "cap_cat": "Small Cap",
-        "valuation": "",
-        "fii_change": 0.0
-      },
-      {
-        "symbol": "SWARAJ",
-        "name": "Swaraj Suiting",
-        "price": 363.75,
-        "resistance": 364.7,
-        "pct_away": 0.26,
-        "vol_ratio": 1.8,
-        "formed_date": "04 Aug 2024",
+        "symbol": "HECPROJECT",
+        "name": "HEC Infra Proj.",
+        "price": 143.06,
+        "resistance": 144.3,
+        "pct_away": 0.86,
+        "vol_ratio": 9.64,
+        "formed_date": "25 Jan 2026",
         "touch_count": 1,
         "cap_cat": "Small Cap",
         "valuation": "Fair",
-        "fii_change": -0.06
+        "fii_change": null
+      },
+      {
+        "symbol": "GANESHBE",
+        "name": "Ganesh Benzopl.",
+        "price": 109.32,
+        "resistance": 112.2,
+        "pct_away": 2.57,
+        "vol_ratio": 37.66,
+        "formed_date": "30 Jan 2022",
+        "touch_count": 1,
+        "cap_cat": "Small Cap",
+        "valuation": "Fair",
+        "fii_change": 0.39
+      },
+      {
+        "symbol": "526479",
+        "name": "Sky Industries",
+        "price": 110.47,
+        "resistance": 115.73,
+        "pct_away": 4.54,
+        "vol_ratio": 21.53,
+        "formed_date": "18 Sep 2022",
+        "touch_count": 1,
+        "cap_cat": "Small Cap",
+        "valuation": "Fair",
+        "fii_change": null
       },
       {
         "symbol": "EMAMIPAP",
@@ -395,32 +395,6 @@
         "fii_change": 0.01
       },
       {
-        "symbol": "GANDHAR",
-        "name": "Gandhar Oil Ref.",
-        "price": 236.19,
-        "resistance": 236.54,
-        "pct_away": 0.15,
-        "vol_ratio": 4.91,
-        "formed_date": "05 May 2024",
-        "touch_count": 1,
-        "cap_cat": "Small Cap",
-        "valuation": "Fair",
-        "fii_change": 1.13
-      },
-      {
-        "symbol": "DATAPATTNS",
-        "name": "Data Pattern",
-        "price": 4782.8,
-        "resistance": 4955.9,
-        "pct_away": 3.49,
-        "vol_ratio": 7.28,
-        "formed_date": "21 Jun 2026",
-        "touch_count": 1,
-        "cap_cat": "Large Cap",
-        "valuation": "Fair",
-        "fii_change": 0.03
-      },
-      {
         "symbol": "CYIENTDLM",
         "name": "Cyient DLM",
         "price": 698.15,
@@ -432,6 +406,71 @@
         "cap_cat": "NA",
         "valuation": "",
         "fii_change": null
+      },
+      {
+        "symbol": "SICALLOG",
+        "name": "Sical Logistics",
+        "price": 99.26,
+        "resistance": 102.24,
+        "pct_away": 2.91,
+        "vol_ratio": 3.2,
+        "formed_date": "21 Jun 2026",
+        "touch_count": 2,
+        "cap_cat": "Small Cap",
+        "valuation": "",
+        "fii_change": 0.0
+      },
+      {
+        "symbol": "505712",
+        "name": "Him Teknoforg.",
+        "price": 257.85,
+        "resistance": 263.37,
+        "pct_away": 2.09,
+        "vol_ratio": 19.18,
+        "formed_date": "22 Sep 2024",
+        "touch_count": 1,
+        "cap_cat": "Small Cap",
+        "valuation": "Fair",
+        "fii_change": 0.0
+      },
+      {
+        "symbol": "KARURVYSYA",
+        "name": "Karur Vysya Bank",
+        "price": 339.15,
+        "resistance": 343.45,
+        "pct_away": 1.25,
+        "vol_ratio": 2.9,
+        "formed_date": "01 Mar 2026",
+        "touch_count": 1,
+        "cap_cat": "NA",
+        "valuation": "",
+        "fii_change": null
+      },
+      {
+        "symbol": "BLUESTONE",
+        "name": "Bluestone Jewel",
+        "price": 776.05,
+        "resistance": 793.0,
+        "pct_away": 2.14,
+        "vol_ratio": 26.26,
+        "formed_date": "12 Oct 2025",
+        "touch_count": 1,
+        "cap_cat": "NA",
+        "valuation": "",
+        "fii_change": null
+      },
+      {
+        "symbol": "UFLEX",
+        "name": "Uflex",
+        "price": 490.7,
+        "resistance": 493.4,
+        "pct_away": 0.55,
+        "vol_ratio": 251.02,
+        "formed_date": "23 Feb 2025",
+        "touch_count": 4,
+        "cap_cat": "Small Cap",
+        "valuation": "Fair",
+        "fii_change": 0.83
       },
       {
         "symbol": "AEGISVOPAK",
@@ -458,19 +497,6 @@
         "cap_cat": "Mid Cap",
         "valuation": "Fair",
         "fii_change": 0.03
-      },
-      {
-        "symbol": "BLUESTONE",
-        "name": "BLUESTONE",
-        "price": 776.05,
-        "resistance": 793.0,
-        "pct_away": 2.14,
-        "vol_ratio": 26.26,
-        "formed_date": "12 Oct 2025",
-        "touch_count": 1,
-        "cap_cat": "NA",
-        "valuation": "",
-        "fii_change": null
       },
       {
         "symbol": "SANATHAN",
@@ -517,21 +543,6 @@
         "potential_pct": 10.19
       },
       {
-        "symbol": "SCPL",
-        "name": "Sheetal Cool",
-        "price": 582.6,
-        "box_top": 540.0,
-        "box_bottom": 477.6,
-        "box_range_pct": 13.07,
-        "box_top_date": "07 Jul 2026",
-        "vol_ratio": 13.47,
-        "target": 602.4,
-        "target_pct": 11.56,
-        "stop_loss": 477.6,
-        "cap_cat": "Small Cap",
-        "potential_pct": 11.56
-      },
-      {
         "symbol": "ACCENTMIC",
         "name": "Accent Microcell",
         "price": 509.55,
@@ -563,7 +574,7 @@
       },
       {
         "symbol": "GCSL",
-        "name": "Gretex Corporate",
+        "name": "GCSL",
         "price": 523.55,
         "box_top": 500.32,
         "box_bottom": 466.01,
@@ -575,9 +586,42 @@
         "stop_loss": 466.01,
         "cap_cat": "NA",
         "potential_pct": 6.86
+      },
+      {
+        "symbol": "BAJAJ-AUTO",
+        "name": "Bajaj Auto",
+        "price": 10998.5,
+        "box_top": 9930.0,
+        "box_bottom": 9501.0,
+        "box_range_pct": 4.52,
+        "box_top_date": "25 Jun 2026",
+        "vol_ratio": 3.7,
+        "target": 10359.0,
+        "target_pct": 4.32,
+        "stop_loss": 9501.0,
+        "cap_cat": "Large Cap",
+        "potential_pct": 4.32
       }
     ],
     "top_picks": [
+      {
+        "symbol": "BAJAJ-AUTO",
+        "name": "Bajaj Auto",
+        "price": 10998.5,
+        "cap_cat": "Large Cap",
+        "tool_count": 3,
+        "tools": [
+          "\ud83d\ude80 Sector Fresh BK (Tool D)",
+          "\ud83c\udfaf Darvas Fresh (Tool E)",
+          "\ud83c\udf00 VCP Breakout (Tool I)"
+        ],
+        "conviction": 3.0,
+        "fii_change": 0.19,
+        "valuation": "Fair",
+        "inst_deal": false,
+        "inst_deal_info": "",
+        "potential_pct": 10.0
+      },
       {
         "symbol": "PIDILITIND",
         "name": "Pidilite Inds.",
@@ -598,7 +642,7 @@
       },
       {
         "symbol": "GCSL",
-        "name": "Gretex Corporate",
+        "name": "GCSL",
         "price": 523.55,
         "cap_cat": "NA",
         "tool_count": 2,
@@ -612,6 +656,23 @@
         "inst_deal": false,
         "inst_deal_info": "",
         "potential_pct": 21.1
+      },
+      {
+        "symbol": "SGFIN",
+        "name": "SGFIN",
+        "price": 665.65,
+        "cap_cat": "Small Cap",
+        "tool_count": 2,
+        "tools": [
+          "\ud83d\udce6 Darvas Approaching (Tool E)",
+          "\ud83c\udf00 VCP Breakout (Tool I)"
+        ],
+        "conviction": 2.0,
+        "fii_change": 0.28,
+        "valuation": "Fair",
+        "inst_deal": false,
+        "inst_deal_info": "",
+        "potential_pct": 13.65
       },
       {
         "symbol": "AYE",
@@ -631,6 +692,23 @@
         "potential_pct": 13.55
       },
       {
+        "symbol": "KARURVYSYA",
+        "name": "Karur Vysya Bank",
+        "price": 339.15,
+        "cap_cat": "NA",
+        "tool_count": 2,
+        "tools": [
+          "\ud83d\udfe1 Approaching Breakout (Tool B)",
+          "\ud83c\udf00 VCP Breakout (Tool I)"
+        ],
+        "conviction": 2.0,
+        "fii_change": null,
+        "valuation": "",
+        "inst_deal": false,
+        "inst_deal_info": "",
+        "potential_pct": 10.0
+      },
+      {
         "symbol": "AEGISVOPAK",
         "name": "AEGISVOPAK",
         "price": 295.66,
@@ -646,6 +724,144 @@
         "inst_deal": false,
         "inst_deal_info": "",
         "potential_pct": 9.92
+      },
+      {
+        "symbol": "505712",
+        "name": "Him Teknoforg.",
+        "price": 257.85,
+        "cap_cat": "NA",
+        "tool_count": 2,
+        "tools": [
+          "\ud83d\udfe1 Approaching Breakout (Tool B)",
+          "\u26a1 EMA Crossover (Tool F)"
+        ],
+        "conviction": 2.0,
+        "fii_change": 0.0,
+        "valuation": "Fair",
+        "inst_deal": false,
+        "inst_deal_info": "",
+        "potential_pct": 0
+      }
+    ],
+    "vcp_breakout": [
+      {
+        "symbol": "BAJAJ-AUTO",
+        "name": "Bajaj Auto",
+        "price": 10998.5,
+        "ref_high": 10268.0,
+        "handle_low": 9501.0,
+        "stop_loss": 10448.57,
+        "target": 12098.35,
+        "target_pct": 10.0,
+        "vol_ratio": 3.21,
+        "n_legs": 2,
+        "leg_range_pct": 7.47,
+        "cap_cat": "Large Cap",
+        "valuation": "Fair",
+        "fii_change": 0.19,
+        "potential_pct": 10.0
+      },
+      {
+        "symbol": "SHRIPISTON",
+        "name": "SPR Auto Technologies",
+        "price": 4394.4,
+        "ref_high": 4416.2,
+        "handle_low": 4083.1,
+        "stop_loss": 4174.68,
+        "target": 4833.84,
+        "target_pct": 10.0,
+        "vol_ratio": 1.53,
+        "n_legs": 2,
+        "leg_range_pct": 7.54,
+        "cap_cat": "Mid Cap",
+        "valuation": "Fair",
+        "fii_change": 0.56,
+        "potential_pct": 10.0
+      },
+      {
+        "symbol": "ADOR",
+        "name": "Ador Welding",
+        "price": 1477.9,
+        "ref_high": 1188.59,
+        "handle_low": 1074.15,
+        "stop_loss": 1404.01,
+        "target": 1625.69,
+        "target_pct": 10.0,
+        "vol_ratio": 5.51,
+        "n_legs": 2,
+        "leg_range_pct": 9.63,
+        "cap_cat": "Small Cap",
+        "valuation": "Fair",
+        "fii_change": 0.68,
+        "potential_pct": 10.0
+      },
+      {
+        "symbol": "MBAPL",
+        "name": "M B Agro Prod.",
+        "price": 139.25,
+        "ref_high": 115.5,
+        "handle_low": 109.01,
+        "stop_loss": 132.29,
+        "target": 153.18,
+        "target_pct": 10.0,
+        "vol_ratio": 2.57,
+        "n_legs": 2,
+        "leg_range_pct": 5.62,
+        "cap_cat": "Mid Cap",
+        "valuation": "Fair",
+        "fii_change": 0.21,
+        "potential_pct": 10.0
+      },
+      {
+        "symbol": "KARURVYSYA",
+        "name": "Karur Vysya Bank",
+        "price": 339.15,
+        "ref_high": 301.65,
+        "handle_low": 288.1,
+        "stop_loss": 322.19,
+        "target": 373.06,
+        "target_pct": 10.0,
+        "vol_ratio": 11.03,
+        "n_legs": 2,
+        "leg_range_pct": 4.49,
+        "cap_cat": "NA",
+        "valuation": "",
+        "fii_change": null,
+        "potential_pct": 10.0
+      },
+      {
+        "symbol": "SGFIN",
+        "name": "SGFIN",
+        "price": 665.65,
+        "ref_high": 630.0,
+        "handle_low": 575.25,
+        "stop_loss": 632.37,
+        "target": 732.22,
+        "target_pct": 10.0,
+        "vol_ratio": 1.69,
+        "n_legs": 2,
+        "leg_range_pct": 8.69,
+        "cap_cat": "Small Cap",
+        "valuation": "Fair",
+        "fii_change": 0.28,
+        "potential_pct": 10.0
+      },
+      {
+        "symbol": "SGMART",
+        "name": "SGMART",
+        "price": 660.7,
+        "ref_high": 633.0,
+        "handle_low": 575.65,
+        "stop_loss": 627.67,
+        "target": 726.77,
+        "target_pct": 10.0,
+        "vol_ratio": 3.79,
+        "n_legs": 2,
+        "leg_range_pct": 9.06,
+        "cap_cat": "Mid Cap",
+        "valuation": "Fair",
+        "fii_change": 0.04,
+        "potential_pct": 10.0
       }
     ],
     "ipo_breakout": [
@@ -665,23 +881,8 @@
         "potential_pct": 20.07
       },
       {
-        "symbol": "GCSL",
-        "name": "Gretex Corporate",
-        "price": 523.55,
-        "ref_high": 517.79,
-        "stop_loss": 408.54,
-        "target": 627.04,
-        "target_pct": 21.1,
-        "vol_ratio": 1.96,
-        "listing_date": "04 Sep 2025",
-        "cap_cat": "NA",
-        "valuation": "",
-        "fii_change": null,
-        "potential_pct": 21.1
-      },
-      {
         "symbol": "AARNAV",
-        "name": "AARNAV",
+        "name": "Aarnav Fashions",
         "price": 28.91,
         "ref_high": 30.45,
         "stop_loss": 23.51,
@@ -693,6 +894,21 @@
         "valuation": "Fair",
         "fii_change": null,
         "potential_pct": 22.79
+      },
+      {
+        "symbol": "BNALTD",
+        "name": "B & A",
+        "price": 496.0,
+        "ref_high": 465.0,
+        "stop_loss": 317.0,
+        "target": 613.0,
+        "target_pct": 31.83,
+        "vol_ratio": 64.59,
+        "listing_date": "20 Apr 2026",
+        "cap_cat": "NA",
+        "valuation": "",
+        "fii_change": null,
+        "potential_pct": 31.83
       },
       {
         "symbol": "AYE",
@@ -710,19 +926,19 @@
         "potential_pct": 13.55
       },
       {
-        "symbol": "BNALTD",
-        "name": "BNALTD",
-        "price": 496.0,
-        "ref_high": 465.0,
-        "stop_loss": 317.0,
-        "target": 613.0,
-        "target_pct": 31.83,
-        "vol_ratio": 64.59,
-        "listing_date": "20 Apr 2026",
+        "symbol": "GCSL",
+        "name": "GCSL",
+        "price": 523.55,
+        "ref_high": 517.79,
+        "stop_loss": 408.54,
+        "target": 627.04,
+        "target_pct": 21.1,
+        "vol_ratio": 1.96,
+        "listing_date": "04 Sep 2025",
         "cap_cat": "NA",
         "valuation": "",
         "fii_change": null,
-        "potential_pct": 31.83
+        "potential_pct": 21.1
       },
       {
         "symbol": "GSPCROP",
@@ -874,6 +1090,34 @@
     ],
     "ema_crossover": [
       {
+        "symbol": "MRPL",
+        "name": "M R P L",
+        "price": 174.66,
+        "ema21": 162.03,
+        "ema63": 160.79,
+        "sma200": 162.78,
+        "vol_ratio": 2.35,
+        "crossover_date": "21 Jul 2026",
+        "days_ago": 2,
+        "cap_cat": "Large Cap",
+        "valuation": "Fair",
+        "potential_pct": 0
+      },
+      {
+        "symbol": "505712",
+        "name": "Him Teknoforg.",
+        "price": 257.85,
+        "ema21": 209.23,
+        "ema63": 206.5,
+        "sma200": 210.78,
+        "vol_ratio": 8.74,
+        "crossover_date": "21 Jul 2026",
+        "days_ago": 1,
+        "cap_cat": "Small Cap",
+        "valuation": "Fair",
+        "potential_pct": 0
+      },
+      {
         "symbol": "KROSS",
         "name": "KROSS",
         "price": 210.7,
@@ -938,22 +1182,6 @@
         "fii_change": null
       },
       {
-        "symbol": "KAMDHENU",
-        "name": "Kamdhenu",
-        "price": 33.76,
-        "box_top": 34.18,
-        "box_bottom": 31.01,
-        "box_range_pct": 10.22,
-        "box_top_date": "10 Jul 2026",
-        "pct_from_top": 1.23,
-        "target": 37.35,
-        "target_pct": 9.27,
-        "stop_loss": 31.01,
-        "cap_cat": "Small Cap",
-        "valuation": "Fair",
-        "fii_change": 0.18
-      },
-      {
         "symbol": "MONARCH",
         "name": "Monarch Networth",
         "price": 356.35,
@@ -968,15 +1196,31 @@
         "cap_cat": "Small Cap",
         "valuation": "Fair",
         "fii_change": 1.3
+      },
+      {
+        "symbol": "SGFIN",
+        "name": "SGFIN",
+        "price": 665.65,
+        "box_top": 676.5,
+        "box_bottom": 584.15,
+        "box_range_pct": 15.81,
+        "box_top_date": "10 Jul 2026",
+        "pct_from_top": 1.6,
+        "target": 768.85,
+        "target_pct": 13.65,
+        "stop_loss": 584.15,
+        "cap_cat": "Small Cap",
+        "valuation": "Fair",
+        "fii_change": 0.28
       }
     ]
   },
   "summary": {
-    "total_scanned": 652,
+    "total_scanned": 653,
     "sector_fresh": 3,
     "sector_approaching": 5,
     "ema_pullback": 10,
-    "approaching": 17,
+    "approaching": 19,
     "retest": 0
   }
 }
