@@ -51,6 +51,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .c-tp{border-left-color:#eab308;border-left-width:4px;background:#13150a}
 .c-kg{border-left-color:#f97316}
 .c-fc{border-left-color:#facc15}
+.c-ih{border-left-color:#22d3ee}
 .c-df{border-left-color:#a78bfa}
 .c-da{border-left-color:#7c3aed}
 .c-sf{border-left-color:#34d399}
@@ -159,6 +160,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <div class="ftab"    data-k="tp"     onclick="filt('tp')">🏆 Top Picks <span class="fcnt" id="fc-tp"></span></div>
   <div class="ftab"    data-k="kg"     onclick="filt('kg')">🔔 KD Bullish <span class="fcnt" id="fc-kg"></span></div>
   <div class="ftab"    data-k="fc"     onclick="filt('fc')">⚡ EMA Cross <span class="fcnt" id="fc-fc"></span></div>
+  <div class="ftab"    data-k="ih"     onclick="filt('ih')">🆕 IPO Breakout <span class="fcnt" id="fc-ih"></span></div>
   <div class="ftab"    data-k="rt"     onclick="filt('rt')">🔴 Retest <span class="fcnt" id="fc-rt"></span></div>
   </div>
   <div class="cap-wrap">
@@ -265,6 +267,12 @@ function cFC(a){return head(a,'c-fc','⚡ EMA Crossover (21 > 63)')+
 <div class="irow"><span>EMA63 ₹${F(a.ema63)} · SMA200 ₹${F(a.sma200)}</span><span>Vol ${a.vol_ratio}x avg</span></div>
 <div class="fnote">Crossed ${a.days_ago}d ago (${a.crossover_date})</div></div>`;}
 
+function cIH(a){return head(a,'c-ih','🆕 IPO Breakout (Tool H)')+
+`<div class="lrow"><span class="llbl">Broke Above</span><span class="lval g">₹${F(a.ref_high)}</span></div>
+<div class="irow"><span>Listed ${a.listing_date}</span><span>Vol ${a.vol_ratio}x avg</span></div>
+${strow(a.price,a.stop_loss,a.target)}
+<div class="fnote">Target ₹${F(a.target)} (+${a.target_pct}%)</div></div>`;}
+
 function cDF(a){const pct=a.box_top?((a.price-a.box_top)/a.box_top*100).toFixed(1):null;
 return head(a,'c-df','🎯 Darvas Fresh Breakout')+
 `<div class="lrow"><span class="llbl">Box</span><span class="lval">₹${F(a.box_bottom)}–₹${F(a.box_top)} <span style="color:#475569;font-size:0.68rem">(${a.box_range_pct}%)</span></span></div>
@@ -313,15 +321,16 @@ ${dbar(a.pct_away)}
 
 const SECS=[
   {k:'tp',key:'top_picks',e:'🏆',t:'Top Picks (2+ tools)',fn:cTP},
-  {k:'kg',key:'kd_bullish',e:'🔔',t:'KD Bullish (Counter-trend)',fn:cKG},
-  {k:'fc',key:'ema_crossover',e:'⚡',t:'EMA Crossover (21>63)',fn:cFC},
-  {k:'ap',key:'approaching',       e:'🟡',t:'Approaching Breakout',        fn:cAP},
-  {k:'df',key:'darvas_fresh',      e:'🎯',t:'Darvas Fresh Breakout',      fn:cDF},
-  {k:'da',key:'darvas_approaching',e:'📦',t:'Darvas Approaching Breakout', fn:cDA},
-  {k:'sf',key:'sector_fresh',      e:'🚀',t:'Fresh Sector Breakout',       fn:cSF},
-  {k:'sa',key:'sector_approaching',e:'🔲',t:'Sector Approaching Breakout', fn:cSA},
-  {k:'em',key:'ema_pullback',      e:'🟢',t:'EMA20 Pullback',              fn:cEM},
-  {k:'rt',key:'retest',            e:'🔴',t:'Breakout Retest',             fn:cRT},
+  {k:'kg',key:'kd_bullish',e:'🔔',t:'KD Bullish Counter-trend (Tool G)',fn:cKG},
+  {k:'fc',key:'ema_crossover',e:'⚡',t:'EMA Crossover 21>63 (Tool F)',fn:cFC},
+  {k:'ap',key:'approaching',       e:'🟡',t:'Approaching Breakout (Tool B)',        fn:cAP},
+  {k:'df',key:'darvas_fresh',      e:'🎯',t:'Darvas Fresh Breakout (Tool E)',      fn:cDF},
+  {k:'da',key:'darvas_approaching',e:'📦',t:'Darvas Approaching Breakout (Tool E)', fn:cDA},
+  {k:'sf',key:'sector_fresh',      e:'🚀',t:'Fresh Sector Breakout (Tool D)',       fn:cSF},
+  {k:'sa',key:'sector_approaching',e:'🔲',t:'Sector Approaching Breakout (Tool D)', fn:cSA},
+  {k:'em',key:'ema_pullback',      e:'🟢',t:'EMA20 Pullback (Tool C)',              fn:cEM},
+  {k:'ih',key:'ipo_breakout',e:'🆕',t:'IPO Breakout (Tool H)',fn:cIH},
+  {k:'rt',key:'retest',            e:'🔴',t:'Breakout Retest (Tool A)',             fn:cRT},
 ];
 
 function renderStrip(d){
@@ -360,7 +369,7 @@ function render(d){
   // Filter counts
   const cts={all:total,df:(al.darvas_fresh||[]).length,da:(al.darvas_approaching||[]).length,
     sf:(al.sector_fresh||[]).length,sa:(al.sector_approaching||[]).length,
-    tp:(al.top_picks||[]).length,kg:(al.kd_bullish||[]).length,fc:(al.ema_crossover||[]).length,em:(al.ema_pullback||[]).length,ap:(al.approaching||[]).length,rt:(al.retest||[]).length};
+    tp:(al.top_picks||[]).length,kg:(al.kd_bullish||[]).length,fc:(al.ema_crossover||[]).length,em:(al.ema_pullback||[]).length,ap:(al.approaching||[]).length,rt:(al.retest||[]).length,ih:(al.ipo_breakout||[]).length};
   Object.entries(cts).forEach(([k,v])=>{const el=document.getElementById('fc-'+k);if(el)el.textContent=v||'';});
 
   const vis=SECS.filter(s=>activeKey==='all'||s.k===activeKey);
