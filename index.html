@@ -243,7 +243,7 @@ function cTP(a){
     </div>
     <div style="text-align:right">
       <div class="cprice">₹${F(a.price)}</div>
-      <div style="font-size:0.7rem;color:#eab308;font-weight:700;margin-top:3px">${a.tool_count} tools</div>
+      <div style="font-size:0.7rem;color:#eab308;font-weight:700;margin-top:3px">${a.tool_count} tools${a.conviction?` · score ${a.conviction}`:``}</div>
     </div>
   </div>
   <div class="tags">${capTag(a.cap_cat)}${valTag(a.valuation)}</div>
