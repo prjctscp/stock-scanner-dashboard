@@ -121,6 +121,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .rval{font-weight:700}
 .rpos{color:#4ade80}.rneg{color:#f87171}
 .rdiv{width:1px;height:14px;background:#1e2230}
+.flash-highlight{animation:flashPulse 0.9s ease-in-out 2}
+@keyframes flashPulse{0%,100%{box-shadow:none}50%{box-shadow:0 0 0 3px #eab308,0 0 20px rgba(234,179,8,0.5)}}
 .cap-wrap{flex-shrink:0;position:relative;padding:0 12px;border-left:1px solid #1e2230}
 .cap-btn{background:#13151f;border:1px solid #1e2230;color:#64748b;border-radius:20px;padding:4px 11px;font-size:0.72rem;cursor:pointer;white-space:nowrap;user-select:none;display:flex;align-items:center;gap:5px;transition:all 0.15s}
 .cap-btn:hover{border-color:#334155;color:#cbd5e1}
@@ -184,6 +186,19 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 <script>
 const DATA_URL='https://raw.githubusercontent.com/prjctscp/stock-scanner-dashboard/main/latest_scan.json';
 let lastTime=null,activeKey='all',activeCaps=new Set(),cd=60,timer,cached=null;
+let topPickSymbols=new Set();
+const TOOL_KEY_MAP={
+  "🟡 Approaching Breakout (Tool B)":"ap",
+  "🔴 Breakout Retest (Tool A)":"rt",
+  "🟢 EMA Pullback (Tool C)":"em",
+  "🚀 Sector Fresh BK (Tool D)":"sf",
+  "🔲 Sector Approaching (Tool D)":"sa",
+  "🎯 Darvas Fresh (Tool E)":"df",
+  "📦 Darvas Approaching (Tool E)":"da",
+  "⚡ EMA Crossover (Tool F)":"fc",
+  "🆕 IPO Breakout (Tool H)":"ih",
+  "🌀 VCP Breakout (Tool I)":"vi",
+};
 
 async function load(){
   setDot('upd');
@@ -231,13 +246,20 @@ const secTag=s=>s?`<span class="tag tsc">${s}</span>`:'';
 const rr=(p,s,t)=>{if(!s||!t)return'—';const ri=p-s,re=t-p;return ri<=0?'—':(re/ri).toFixed(1)+':1';};
 const dbar=(pct,max=5)=>{const f=Math.max(8,Math.min(100,(1-pct/max)*100));return`<div class="dbar"><div class="dfill ${pct<2?'near':'mid'}" style="width:${f}%"></div></div>`;};
 const strow=(p,stop,tgt)=>`<div class="srow"><div class="sb"><div class="slbl">Stop</div><div class="sval sv-stop">₹${F(stop)}</div></div><div class="sb"><div class="slbl">Target</div><div class="sval sv-tgt">₹${F(tgt)}</div></div><div class="sb" style="flex:0.7;text-align:center"><div class="slbl">R:R</div><div class="sval sv-rr">${rr(p,stop,tgt)}</div></div></div>`;
-const head=(a,cls,badge)=>`<div class="card ${cls}"><div class="crow"><div style="flex:1;min-width:0"><div class="cbadge">${badge}</div><div class="cname" title="${a.name||a.symbol}">${a.name||a.symbol}</div><div class="csym">${a.symbol}</div></div><div class="cprice">₹${F(a.price)}</div></div><div class="tags">${capTag(a.cap_cat)}${valTag(a.valuation)}${fiiTag(a.fii_change)}${secTag(a.sector_name)}</div>`;
+const head=(a,cls,badge,secKey)=>{
+  const backBtn=(secKey!=='tp'&&topPickSymbols.has(a.symbol))?`<span onclick="navigateTo('tp','${a.symbol}');event.stopPropagation();" style="cursor:pointer;font-size:0.6rem;background:#1a1a0a;border:1px solid #eab308;color:#eab308;border-radius:3px;padding:1px 6px;font-weight:700;margin-left:6px">↩ Top Pick</span>`:'';
+  return `<div class="card ${cls}" id="card-${secKey}-${a.symbol}"><div class="crow"><div style="flex:1;min-width:0"><div class="cbadge">${badge}${backBtn}</div><div class="cname" title="${a.name||a.symbol}">${a.name||a.symbol}</div><div class="csym">${a.symbol}</div></div><div class="cprice">₹${F(a.price)}</div></div><div class="tags">${capTag(a.cap_cat)}${valTag(a.valuation)}${fiiTag(a.fii_change)}${secTag(a.sector_name)}</div>`;
+};
 
 function stars(n){return n>=4?'⭐⭐⭐':n===3?'⭐⭐':n===2?'⭐':'';}
 function cTP(a){
-  const badges=(a.tools||[]).map(t=>`<span style="background:#1a1a0a;border:1px solid #eab308;color:#eab308;border-radius:3px;padding:1px 6px;font-size:0.65rem;font-weight:600">${t}</span>`).join(' ');
+  const badges=(a.tools||[]).map(t=>{
+    const key=TOOL_KEY_MAP[t]||'';
+    const oc=key?`onclick="navigateTo('${key}','${a.symbol}')"`:'';
+    return `<span ${oc} style="${key?'cursor:pointer;':''}background:#1a1a0a;border:1px solid #eab308;color:#eab308;border-radius:3px;padding:1px 6px;font-size:0.65rem;font-weight:600">${t}</span>`;
+  }).join(' ');
   const dealBadge=a.inst_deal?`<div style="margin-top:6px;padding:4px 8px;background:#0a1628;border:1px solid #1d4ed8;border-radius:4px;font-size:0.7rem;color:#60a5fa;font-weight:600">🏛️ ${a.inst_deal_info||'Institutional buy detected'}</div>`:'';
-  return`<div class="card c-tp">
+  return`<div class="card c-tp" id="card-tp-${a.symbol}">
   <div class="cr">
     <div class="cl">
       <div class="cbadge">🏆 Top Pick ${stars(a.tool_count||0)}</div>
@@ -256,7 +278,7 @@ function cTP(a){
 
 function dAgo(d){if(!d)return'—';try{const ms=Date.now()-new Date(d);const dy=Math.floor(ms/86400000);return dy<60?dy+'d ago':Math.floor(dy/30)+'mo ago';}catch(e){return d;}}
 
-function cAP(a){return head(a,'c-ap','🟡 Approaching Breakout (Tool B)')+
+function cAP(a){return head(a,'c-ap','🟡 Approaching Breakout (Tool B)','ap')+
 `<div class="lrow"><span class="llbl">Resistance</span><span class="lval">₹${F(a.resistance)}</span><span class="dbadge dy">${a.pct_away}% away</span></div>
 ${dbar(a.pct_away)}
 <div class="irow"><span>Formed ${dAgo(a.formed_date)}</span><span>Vol ${a.vol_ratio}x avg</span></div></div>`;}
@@ -281,26 +303,26 @@ function vcpScoreBar(a){
     <div style="display:flex;flex-wrap:wrap;gap:3px">${chips}</div>
   </div>`;
 }
-function cVI(a){return head(a,'c-vi','🌀 VCP Breakout (Tool I)')+
+function cVI(a){return head(a,'c-vi','🌀 VCP Breakout (Tool I)','vi')+
 `<div class="lrow"><span class="llbl">Broke Above</span><span class="lval g">₹${F(a.ref_high)}</span></div>
 <div class="irow"><span>${a.n_legs} contracting legs · final ${a.leg_range_pct}%</span><span>Vol ${a.vol_ratio}x avg</span></div>
 ${strow(a.price,a.stop_loss,a.target)}
 ${vcpScoreBar(a)}
 <div class="fnote">Handle low ₹${F(a.handle_low)} · Target ₹${F(a.target)} (+${a.target_pct}%)</div></div>`;}
 
-function cIH(a){return head(a,'c-ih','🆕 IPO Breakout (Tool H)')+
+function cIH(a){return head(a,'c-ih','🆕 IPO Breakout (Tool H)','ih')+
 `<div class="lrow"><span class="llbl">Broke Above</span><span class="lval g">₹${F(a.ref_high)}</span></div>
 <div class="irow"><span>Listed ${a.listing_date}</span><span>Vol ${a.vol_ratio}x avg</span></div>
 ${strow(a.price,a.stop_loss,a.target)}
 <div class="fnote">Target ₹${F(a.target)} (+${a.target_pct}%)</div></div>`;}
 
-function cDF(a){return head(a,'c-df','🎯 Darvas Fresh Breakout (Tool E)')+
+function cDF(a){return head(a,'c-df','🎯 Darvas Fresh Breakout (Tool E)','df')+
 `<div class="lrow"><span class="llbl">Box</span><span class="lval">₹${F(a.box_bottom)}–₹${F(a.box_top)} <span style="color:#475569;font-size:0.68rem">(${a.box_range_pct}%)</span></span></div>
 <div class="irow"><span style="color:#a78bfa;font-weight:600">Broke ₹${F(a.box_top)}</span><span>Vol ${a.vol_ratio}x avg</span></div>
 ${strow(a.price,a.stop_loss,a.target)}
 <div class="fnote">Box formed ${a.box_top_date} · Target ₹${F(a.target)} (+${a.target_pct}%)</div></div>`;}
 
-function cDA(a){return head(a,'c-da','📦 Darvas Approaching Breakout (Tool E)')+
+function cDA(a){return head(a,'c-da','📦 Darvas Approaching Breakout (Tool E)','da')+
 `<div class="lrow"><span class="llbl">Box Top</span><span class="lval">₹${F(a.box_top)}</span><span class="dbadge dy">${a.pct_from_top}% away</span></div>
 ${dbar(a.pct_from_top)}
 <div class="irow"><span>Box ₹${F(a.box_bottom)}–₹${F(a.box_top)} (${a.box_range_pct}%)</span></div>
@@ -308,31 +330,31 @@ ${strow(a.price,a.stop_loss,a.target)}
 <div class="fnote">Box formed ${a.box_top_date} · Target ₹${F(a.target)} (+${a.target_pct}%)</div></div>`;}
 
 function cSF(a){const pct=a.upper?((a.price-a.upper)/a.upper*100).toFixed(1):null;
-return head(a,'c-sf','🚀 Sector Fresh Breakout (Tool D)')+
+return head(a,'c-sf','🚀 Sector Fresh Breakout (Tool D)','sf')+
 `<div class="lrow"><span class="llbl">Broke Above</span><span class="lval">₹${F(a.upper)}</span><span class="dbadge dg">${pct?`+${pct}% above`:''}</span></div>
 <div class="irow"><span>Box ₹${F(a.lower)}–₹${F(a.upper)} (${a.range_pct}%)</span><span>Vol ${a.vol_ratio}x</span></div>
 ${strow(a.price,a.lower,a.expected_target)}
 <div class="fnote">Since ${a.consolidation_start} · Target ₹${F(a.expected_target)} (+${a.expected_pct}%)</div></div>`;}
 
-function cSA(a){return head(a,'c-sa','🔲 Sector Approaching (Tool D)')+
+function cSA(a){return head(a,'c-sa','🔲 Sector Approaching (Tool D)','sa')+
 `<div class="lrow"><span class="llbl">Box Top</span><span class="lval">₹${F(a.upper)}</span><span class="dbadge dy">${a.pct_from_top}% away</span></div>
 ${dbar(a.pct_from_top)}
 <div class="irow"><span>Box ₹${F(a.lower)}–₹${F(a.upper)} (${a.range_pct}%)</span><span>${a.vol_drying?'Vol drying ✓':''}</span></div>
 ${strow(a.price,a.lower,a.expected_target)}
 <div class="fnote">Since ${a.consolidation_start} · Target ₹${F(a.expected_target)} (+${a.expected_pct}%)</div></div>`;}
 
-function cEM(a){return head(a,'c-em','🟢 EMA20 Pullback (Tool C)')+
+function cEM(a){return head(a,'c-em','🟢 EMA20 Pullback (Tool C)','em')+
 `<div class="lrow"><span class="llbl">EMA20</span><span class="lval">₹${F(a.ema20)}</span><span class="dbadge dg">${a.pct_above_ema}% above</span></div>
 <div class="irow"><span>EMA50 ₹${F(a.ema50)}</span><span>Vol ${a.vol_ratio}x avg</span></div>
 <div style="background:#0a0b0f;border-radius:5px;padding:6px 8px;text-align:center;margin-top:6px">
 <span style="font-size:0.76rem;font-weight:700;color:#4ade80">Bounced off 20 EMA in uptrend</span></div></div>`;}
 
-function cFC(a){return head(a,'c-fc','⚡ EMA Crossover 21>63 (Tool F)')+
+function cFC(a){return head(a,'c-fc','⚡ EMA Crossover 21>63 (Tool F)','fc')+
 `<div class="lrow"><span class="llbl">EMA21</span><span class="lval">₹${F(a.ema21)}</span><span class="dbadge dg">above EMA63</span></div>
 <div class="irow"><span>EMA63 ₹${F(a.ema63)} · SMA200 ₹${F(a.sma200)}</span><span>Vol ${a.vol_ratio}x avg</span></div>
 <div class="fnote">Crossed ${a.days_ago}d ago (${a.crossover_date})</div></div>`;}
 
-function cRT(a){return head(a,'c-rt','🔴 Breakout Retest (Tool A)')+
+function cRT(a){return head(a,'c-rt','🔴 Breakout Retest (Tool A)','rt')+
 `<div class="lrow"><span class="llbl">Support</span><span class="lval">₹${F(a.support)}</span><span class="dbadge dy">${a.pct_away}% away</span></div>
 ${dbar(a.pct_away)}
 <div class="irow"><span>Tested ${a.touch_count}x · Broke ${a.breakout_date||'—'}</span></div>
@@ -351,6 +373,22 @@ const SECS=[
   {k:'fc',key:'ema_crossover',e:'⚡',t:'EMA Crossover 21>63 (Tool F)',fn:cFC},
   {k:'rt',key:'retest',e:'🔴',t:'Breakout Retest (Tool A)',fn:cRT},
 ];
+
+function navigateTo(secKey,symbol){
+  activeKey=secKey;
+  document.querySelectorAll('.ftab').forEach(el=>el.classList.toggle('on',el.dataset.k===secKey));
+  activeCaps.clear();
+  if(typeof updateCapUI==='function')updateCapUI();
+  if(cached)render(cached);
+  setTimeout(()=>{
+    const el=document.getElementById('card-'+secKey+'-'+symbol);
+    if(el){
+      el.scrollIntoView({behavior:'smooth',block:'center'});
+      el.classList.add('flash-highlight');
+      setTimeout(()=>el.classList.remove('flash-highlight'),1800);
+    }
+  },60);
+}
 
 function renderStrip(d){
   const el=document.getElementById('rstrip');
@@ -376,6 +414,7 @@ function renderStrip(d){
 
 function render(d){
   renderStrip(d);
+  topPickSymbols=new Set(((d.alerts&&d.alerts.top_picks)||[]).map(x=>x.symbol));
   const al=d.alerts||{};
   const total=Object.values(al).reduce((a,b)=>a+b.length,0);
 
