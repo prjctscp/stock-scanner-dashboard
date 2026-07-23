@@ -261,10 +261,31 @@ function cAP(a){return head(a,'c-ap','🟡 Approaching Breakout (Tool B)')+
 ${dbar(a.pct_away)}
 <div class="irow"><span>Formed ${dAgo(a.formed_date)}</span><span>Vol ${a.vol_ratio}x avg</span></div></div>`;}
 
+function vcpScoreBar(a){
+  const sc=a.vcp_score||0, mx=a.vcp_max_score||9.5;
+  const pct=Math.round(sc/mx*100);
+  const color=pct>=70?'#4ade80':pct>=45?'#fbbf24':'#f87171';
+  const bd=a.vcp_score_breakdown||{};
+  const labels={relative_strength:'RS Top 20%',above_sma150:'>150 SMA',sma200_rising:'200 SMA Rising',
+    above_52w_low_30pct:'30% Above Low',contraction_ratio:'Tight Coil',volume_across_legs:'Vol Contracting',
+    no_chase:'Not Extended',strong_close:'Strong Close'};
+  const chips=Object.entries(labels).map(([k,label])=>{
+    const hit=(bd[k]||0)>0;
+    return `<span style="font-size:0.6rem;padding:1px 5px;border-radius:3px;background:${hit?'#052e16':'#1a1a1a'};color:${hit?'#4ade80':'#475569'};border:1px solid ${hit?'#15803d':'#2d3748'}">${hit?'✓':'·'} ${label}</span>`;
+  }).join(' ');
+  return `<div style="margin-top:6px">
+    <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px">
+      <div style="flex:1;background:#0a0b0f;border-radius:3px;height:5px;overflow:hidden"><div style="width:${pct}%;height:100%;background:${color}"></div></div>
+      <span style="font-size:0.7rem;font-weight:700;color:${color}">${sc}/${mx}</span>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:3px">${chips}</div>
+  </div>`;
+}
 function cVI(a){return head(a,'c-vi','🌀 VCP Breakout (Tool I)')+
 `<div class="lrow"><span class="llbl">Broke Above</span><span class="lval g">₹${F(a.ref_high)}</span></div>
 <div class="irow"><span>${a.n_legs} contracting legs · final ${a.leg_range_pct}%</span><span>Vol ${a.vol_ratio}x avg</span></div>
 ${strow(a.price,a.stop_loss,a.target)}
+${vcpScoreBar(a)}
 <div class="fnote">Handle low ₹${F(a.handle_low)} · Target ₹${F(a.target)} (+${a.target_pct}%)</div></div>`;}
 
 function cIH(a){return head(a,'c-ih','🆕 IPO Breakout (Tool H)')+
