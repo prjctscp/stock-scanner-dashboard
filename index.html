@@ -49,7 +49,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .card{background:#13151f;border:1px solid #1e2230;border-radius:10px;padding:11px 13px;border-left-width:3px;transition:border-color 0.15s,box-shadow 0.15s;cursor:default}
 .card:hover{border-color:#2d3748;box-shadow:0 2px 12px rgba(0,0,0,0.4)}
 .c-tp{border-left-color:#eab308;border-left-width:4px;background:#13150a}
-.c-kg{border-left-color:#f97316}
 .c-fc{border-left-color:#facc15}
 .c-vi{border-left-color:#f472b6}
 .c-ih{border-left-color:#22d3ee}
@@ -159,7 +158,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <div class="ftab"    data-k="em"     onclick="filt('em')">🟢 EMA (C) <span class="fcnt" id="fc-em"></span></div>
     <div class="ftab"    data-k="ap"     onclick="filt('ap')">🟡 Approach (B) <span class="fcnt" id="fc-ap"></span></div>
     <div class="ftab"    data-k="tp"     onclick="filt('tp')">🏆 Top Picks <span class="fcnt" id="fc-tp"></span></div>
-  <div class="ftab"    data-k="kg"     onclick="filt('kg')">🔔 KD Bullish (G) <span class="fcnt" id="fc-kg"></span></div>
   <div class="ftab"    data-k="fc"     onclick="filt('fc')">⚡ EMA Cross (F) <span class="fcnt" id="fc-fc"></span></div>
   <div class="ftab"    data-k="ih"     onclick="filt('ih')">🆕 IPO Breakout (H) <span class="fcnt" id="fc-ih"></span></div>
   <div class="ftab"    data-k="vi"     onclick="filt('vi')">🌀 VCP (I) <span class="fcnt" id="fc-vi"></span></div>
@@ -256,114 +254,6 @@ function cTP(a){
   ${dealBadge}
 </div>`;}
 
-function cKG(a){
-const dual=a.timeframe&&a.timeframe.includes('Weekly');
-return head(a,'c-kg','🔔 KD Bullish — Counter-trend')+
-`<div class="lrow"><span class="llbl">Timeframe</span><span class="lval" style="color:${dual?'#f97316':'#94a3b8'}">${a.timeframe||'—'}</span></div>
-<div class="irow"><span>RSI ${a.rsi} (oversold)</span><span>Prior low ₹${F(a.prior_low)}</span></div>
-<div class="irow"><span>Momentum diverging ↑</span><span>Vol ${a.vol_ratio||'—'}x</span></div>
-<div class="fnote">Signal: ${a.signal_date}${dual?' · Dual TF ⭐':''}</div></div>`;}
-
-function cFC(a){return head(a,'c-fc','⚡ EMA Crossover (21 > 63)')+
-`<div class="lrow"><span class="llbl">EMA21</span><span class="lval">₹${F(a.ema21)}</span><span class="dbadge dg">above EMA63</span></div>
-<div class="irow"><span>EMA63 ₹${F(a.ema63)} · SMA200 ₹${F(a.sma200)}</span><span>Vol ${a.vol_ratio}x avg</span></div>
-<div class="fnote">Crossed ${a.days_ago}d ago (${a.crossover_date})</div></div>`;}
-
-function cVI(a){return head(a,'c-vi','🌀 VCP Breakout (Tool I)')+
-`<div class="lrow"><span class="llbl">Broke Above</span><span class="lval g">₹${F(a.ref_high)}</span></div>
-<div class="irow"><span>${a.n_legs} contracting legs · final ${a.leg_range_pct}%</span><span>Vol ${a.vol_ratio}x avg</span></div>
-${strow(a.price,a.stop_loss,a.target)}
-<div class="fnote">Handle low ₹${F(a.handle_low)} · Target ₹${F(a.target)} (+${a.target_pct}%)</div></div>`;}
-
-function cIH(a){return head(a,'c-ih','🆕 IPO Breakout (Tool H)')+
-`<div class="lrow"><span class="llbl">Broke Above</span><span class="lval g">₹${F(a.ref_high)}</span></div>
-<div class="irow"><span>Listed ${a.listing_date}</span><span>Vol ${a.vol_ratio}x avg</span></div>
-${strow(a.price,a.stop_loss,a.target)}
-<div class="fnote">Target ₹${F(a.target)} (+${a.target_pct}%)</div></div>`;}
-
-function cDF(a){const pct=a.box_top?((a.price-a.box_top)/a.box_top*100).toFixed(1):null;
-return head(a,'c-df','🎯 Darvas Fresh Breakout')+
-`<div class="lrow"><span class="llbl">Box</span><span class="lval">₹${F(a.box_bottom)}–₹${F(a.box_top)} <span style="color:#475569;font-size:0.68rem">(${a.box_range_pct}%)</span></span></div>
-<div class="irow"><span style="color:#a78bfa;font-weight:600">Broke ₹${F(a.box_top)}</span><span>Vol ${a.vol_ratio}x avg${pct?` · +${pct}% above`:''}</span></div>
-${strow(a.price,a.stop_loss,a.target)}
-<div class="fnote">Box formed ${a.box_top_date} · Target ₹${F(a.target)} (+${a.target_pct}%)</div></div>`;}
-
-function cDA(a){return head(a,'c-da','📦 Darvas Approaching')+
-`<div class="lrow"><span class="llbl">Box Top</span><span class="lval">₹${F(a.box_top)}</span><span class="dbadge dy">${a.pct_from_top}% away</span></div>
-${dbar(a.pct_from_top)}
-<div class="irow"><span>Box ₹${F(a.box_bottom)}–₹${F(a.box_top)} (${a.box_range_pct}%)</span></div>
-${strow(a.price,a.stop_loss,a.target)}
-<div class="fnote">Box formed ${a.box_top_date} · Target ₹${F(a.target)} (+${a.target_pct}%)</div></div>`;}
-
-function cSF(a){const pct=a.upper?((a.price-a.upper)/a.upper*100).toFixed(1):null;
-return head(a,'c-sf','🚀 Sector Fresh Breakout')+
-`<div class="lrow"><span class="llbl">Broke Above</span><span class="lval">₹${F(a.upper)}</span><span class="dbadge dg">${pct?`+${pct}% above`:''}</span></div>
-<div class="irow"><span>Box ₹${F(a.lower)}–₹${F(a.upper)} (${a.range_pct}%)</span><span>Vol ${a.vol_ratio}x</span></div>
-${strow(a.price,a.lower,a.expected_target)}
-<div class="fnote">Since ${a.consolidation_start} · Target ₹${F(a.expected_target)} (+${a.expected_pct}%)</div></div>`;}
-
-function cSA(a){return head(a,'c-sa','🔲 Sector Approaching')+
-`<div class="lrow"><span class="llbl">Box Top</span><span class="lval">₹${F(a.upper)}</span><span class="dbadge dy">${a.pct_from_top}% away</span></div>
-${dbar(a.pct_from_top)}
-<div class="irow"><span>Box ₹${F(a.lower)}–₹${F(a.upper)} (${a.range_pct}%)</span><span>${a.vol_drying?'Vol drying ✓':''}</span></div>
-${strow(a.price,a.lower,a.expected_target)}
-<div class="fnote">Since ${a.consolidation_start} · Target ₹${F(a.expected_target)} (+${a.expected_pct}%)</div></div>`;}
-
-function cEM(a){return head(a,'c-em','🟢 EMA20 Pullback')+
-`<div class="lrow"><span class="llbl">EMA20</span><span class="lval">₹${F(a.ema20)}</span><span class="dbadge dg">${a.pct_above_ema}% above</span></div>
-<div class="irow"><span>EMA50 ₹${F(a.ema50)}</span><span>Vol ${a.vol_ratio}x avg</span></div>
-<div style="background:#0a0b0f;border-radius:5px;padding:6px 8px;text-align:center;margin-top:6px">
-<span style="font-size:0.76rem;font-weight:700;color:#4ade80">Bounced off 20 EMA in uptrend</span></div></div>`;}
-
-function dAgo(d){if(!d)return'—';try{const ms=Date.now()-new Date(d);const dy=Math.floor(ms/86400000);return dy<60?dy+'d ago':Math.floor(dy/30)+'mo ago';}catch(e){return d;}}
-function cAP(a){return head(a,'c-ap','🟡 Approaching Breakout')+
-`<div class="lrow"><span class="llbl">Resistance</span><span class="lval">₹${F(a.resistance)}</span><span class="dbadge dy">${a.pct_away}% away</span></div>
-${dbar(a.pct_away)}
-<div class="irow"><span>Formed ${dAgo(a.formed_date)}</span><span>Vol ${a.vol_ratio}x avg</span></div></div>`;}
-
-function cRT(a){return head(a,'c-rt','🔴 Breakout Retest')+
-`<div class="lrow"><span class="llbl">Support</span><span class="lval">₹${F(a.support)}</span><span class="dbadge dy">${a.pct_away}% away</span></div>
-${dbar(a.pct_away)}
-<div class="irow"><span>Tested ${a.touch_count}x · Broke ${a.breakout_date||'—'}</span></div>
-<div class="fnote">Formed ${a.formed_date||'—'}</div></div>`;}
-
-const SECS=[
-  {k:'tp',key:'top_picks',e:'🏆',t:'Top Picks (2+ tools)',fn:cTP},
-  {k:'kg',key:'kd_bullish',e:'🔔',t:'KD Bullish Counter-trend (Tool G)',fn:cKG},
-  {k:'fc',key:'ema_crossover',e:'⚡',t:'EMA Crossover 21>63 (Tool F)',fn:cFC},
-  {k:'ap',key:'approaching',       e:'🟡',t:'Approaching Breakout (Tool B)',        fn:cAP},
-  {k:'df',key:'darvas_fresh',      e:'🎯',t:'Darvas Fresh Breakout (Tool E)',      fn:cDF},
-  {k:'da',key:'darvas_approaching',e:'📦',t:'Darvas Approaching Breakout (Tool E)', fn:cDA},
-  {k:'sf',key:'sector_fresh',      e:'🚀',t:'Fresh Sector Breakout (Tool D)',       fn:cSF},
-  {k:'sa',key:'sector_approaching',e:'🔲',t:'Sector Approaching Breakout (Tool D)', fn:cSA},
-  {k:'em',key:'ema_pullback',      e:'🟢',t:'EMA20 Pullback (Tool C)',              fn:cEM},
-  {k:'vi',key:'vcp_breakout',e:'🌀',t:'VCP Breakout (Tool I)',fn:cVI},
-  {k:'ih',key:'ipo_breakout',e:'🆕',t:'IPO Breakout (Tool H)',fn:cIH},
-  {k:'rt',key:'retest',            e:'🔴',t:'Breakout Retest (Tool A)',             fn:cRT},
-];
-
-function renderStrip(d){
-  const el=document.getElementById('rstrip');
-  const rg=d.regime||{},fi=d.fii||{};
-  if(!rg.nifty_close&&!fi.fii_net_today){el.style.display='none';return;}
-  el.style.display='flex';
-  const healthy=rg.healthy===true,weak=rg.healthy===false;
-  el.className='rstrip '+(healthy?'healthy':weak?'weak':'unknown');
-  const fmt=n=>n==null?'—':Number(n).toLocaleString('en-IN',{maximumFractionDigits:0});
-  const cr=n=>{if(n==null)return'—';const v=Number(n);return(v>=0?'+':'−')+'₹'+Math.abs(v).toLocaleString('en-IN',{maximumFractionDigits:0})+' Cr';};
-  const cls=n=>n==null?'':(Number(n)>=0?'rpos':'rneg');
-  let parts=[];
-  parts.push(`<div class="rchip"><span style="font-size:0.9rem">${healthy?'✅':weak?'⚠️':'·'}</span><span class="rval">${healthy?'MARKET HEALTHY':weak?'WEAK REGIME':'Regime —'}</span></div>`);
-  if(rg.nifty_close)parts.push(`<div class="rchip"><span class="rlbl">Nifty</span><span class="rval">${fmt(rg.nifty_close)}</span><span style="color:#475569;font-size:0.68rem">(20wEMA ${fmt(rg.nifty_ema20w)})</span></div>`);
-  if(rg.nifty_s1)parts.push(`<div class="rchip"><span class="rlbl">S1</span><span class="rval rneg">${fmt(rg.nifty_s1)}</span><span class="rlbl">R1</span><span class="rval rpos">${fmt(rg.nifty_r1)}</span></div>`);
-  if(rg.nifty_s2)parts.push(`<div class="rchip"><span class="rlbl">S2</span><span style="color:#94a3b8">${fmt(rg.nifty_s2)}</span><span class="rlbl">R2</span><span style="color:#94a3b8">${fmt(rg.nifty_r2)}</span></div>`);
-  if(rg.vix!=null)parts.push(`<div class="rchip"><span class="rlbl">VIX</span><span class="rval ${rg.vix_ok===false?'rneg':''}">${rg.vix}</span></div>`);
-  if(fi.fii_net_today!=null)parts.push(`<div class="rchip"><span class="rlbl">FII</span><span class="rval ${cls(fi.fii_net_today)}">${cr(fi.fii_net_today)}</span><span style="color:#475569;font-size:0.68rem">5d ${cr(fi.fii_5day_total)}</span></div>`);
-  if(fi.dii_net_today!=null)parts.push(`<div class="rchip"><span class="rlbl">DII</span><span class="rval ${cls(fi.dii_net_today)}">${cr(fi.dii_net_today)}</span><span style="color:#475569;font-size:0.68rem">5d ${cr(fi.dii_5day_total)}</span></div>`);
-  if(fi.caution)parts.push(`<div class="rchip rneg"><span class="rval">🔻 FII selling ${fi.fii_sell_streak}d straight</span></div>`);
-  el.innerHTML=parts.join('<div class="rdiv"></div>');
-}
-
 function render(d){
   renderStrip(d);
   const al=d.alerts||{};
@@ -378,7 +268,7 @@ function render(d){
   // Filter counts
   const cts={all:total,df:(al.darvas_fresh||[]).length,da:(al.darvas_approaching||[]).length,
     sf:(al.sector_fresh||[]).length,sa:(al.sector_approaching||[]).length,
-    tp:(al.top_picks||[]).length,kg:(al.kd_bullish||[]).length,fc:(al.ema_crossover||[]).length,em:(al.ema_pullback||[]).length,ap:(al.approaching||[]).length,rt:(al.retest||[]).length,ih:(al.ipo_breakout||[]).length,vi:(al.vcp_breakout||[]).length};
+    tp:(al.top_picks||[]).length,fc:(al.ema_crossover||[]).length,em:(al.ema_pullback||[]).length,ap:(al.approaching||[]).length,rt:(al.retest||[]).length,ih:(al.ipo_breakout||[]).length,vi:(al.vcp_breakout||[]).length};
   Object.entries(cts).forEach(([k,v])=>{const el=document.getElementById('fc-'+k);if(el)el.textContent=v||'';});
 
   const vis=SECS.filter(s=>activeKey==='all'||s.k===activeKey);
