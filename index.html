@@ -352,6 +352,28 @@ const SECS=[
   {k:'rt',key:'retest',e:'🔴',t:'Breakout Retest (Tool A)',fn:cRT},
 ];
 
+function renderStrip(d){
+  const el=document.getElementById('rstrip');
+  const rg=d.regime||{},fi=d.fii||{};
+  if(!rg.nifty_close&&!fi.fii_net_today){el.style.display='none';return;}
+  el.style.display='flex';
+  const healthy=rg.healthy===true,weak=rg.healthy===false;
+  el.className='rstrip '+(healthy?'healthy':weak?'weak':'unknown');
+  const fmt=n=>n==null?'—':Number(n).toLocaleString('en-IN',{maximumFractionDigits:0});
+  const cr=n=>{if(n==null)return'—';const v=Number(n);return(v>=0?'+':'−')+'₹'+Math.abs(v).toLocaleString('en-IN',{maximumFractionDigits:0})+' Cr';};
+  const cls=n=>n==null?'':(Number(n)>=0?'rpos':'rneg');
+  let parts=[];
+  parts.push(`<div class="rchip"><span style="font-size:0.9rem">${healthy?'✅':weak?'⚠️':'·'}</span><span class="rval">${healthy?'MARKET HEALTHY':weak?'WEAK REGIME':'Regime —'}</span></div>`);
+  if(rg.nifty_close)parts.push(`<div class="rchip"><span class="rlbl">Nifty</span><span class="rval">${fmt(rg.nifty_close)}</span><span style="color:#475569;font-size:0.68rem">(20wEMA ${fmt(rg.nifty_ema20w)})</span></div>`);
+  if(rg.nifty_s1)parts.push(`<div class="rchip"><span class="rlbl">S1</span><span class="rval rneg">${fmt(rg.nifty_s1)}</span><span class="rlbl">R1</span><span class="rval rpos">${fmt(rg.nifty_r1)}</span></div>`);
+  if(rg.nifty_s2)parts.push(`<div class="rchip"><span class="rlbl">S2</span><span style="color:#94a3b8">${fmt(rg.nifty_s2)}</span><span class="rlbl">R2</span><span style="color:#94a3b8">${fmt(rg.nifty_r2)}</span></div>`);
+  if(rg.vix!=null)parts.push(`<div class="rchip"><span class="rlbl">VIX</span><span class="rval ${rg.vix_ok===false?'rneg':''}">${rg.vix}</span></div>`);
+  if(fi.fii_net_today!=null)parts.push(`<div class="rchip"><span class="rlbl">FII</span><span class="rval ${cls(fi.fii_net_today)}">${cr(fi.fii_net_today)}</span><span style="color:#475569;font-size:0.68rem">5d ${cr(fi.fii_5day_total)}</span></div>`);
+  if(fi.dii_net_today!=null)parts.push(`<div class="rchip"><span class="rlbl">DII</span><span class="rval ${cls(fi.dii_net_today)}">${cr(fi.dii_net_today)}</span><span style="color:#475569;font-size:0.68rem">5d ${cr(fi.dii_5day_total)}</span></div>`);
+  if(fi.caution)parts.push(`<div class="rchip rneg"><span class="rval">🔻 FII selling ${fi.fii_sell_streak}d straight</span></div>`);
+  el.innerHTML=parts.join('<div class="rdiv"></div>');
+}
+
 function render(d){
   renderStrip(d);
   const al=d.alerts||{};
