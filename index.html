@@ -242,13 +242,25 @@ const F=n=>n==null?'—':Number(n).toLocaleString('en-IN',{maximumFractionDigits
 const capTag=c=>{if(!c||c==='NA')return c?`<span class="tag" style="background:#1a1a2e;color:#475569;border:1px solid #334155;border-radius:3px;padding:1px 6px;font-size:0.65rem;font-weight:600">NA</span>`:'';const cl=c==='Large Cap'?'tl':c==='Mid Cap'?'tm':'ts';return`<span class="tag ${cl}">${c}</span>`;};
 const valTag=v=>{if(!v)return'';const m={'Undervalued':['#052e16','#4ade80','#15803d','💎 Undervalued'],'Fair':['#111827','#94a3b8','#374151','Fair Value'],'Expensive':['#1c0000','#f87171','#b91c1c','🔥 Expensive']};const[bg,fg,bd,txt]=m[v]||m['Fair'];return`<span class="tag" style="background:${bg};color:${fg};border:1px solid ${bd}">${txt}</span>`;};
 const fiiTag=f=>{if(f==null||f<1)return'';const heavy=f>=3;return`<span class="tag" style="background:#0a1a2e;color:#38bdf8;border:1px solid #0369a1">📈 FII +${f}%${heavy?' 🔥':''}</span>`;};
+const resultsTag=a=>{
+  const d=a.days_to_results, conf=a.results_confidence;
+  if(d==null||d<0||d>15)return'';
+  const confirmed=conf==='confirmed';
+  const urgent=d<=7;
+  const bg=confirmed?(urgent?'#2a0a0a':'#2a1a05'):'#1a1a0a';
+  const fg=confirmed?(urgent?'#f87171':'#fbbf24'):'#94a3b8';
+  const bd=confirmed?(urgent?'#b91c1c':'#a16207'):'#475569';
+  const icon=confirmed?'⚠️':'~';
+  const label=confirmed?`Results in ${d}d`:`Results in ${d}d (est.)`;
+  return `<span class="tag" style="background:${bg};color:${fg};border:1px solid ${bd}" title="${a.results_date||''}">${icon} ${label}</span>`;
+};
 const secTag=s=>s?`<span class="tag tsc">${s}</span>`:'';
 const rr=(p,s,t)=>{if(!s||!t)return'—';const ri=p-s,re=t-p;return ri<=0?'—':(re/ri).toFixed(1)+':1';};
 const dbar=(pct,max=5)=>{const f=Math.max(8,Math.min(100,(1-pct/max)*100));return`<div class="dbar"><div class="dfill ${pct<2?'near':'mid'}" style="width:${f}%"></div></div>`;};
 const strow=(p,stop,tgt)=>`<div class="srow"><div class="sb"><div class="slbl">Stop</div><div class="sval sv-stop">₹${F(stop)}</div></div><div class="sb"><div class="slbl">Target</div><div class="sval sv-tgt">₹${F(tgt)}</div></div><div class="sb" style="flex:0.7;text-align:center"><div class="slbl">R:R</div><div class="sval sv-rr">${rr(p,stop,tgt)}</div></div></div>`;
 const head=(a,cls,badge,secKey)=>{
   const backBtn=(secKey!=='tp'&&topPickSymbols.has(a.symbol))?`<span onclick="navigateTo('tp','${a.symbol}');event.stopPropagation();" style="cursor:pointer;font-size:0.6rem;background:#1a1a0a;border:1px solid #eab308;color:#eab308;border-radius:3px;padding:1px 6px;font-weight:700;margin-left:6px">↩ Top Pick</span>`:'';
-  return `<div class="card ${cls}" id="card-${secKey}-${a.symbol}"><div class="crow"><div style="flex:1;min-width:0"><div class="cbadge">${badge}${backBtn}</div><div class="cname" title="${a.name||a.symbol}">${a.name||a.symbol}</div><div class="csym">${a.symbol}</div></div><div class="cprice">₹${F(a.price)}</div></div><div class="tags">${capTag(a.cap_cat)}${valTag(a.valuation)}${fiiTag(a.fii_change)}${secTag(a.sector_name)}</div>`;
+  return `<div class="card ${cls}" id="card-${secKey}-${a.symbol}"><div class="crow"><div style="flex:1;min-width:0"><div class="cbadge">${badge}${backBtn}</div><div class="cname" title="${a.name||a.symbol}">${a.name||a.symbol}</div><div class="csym">${a.symbol}</div></div><div class="cprice">₹${F(a.price)}</div></div><div class="tags">${capTag(a.cap_cat)}${valTag(a.valuation)}${fiiTag(a.fii_change)}${resultsTag(a)}${secTag(a.sector_name)}</div>`;
 };
 
 function stars(n){return n>=4?'⭐⭐⭐':n===3?'⭐⭐':n===2?'⭐':'';}
@@ -271,7 +283,7 @@ function cTP(a){
       <div style="font-size:0.7rem;color:#eab308;font-weight:700;margin-top:3px">${a.tool_count} tools${a.conviction?` · score ${a.conviction}`:``}</div>
     </div>
   </div>
-  <div class="tags">${capTag(a.cap_cat)}${valTag(a.valuation)}${fiiTag(a.fii_change)}</div>
+  <div class="tags">${capTag(a.cap_cat)}${valTag(a.valuation)}${fiiTag(a.fii_change)}${resultsTag(a)}</div>
   <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:6px">${badges}</div>
   ${dealBadge}
 </div>`;}
