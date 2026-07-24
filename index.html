@@ -254,6 +254,13 @@ const resultsTag=a=>{
   const label=confirmed?`Results in ${d}d`:`Results in ${d}d (est.)`;
   return `<span class="tag" style="background:${bg};color:${fg};border:1px solid ${bd}" title="${a.results_date||''}">${icon} ${label}</span>`;
 };
+const orderWinBox=a=>{
+  const ow=a.order_win;
+  if(!ow)return'';
+  const val=ow.value_cr?`₹${Number(ow.value_cr).toLocaleString('en-IN',{maximumFractionDigits:1})} Cr`:'';
+  const cp=ow.counterparty?` from ${ow.counterparty}`:'';
+  return `<div style="margin-top:6px;padding:4px 8px;background:#052e2e;border:1px solid #0d9488;border-radius:4px;font-size:0.7rem;color:#2dd4bf;font-weight:600">📜 Order Win${val?': '+val:''}${cp}<div style="font-size:0.62rem;color:#5eead4;font-weight:500;margin-top:1px">${(ow.subject||'').substring(0,90)}${ow.date?' · '+ow.date:''}</div></div>`;
+};
 const secTag=s=>s?`<span class="tag tsc">${s}</span>`:'';
 const rr=(p,s,t)=>{if(!s||!t)return'—';const ri=p-s,re=t-p;return ri<=0?'—':(re/ri).toFixed(1)+':1';};
 const dbar=(pct,max=5)=>{const f=Math.max(8,Math.min(100,(1-pct/max)*100));return`<div class="dbar"><div class="dfill ${pct<2?'near':'mid'}" style="width:${f}%"></div></div>`;};
@@ -261,7 +268,7 @@ const strow=(p,stop,tgt)=>`<div class="srow"><div class="sb"><div class="slbl">S
 const head=(a,cls,badge,secKey)=>{
   const backBtn=(secKey!=='tp'&&topPickSymbols.has(a.symbol))?`<span onclick="navigateTo('tp','${a.symbol}');event.stopPropagation();" style="cursor:pointer;font-size:0.6rem;background:#1a1a0a;border:1px solid #eab308;color:#eab308;border-radius:3px;padding:1px 6px;font-weight:700;margin-left:6px">↩ Top Pick</span>`:'';
   const cbadge=backBtn?`<div class="cbadge" style="justify-content:flex-end;display:flex">${backBtn}</div>`:``;
-  return `<div class="card ${cls}" id="card-${secKey}-${a.symbol}"><div class="crow"><div style="flex:1;min-width:0">${cbadge}<div class="cname" title="${a.name||a.symbol}">${a.name||a.symbol}</div><div class="csym">${a.symbol}</div></div><div class="cprice">₹${F(a.price)}</div></div><div class="tags">${capTag(a.cap_cat)}${valTag(a.valuation)}${fiiTag(a.fii_change)}${resultsTag(a)}${secTag(a.sector_name)}</div>`;
+  return `<div class="card ${cls}" id="card-${secKey}-${a.symbol}"><div class="crow"><div style="flex:1;min-width:0">${cbadge}<div class="cname" title="${a.name||a.symbol}">${a.name||a.symbol}</div><div class="csym">${a.symbol}</div></div><div class="cprice">₹${F(a.price)}</div></div><div class="tags">${capTag(a.cap_cat)}${valTag(a.valuation)}${fiiTag(a.fii_change)}${resultsTag(a)}${secTag(a.sector_name)}</div>${orderWinBox(a)}`;
 };
 
 function stars(n){return n>=4?'⭐⭐⭐':n===3?'⭐⭐':n===2?'⭐':'';}
@@ -287,6 +294,7 @@ function cTP(a){
   <div class="tags">${capTag(a.cap_cat)}${valTag(a.valuation)}${fiiTag(a.fii_change)}${resultsTag(a)}</div>
   <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:6px">${badges}</div>
   ${dealBadge}
+  ${orderWinBox(a)}
 </div>`;}
 
 function dAgo(d){if(!d)return'—';try{const ms=Date.now()-new Date(d);const dy=Math.floor(ms/86400000);return dy<60?dy+'d ago':Math.floor(dy/30)+'mo ago';}catch(e){return d;}}
