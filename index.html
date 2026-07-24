@@ -260,7 +260,8 @@ const dbar=(pct,max=5)=>{const f=Math.max(8,Math.min(100,(1-pct/max)*100));retur
 const strow=(p,stop,tgt)=>`<div class="srow"><div class="sb"><div class="slbl">Stop</div><div class="sval sv-stop">₹${F(stop)}</div></div><div class="sb"><div class="slbl">Target</div><div class="sval sv-tgt">₹${F(tgt)}</div></div><div class="sb" style="flex:0.7;text-align:center"><div class="slbl">R:R</div><div class="sval sv-rr">${rr(p,stop,tgt)}</div></div></div>`;
 const head=(a,cls,badge,secKey)=>{
   const backBtn=(secKey!=='tp'&&topPickSymbols.has(a.symbol))?`<span onclick="navigateTo('tp','${a.symbol}');event.stopPropagation();" style="cursor:pointer;font-size:0.6rem;background:#1a1a0a;border:1px solid #eab308;color:#eab308;border-radius:3px;padding:1px 6px;font-weight:700;margin-left:6px">↩ Top Pick</span>`:'';
-  return `<div class="card ${cls}" id="card-${secKey}-${a.symbol}"><div class="crow"><div style="flex:1;min-width:0"><div class="cbadge">${badge}${backBtn}</div><div class="cname" title="${a.name||a.symbol}">${a.name||a.symbol}</div><div class="csym">${a.symbol}</div></div><div class="cprice">₹${F(a.price)}</div></div><div class="tags">${capTag(a.cap_cat)}${valTag(a.valuation)}${fiiTag(a.fii_change)}${resultsTag(a)}${secTag(a.sector_name)}</div>`;
+  const cbadge=backBtn?`<div class="cbadge" style="justify-content:flex-end;display:flex">${backBtn}</div>`:``;
+  return `<div class="card ${cls}" id="card-${secKey}-${a.symbol}"><div class="crow"><div style="flex:1;min-width:0">${cbadge}<div class="cname" title="${a.name||a.symbol}">${a.name||a.symbol}</div><div class="csym">${a.symbol}</div></div><div class="cprice">₹${F(a.price)}</div></div><div class="tags">${capTag(a.cap_cat)}${valTag(a.valuation)}${fiiTag(a.fii_change)}${resultsTag(a)}${secTag(a.sector_name)}</div>`;
 };
 
 function stars(n){return n>=4?'⭐⭐⭐':n===3?'⭐⭐':n===2?'⭐':'';}
