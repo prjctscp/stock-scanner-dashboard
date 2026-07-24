@@ -243,16 +243,22 @@ const capTag=c=>{if(!c||c==='NA')return c?`<span class="tag" style="background:#
 const valTag=v=>{if(!v)return'';const m={'Undervalued':['#052e16','#4ade80','#15803d','💎 Undervalued'],'Fair':['#111827','#94a3b8','#374151','Fair Value'],'Expensive':['#1c0000','#f87171','#b91c1c','🔥 Expensive']};const[bg,fg,bd,txt]=m[v]||m['Fair'];return`<span class="tag" style="background:${bg};color:${fg};border:1px solid ${bd}">${txt}</span>`;};
 const fiiTag=f=>{if(f==null||f<1)return'';const heavy=f>=3;return`<span class="tag" style="background:#0a1a2e;color:#38bdf8;border:1px solid #0369a1">📈 FII +${f}%${heavy?' 🔥':''}</span>`;};
 const resultsTag=a=>{
-  const d=a.days_to_results, conf=a.results_confidence;
-  if(d==null||d<0||d>15)return'';
-  const confirmed=conf==='confirmed';
-  const urgent=d<=7;
-  const bg=confirmed?(urgent?'#2a0a0a':'#2a1a05'):'#1a1a0a';
-  const fg=confirmed?(urgent?'#f87171':'#fbbf24'):'#94a3b8';
-  const bd=confirmed?(urgent?'#b91c1c':'#a16207'):'#475569';
-  const icon=confirmed?'⚠️':'~';
-  const label=confirmed?`Results in ${d}d`:`Results in ${d}d (est.)`;
-  return `<span class="tag" style="background:${bg};color:${fg};border:1px solid ${bd}" title="${a.results_date||''}">${icon} ${label}</span>`;
+  const conf=a.results_confidence;
+  if(!conf||!a.results_date)return'';
+  let bg,fg,bd,icon,label;
+  if(conf==='announced'){
+    bg='#052e16';fg='#4ade80';bd='#15803d';icon='✅';
+    label=`Results announced ${a.results_date}`;
+  }else if(conf==='announced_label'){
+    bg='#052e16';fg='#4ade80';bd='#15803d';icon='✅';
+    label=`${a.results_date} results announced`;
+  }else if(conf==='estimated'){
+    bg='#1a1a0a';fg='#94a3b8';bd='#475569';icon='~';
+    label=`Results estimated ${a.results_date}`;
+  }else{
+    return'';
+  }
+  return `<span class="tag" style="background:${bg};color:${fg};border:1px solid ${bd}">${icon} ${label}</span>`;
 };
 const orderWinBox=a=>{
   const ow=a.order_win;
