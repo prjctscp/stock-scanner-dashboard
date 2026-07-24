@@ -258,7 +258,8 @@ const resultsTag=a=>{
   }else{
     return'';
   }
-  return `<span class="tag" style="background:${bg};color:${fg};border:1px solid ${bd}">${icon} ${label}</span>`;
+  const src=a.results_lag_source?` title="Based on: ${a.results_lag_source}"`:'';
+  return `<span class="tag"${src} style="background:${bg};color:${fg};border:1px solid ${bd}">${icon} ${label}</span>`;
 };
 const orderWinBox=a=>{
   const ow=a.order_win;
